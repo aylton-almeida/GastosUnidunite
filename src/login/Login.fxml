@@ -4,6 +4,7 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.PasswordField?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.BorderPane?>
@@ -12,18 +13,18 @@
 
 <BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="790.0" prefWidth="1344.0" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="login.LoginController">
     <left>
-    <VBox alignment="CENTER" prefHeight="790.0" prefWidth="396.0" style="-fx-background-color: #3CA5DC;">
-        <ImageView fitHeight="539.0" fitWidth="473.0" pickOnBounds="true" preserveRatio="true">
-            <!--<image>-->
-            <!--<Image url="@img/logo.png" />-->
-            <!--</image>-->
-        </ImageView>
+    <VBox alignment="CENTER" prefHeight="790.0" prefWidth="451.0" style="-fx-background-color: #3CA5DC;">
+         <ImageView fitHeight="406.0" fitWidth="348.0" pickOnBounds="true" preserveRatio="true">
+            <image>
+               <Image url="@../img/logoWhite.png" />
+            </image>
+         </ImageView>
     </VBox>
     </left>
    <center>
       <AnchorPane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
          <children>
-             <Button fx:id="btnLogin" layoutX="374.0" layoutY="542.0" mnemonicParsing="false" onAction="#makeLogin" prefHeight="50.0" prefWidth="124.0" style="-fx-background-radius: 5px; -fx-background-color: #3ca5dc;" text="Login" textFill="WHITE">
+             <Button styleClass="button-login" fx:id="btnLogin" layoutX="374.0" layoutY="542.0" mnemonicParsing="false" onAction="#makeLogin" prefHeight="50.0" prefWidth="124.0" style="-fx-background-radius: 5px; -fx-background-color: #3ca5dc;" text="Login" textFill="WHITE">
                  <font>
                      <Font size="18.0" />
                  </font>
@@ -56,3 +57,5 @@
       </AnchorPane>
    </center>
 </BorderPane>
+
+
