@@ -8,8 +8,10 @@
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.Pane?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
 
 <BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="790.0" prefWidth="1344.0" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="login.LoginController">
     <left>
@@ -24,12 +26,12 @@
    <center>
       <AnchorPane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
          <children>
-             <Button styleClass="button-login" fx:id="btnLogin" layoutX="374.0" layoutY="542.0" mnemonicParsing="false" onAction="#makeLogin" prefHeight="50.0" prefWidth="124.0" style="-fx-background-radius: 5px; -fx-background-color: #3ca5dc;" text="Login" textFill="WHITE">
+             <Button fx:id="btnLogin" layoutX="374.0" layoutY="542.0" mnemonicParsing="false" onAction="#makeLogin" prefHeight="50.0" prefWidth="124.0" style="-fx-background-radius: 5px; -fx-background-color: #3ca5dc;" styleClass="button-login" text="Login" textFill="WHITE">
                  <font>
                      <Font size="18.0" />
                  </font>
              </Button>
-            <TextField fx:id="inputUser" layoutX="236.0" layoutY="337.0" prefHeight="30.0" prefWidth="400.0" promptText="Usuário">
+            <TextField fx:id="inputUser" layoutX="236.0" layoutY="337.0" prefHeight="30.0" prefWidth="400.0" promptText="E-mail">
                <font>
                   <Font size="18.0" />
                </font></TextField>
@@ -38,7 +40,7 @@
                      <Font size="18.0" />
                  </font>
              </PasswordField>
-             <Label layoutX="236.0" layoutY="297.0" text="Usuario:">
+             <Label layoutX="236.0" layoutY="297.0" text="E-mail:">
                  <font>
                      <Font size="18.0" />
                  </font>
@@ -48,14 +50,26 @@
                      <Font size="18.0" />
                  </font>
              </Label>
-             <Label layoutX="257.0" layoutY="199.0" text="Gerenciamento Financeiro">
+             <Label layoutX="231.0" layoutY="199.0" text="Gerenciamento Financeiro">
                  <font>
                      <Font size="31.0" />
                  </font>
              </Label>
+            <Pane fx:id="msgPane" opacity="0" layoutX="206.0" layoutY="647.0" prefHeight="57.0" prefWidth="462.0" style="-fx-background-color: #ee831e; -fx-background-radius: 30;">
+               <children>
+                  <Text fx:id="msgText" fill="WHITE" layoutX="105.0" layoutY="35.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Usuario ou senha incorretos">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Text>
+                  <Button fx:id="closeMsgBtn" layoutX="413.0" layoutY="11.0" mnemonicParsing="false" onAction="#hideMsg" style="-fx-background-color: transparent;" text="x" textAlignment="CENTER" textFill="WHITE">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Button>
+               </children>
+            </Pane>
          </children>
       </AnchorPane>
    </center>
 </BorderPane>
-
-
