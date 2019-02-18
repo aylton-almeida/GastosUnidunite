@@ -28,7 +28,7 @@ public class LoginController {
         if (!user.isEmpty() && pass.length() >= 8) {
             showMsg("Login efetuado com sucesso", 1);
             //Create new scene
-            Parent homeParent = FXMLLoader.load(getClass().getResource("home.fxml"));
+            Parent homeParent = FXMLLoader.load(getClass().getResource("Home.fxml"));
             Scene homeScene = new Scene(homeParent);
             //Get atual scene
             Stage window = (Stage) ((Node) event.getSource()).getScene().getWindow();
