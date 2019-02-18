@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ButtonBar?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.PasswordField?>
 <?import javafx.scene.control.TextField?>
@@ -13,7 +14,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="790.0" prefWidth="1344.0" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="login.LoginController">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="790.0" prefWidth="1344.0" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.LoginController">
     <left>
     <VBox alignment="CENTER" prefHeight="790.0" prefWidth="451.0" style="-fx-background-color: #3CA5DC;">
          <ImageView fitHeight="406.0" fitWidth="348.0" pickOnBounds="true" preserveRatio="true">
@@ -26,12 +27,12 @@
    <center>
       <AnchorPane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
          <children>
-             <Button fx:id="btnLogin" layoutX="374.0" layoutY="542.0" mnemonicParsing="false" onAction="#makeLogin" prefHeight="50.0" prefWidth="124.0" style="-fx-background-radius: 5px; -fx-background-color: #3ca5dc;" styleClass="button-login" text="Login" textFill="WHITE">
+             <Button fx:id="btnLogin" layoutX="374.0" layoutY="542.0" mnemonicParsing="false" onAction="#makeLogin" prefHeight="50.0" prefWidth="124.0" style="-fx-background-radius: 5px; -fx-background-color: #3ca5dc;" styleClass="button-controllers" text="Login" textFill="WHITE">
                  <font>
                      <Font size="18.0" />
                  </font>
              </Button>
-            <TextField fx:id="inputUser" layoutX="236.0" layoutY="337.0" prefHeight="30.0" prefWidth="400.0" promptText="E-mail">
+            <TextField fx:id="inputEmail" layoutX="236.0" layoutY="337.0" prefHeight="30.0" prefWidth="400.0" promptText="E-mail">
                <font>
                   <Font size="18.0" />
                </font></TextField>
@@ -50,25 +51,26 @@
                      <Font size="18.0" />
                  </font>
              </Label>
-             <Label layoutX="231.0" layoutY="199.0" text="Gerenciamento Financeiro">
+             <Label layoutX="257.0" layoutY="200.0" text="Gerenciamento Financeiro">
                  <font>
                      <Font size="31.0" />
                  </font>
              </Label>
-            <Pane fx:id="msgPane" opacity="0" layoutX="206.0" layoutY="647.0" prefHeight="57.0" prefWidth="462.0" style="-fx-background-color: #ee831e; -fx-background-radius: 30;">
+            <Pane fx:id="msgPane" layoutX="206.0" layoutY="647.0" opacity="0.0" prefHeight="57.0" prefWidth="462.0" style="-fx-background-color: #ee831e; -fx-background-radius: 30;">
                <children>
                   <Text fx:id="msgText" fill="WHITE" layoutX="105.0" layoutY="35.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Usuario ou senha incorretos">
                      <font>
                         <Font size="18.0" />
                      </font>
                   </Text>
-                  <Button fx:id="closeMsgBtn" layoutX="413.0" layoutY="11.0" mnemonicParsing="false" onAction="#hideMsg" style="-fx-background-color: transparent;" text="x" textAlignment="CENTER" textFill="WHITE">
+                  <Button fx:id="closeMsgBtn" layoutX="413.0" layoutY="8.0" mnemonicParsing="false" onAction="#hideMsg" style="-fx-background-color: transparent;" text="x" textAlignment="CENTER" textFill="WHITE">
                      <font>
                         <Font size="18.0" />
                      </font>
                   </Button>
                </children>
             </Pane>
+            <ButtonBar layoutX="57.0" layoutY="93.0" prefHeight="40.0" prefWidth="200.0" />
          </children>
       </AnchorPane>
    </center>
