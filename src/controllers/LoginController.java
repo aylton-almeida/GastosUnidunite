@@ -35,7 +35,6 @@ public class LoginController {
         String passInput = inputPass.getText();
         if (!userInput.isEmpty() && passInput.length() >= 8) {
             List<User> users = new Users().getAllObjects();
-            System.out.println(users.isEmpty());
             boolean passCorrect = users.stream()
                     .anyMatch(user -> user.getEmail().equals(userInput) && user.getPassword().equals(passInput));
             if (passCorrect){

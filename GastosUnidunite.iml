@@ -7,7 +7,7 @@
       <sourceFolder url="file://$MODULE_DIR$/src/img" type="java-resource" />
       <sourceFolder url="file://$MODULE_DIR$/src/scenes" type="java-resource" />
     </content>
-    <orderEntry type="inheritedJdk" />
+    <orderEntry type="jdk" jdkName="11" jdkType="JavaSDK" />
     <orderEntry type="sourceFolder" forTests="false" />
     <orderEntry type="library" exported="" name="javafx11" level="application" />
     <orderEntry type="library" exported="" name="jfoenix-9.0.8" level="project" />
