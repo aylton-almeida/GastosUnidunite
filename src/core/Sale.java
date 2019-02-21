@@ -1,4 +1,4 @@
 package core;
 
-public class Sale {
+public class Sale extends Transaction{
 }
