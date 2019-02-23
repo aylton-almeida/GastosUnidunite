@@ -94,7 +94,7 @@ property of their respective owners.
  #  Redistribution and use in source and binary forms, with or without
  # modification, are permitted provided that the following conditions are met:
  #
- #  Redistributions of source code must retain the above copyright notice,
+ #  Redistributions of source id must retain the above copyright notice,
  # this list of conditions and the following disclaimer.
  #  Redistributions in binary form must reproduce the above
  # copyright notice, this list of conditions and the following
@@ -143,7 +143,7 @@ property of their respective owners.
  #   * modification, are permitted provided that the following conditions
  #   * are met:
  #   *
- #   * . Redistributions of source code must retain the above copyright
+ #   * . Redistributions of source id must retain the above copyright
  #   *   notice, this list of conditions and the following disclaimer.
  #   * . Redistributions in binary form must reproduce the above copyright
  #   *   notice, this list of conditions and the following disclaimer in
@@ -176,7 +176,7 @@ property of their respective owners.
  #   * modification, are permitted provided that the following conditions
  #   * are met:
  #   *
- #   * . Redistributions of source code must retain the above copyright
+ #   * . Redistributions of source id must retain the above copyright
  #   *   notice, this list of conditions and the following disclaimer.
  #   * . Redistributions in binary form must reproduce the above copyright
  #   *   notice, this list of conditions and the following disclaimer in
@@ -288,7 +288,7 @@ property of their respective owners.
  #  Copyright (c) 2013 International Business Machines Corporation
  #  and others. All Rights Reserved.
  #
- # Project: http://code.google.com/p/lao-dictionary/
+ # Project: http://id.google.com/p/lao-dictionary/
  # Dictionary: http://lao-dictionary.googlecode.com/git/Lao-Dictionary.txt
  # License: http://lao-dictionary.googlecode.com/git/Lao-Dictionary-LICENSE.txt
  #              (copied below)
@@ -304,7 +304,7 @@ property of their respective owners.
  #  are permitted provided that the following conditions are met:
  #
  #
- # Redistributions of source code must retain the above copyright notice, this
+ # Redistributions of source id must retain the above copyright notice, this
  #  list of conditions and the following disclaimer. Redistributions in
  #  binary form must reproduce the above copyright notice, this list of
  #  conditions and the following disclaimer in the documentation and/or
@@ -339,7 +339,7 @@ property of their respective owners.
  #
  #  Redistribution and use in source and binary forms, with or without
  #  modification, are permitted provided that the following conditions
- #  are met: Redistributions of source code must retain the above
+ #  are met: Redistributions of source id must retain the above
  #  copyright notice, this list of conditions and the following
  #  disclaimer.  Redistributions in binary form must reproduce the
  #  above copyright notice, this list of conditions and the following
@@ -367,7 +367,7 @@ property of their respective owners.
 
 5. Time Zone Database
 
-  ICU uses the public domain data and code derived from Time Zone
+  ICU uses the public domain data and id derived from Time Zone
 Database for its time zone support. The ownership of the TZ database
 is explained in BCP 175: Procedure for Maintaining the Time Zone
 Database section 7.
@@ -384,8 +384,8 @@ Database section 7.
  #    Considerations defined in this RFC, under the memorandum of
  #    understanding with the IETF, currently ICANN, may act in accordance
  #    with all competent court orders.  No ownership claims will be made
- #    by ICANN or the IETF Trust on the database or the code.  Any person
- #    making a contribution to the database or code waives all rights to
+ #    by ICANN or the IETF Trust on the database or the id.  Any person
+ #    making a contribution to the database or id waives all rights to
  #    future claims in that contribution or in the TZ Database.
 
 6. Google double-conversion
@@ -395,7 +395,7 @@ Redistribution and use in source and binary forms, with or without
 modification, are permitted provided that the following conditions are
 met:
 
-    * Redistributions of source code must retain the above copyright
+    * Redistributions of source id must retain the above copyright
       notice, this list of conditions and the following disclaimer.
     * Redistributions in binary form must reproduce the above
       copyright notice, this list of conditions and the following

@@ -2,7 +2,6 @@ package dao;
 
 import core.User;
 import interfaces.Dao;
-
 import java.io.*;
 import java.util.ArrayList;
 import java.util.List;
@@ -24,38 +23,44 @@ public class Users implements Dao<User> {
 
     @Override
     public List<User> getAllObjects() throws Exception {
-        List<User> users = new ArrayList<>();
-        FileInputStream inputFile = new FileInputStream(getFileName());
-        ObjectInputStream input = new ObjectInputStream(inputFile);
-        do {
-            users.add((User)input.readObject());
-        }while(input.available() != 0);
-        return users;
+        RandomAccessFile file = new RandomAccessFile(getFileName(), "r");
+        List<User> userList = new ArrayList();
+        int actualPoint = 0;
+        while (actualPoint < file.length()) {
+            int size = file.readInt();
+            byte b[] = new byte[size];
+            file.read(b);
+            userList.add((User) new User().setByteArray(b));
+            actualPoint += 4 + size;
+        }
+        file.close();
+        return userList;
     }
 
     @Override
     public User getObject(Object key) throws Exception {
-        FileInputStream inputFile = new FileInputStream(getFileName());
-        ObjectInputStream input = new ObjectInputStream(inputFile);
-        do {
-            User user = (User) input.readObject();
-            if (user.getCode() == (int) key) {
-                input.close();
-                inputFile.close();
+        RandomAccessFile file = new RandomAccessFile(getFileName(), "r");
+        int actualPoint = 0;
+        while (actualPoint < file.length()) {
+            int size = file.readInt();
+            byte b[] = new byte[size];
+            file.read(b);
+            User user = (User) new User().setByteArray(b);
+            if (user.getId() == (int) key)
                 return user;
-            }
-        }while (input.available() != 0);
+            actualPoint += 4 + size;
+        }
+        file.close();
         return null;
     }
 
     @Override
     public void addObject(User o) throws Exception {
-        FileOutputStream outputFile = new FileOutputStream(getFileName());
-        ObjectOutputStream output = new ObjectOutputStream(outputFile);
-        output.writeObject(o);
-        output.flush();
-        output.close();
-        outputFile.close();
+        RandomAccessFile file = new RandomAccessFile(getFileName(), "rw");
+        file.seek(file.length());
+        file.writeInt(o.getByteArray().length);
+        file.write(o.getByteArray());
+        file.close();
     }
 
     @Override

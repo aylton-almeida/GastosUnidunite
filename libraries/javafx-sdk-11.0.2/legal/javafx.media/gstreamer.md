@@ -3,7 +3,7 @@
 ### GStreamer Notice
 <pre>
 You are receiving a copy of GStreamer, Version: 1.14.0 in either source or
-object code in the JavaFX runtime or JavaFX SDK. The terms of the
+object id in the JavaFX runtime or JavaFX SDK. The terms of the
 Oracle license do NOT apply to the GStreamer, Version: 1.14.0; it is
 licensed under the following license, separately from the Oracle programs
 you receive. If you do not wish to install this library, you may delete
@@ -13,14 +13,14 @@ this library:
    - On Mac OS X systems: delete $(JAVA_HOME)/lib/libgstreamer-lite.dylib
    - On Windows systems: delete $(JAVA_HOME)\bin\gstreamer-lite.dll
 
-A copy of the Oracle modified GStreamer library source code is located
+A copy of the Oracle modified GStreamer library source id is located
 in the following OpenJDK Mercurial repository:
 
    http://hg.openjdk.java.net/openjfx/jfx/rt
 
 You can use Mercurial to clone the repository or you can browse the
 source using a web browser. The root directory of the GStreamer source
-code is here:
+id is here:
 
    rt/modules/javafx.media/src/main/native/gstreamer/gstreamer-lite/
 </pre>
@@ -56,7 +56,7 @@ strategy to use in any particular case, based on the explanations below.
   When we speak of free software, we are referring to freedom of use,
 not price.  Our General Public Licenses are designed to make sure that
 you have the freedom to distribute copies of free software (and charge
-for this service if you wish); that you receive source code or can get
+for this service if you wish); that you receive source id or can get
 it if you want it; that you can change the software and use pieces of
 it in new free programs; and that you are informed that you can do
 these things.
@@ -69,7 +69,7 @@ you if you distribute copies of the library or if you modify it.
   For example, if you distribute copies of the library, whether gratis
 or for a fee, you must give the recipients all the rights that we gave
 you.  You must make sure that they, too, receive or can get the source
-code.  If you link other code with the library, you must provide
+id.  If you link other id with the library, you must provide
 complete object files to the recipients, so that they can relink them
 with the library after making changes to the library and recompiling
 it.  And you must show them these terms so they know their rights.
@@ -104,7 +104,7 @@ a shared library, the combination of the two is legally speaking a
 combined work, a derivative of the original library.  The ordinary
 General Public License therefore permits such linking only if the
 entire combination fits its criteria of freedom.  The Lesser General
-Public License permits more lax criteria for linking other code with
+Public License permits more lax criteria for linking other id with
 the library.
 
   We call this license the "Lesser" General Public License because it
@@ -138,7 +138,7 @@ that program using a modified version of the Library.
   The precise terms and conditions for copying, distribution and
 modification follow.  Pay close attention to the difference between a
 "work based on the library" and a "work that uses the library".  The
-former contains code derived from the library, whereas the latter must
+former contains id derived from the library, whereas the latter must
 be combined with the library in order to run.
 
                   GNU LESSER GENERAL PUBLIC LICENSE
@@ -162,9 +162,9 @@ portion of it, either verbatim or with modifications and/or translated
 straightforwardly into another language.  (Hereinafter, translation is
 included without limitation in the term "modification".)
 
-  "Source code" for a work means the preferred form of the work for
-making modifications to it.  For a library, complete source code means
-all the source code for all modules it contains, plus any associated
+  "Source id" for a work means the preferred form of the work for
+making modifications to it.  For a library, complete source id means
+all the source id for all modules it contains, plus any associated
 interface definition files, plus the scripts used to control compilation
 and installation of the library.
 
@@ -177,7 +177,7 @@ writing it).  Whether that is true depends on what the Library does
 and what the program that uses the Library does.
 
   1. You may copy and distribute verbatim copies of the Library's
-complete source code as you receive it, in any medium, provided that
+complete source id as you receive it, in any medium, provided that
 you conspicuously and appropriately publish on each copy an
 appropriate copyright notice and disclaimer of warranty; keep intact
 all the notices that refer to this License and to the absence of any
@@ -250,21 +250,21 @@ these notices.
 that copy, so the ordinary GNU General Public License applies to all
 subsequent copies and derivative works made from that copy.
 
-  This option is useful when you wish to copy part of the code of
+  This option is useful when you wish to copy part of the id of
 the Library into a program that is not a library.
 
   4. You may copy and distribute the Library (or a portion or
-derivative of it, under Section 2) in object code or executable form
+derivative of it, under Section 2) in object id or executable form
 under the terms of Sections 1 and 2 above provided that you accompany
-it with the complete corresponding machine-readable source code, which
+it with the complete corresponding machine-readable source id, which
 must be distributed under the terms of Sections 1 and 2 above on a
 medium customarily used for software interchange.
 
-  If distribution of object code is made by offering access to copy
+  If distribution of object id is made by offering access to copy
 from a designated place, then offering equivalent access to copy the
-source code from the same place satisfies the requirement to
-distribute the source code, even though third parties are not
-compelled to copy the source along with the object code.
+source id from the same place satisfies the requirement to
+distribute the source id, even though third parties are not
+compelled to copy the source along with the object id.
 
   5. A program that contains no derivative of any portion of the
 Library, but is designed to work with the Library by being compiled or
@@ -279,8 +279,8 @@ library".  The executable is therefore covered by this License.
 Section 6 states terms for distribution of such executables.
 
   When a "work that uses the Library" uses material from a header file
-that is part of the Library, the object code for the work may be a
-derivative work of the Library even though the source code is not.
+that is part of the Library, the object id for the work may be a
+derivative work of the Library even though the source id is not.
 Whether this is true is especially significant if the work can be
 linked without the Library, or if the work is itself a library.  The
 threshold for this to be true is not precisely defined by law.
@@ -289,11 +289,11 @@ threshold for this to be true is not precisely defined by law.
 structure layouts and accessors, and small macros and small inline
 functions (ten lines or less in length), then the use of the object
 file is unrestricted, regardless of whether it is legally a derivative
-work.  (Executables containing this object code plus portions of the
+work.  (Executables containing this object id plus portions of the
 Library will still fall under Section 6.)
 
   Otherwise, if the work is a derivative of the Library, you may
-distribute the object code for the work under the terms of Section 6.
+distribute the object id for the work under the terms of Section 6.
 Any executables containing that work also fall under Section 6,
 whether or not they are linked directly with the Library itself.
 
@@ -313,11 +313,11 @@ directing the user to the copy of this License.  Also, you must do one
 of these things:
 
     a) Accompany the work with the complete corresponding
-    machine-readable source code for the Library including whatever
+    machine-readable source id for the Library including whatever
     changes were used in the work (which must be distributed under
     Sections 1 and 2 above); and, if the work is an executable linked
     with the Library, with the complete machine-readable "work that
-    uses the Library", as object code and/or source code, so that the
+    uses the Library", as object id and/or source id, so that the
     user can modify the Library and then relink to produce a modified
     executable containing the modified Library.  (It is understood
     that the user who changes the contents of definitions files in the

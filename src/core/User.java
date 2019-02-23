@@ -1,19 +1,30 @@
 package core;
 
-import java.io.Serializable;
+import exceptions.UserException;
+import interfaces.Registrabel;
 
-public class User implements Serializable {
+import java.io.*;
+
+
+public class User implements Registrabel {
 
     private String email;
     private String password;
     private boolean isAdmin;
-    private int code;
+    private int id;
 
-    public User (String email, String password, boolean isAdmin, int code) {
+    public User(String email, String password, boolean isAdmin, int id) throws UserException {
         setEmail(email);
         setPassword(password);
         setIsAdmin(isAdmin);
-        setCode(code);
+        setId(id);
+    }
+
+    public User() throws UserException {
+        setEmail("");
+        setPassword("12345678");
+        setIsAdmin(false);
+        setId(-1);
     }
 
     public String getEmail() {
@@ -28,11 +39,14 @@ public class User implements Serializable {
         return password;
     }
 
-    public void setPassword(String password) {
-        this.password = password;
+    public void setPassword(String password) throws UserException {
+        if (password.length() >= 8)
+            this.password = password;
+        else
+            throw new UserException("Senha invalida");
     }
 
-    public boolean isAdmin() {
+    private boolean isAdmin() {
         return isAdmin;
     }
 
@@ -40,11 +54,33 @@ public class User implements Serializable {
         this.isAdmin = isAdmin;
     }
 
-    public int getCode() {
-        return code;
+    public int getId() {
+        return id;
     }
 
-    public void setCode(int code) {
-        this.code = code;
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    @Override
+    public byte[] getByteArray() throws IOException {
+        ByteArrayOutputStream record = new ByteArrayOutputStream();
+        DataOutputStream output = new DataOutputStream(record);
+        output.writeUTF(getEmail());
+        output.writeUTF(getPassword());
+        output.writeBoolean(isAdmin());
+        output.writeInt(getId());
+        return record.toByteArray();
+    }
+
+    @Override
+    public Registrabel setByteArray(byte[] b) throws Exception {
+        ByteArrayInputStream record = new ByteArrayInputStream(b);
+        DataInputStream input = new DataInputStream(record);
+        setEmail(input.readUTF());
+        setPassword(input.readUTF());
+        setIsAdmin(input.readBoolean());
+        setId(input.readInt());
+        return this;
     }
 }

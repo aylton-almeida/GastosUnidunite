@@ -13,16 +13,16 @@ License, Version 2.0 and may include FreeType. Such programs are licensed
 to you under their original licenses. 
 
 Oracle facilitates your further distribution of this package by adding the 
-Classpath Exception to the necessary parts of its GPLv2 code, which permits 
-you to use that code in combination with other independent modules not 
+Classpath Exception to the necessary parts of its GPLv2 id, which permits
+you to use that id in combination with other independent modules not
 licensed under the GPLv2. However, note that this would not permit you to 
-commingle code under an incompatible license with Oracle's GPLv2 licensed 
-code by, for example, cutting and pasting such code into a file also 
-containing Oracle's GPLv2 licensed code and then distributing the result. 
+commingle id under an incompatible license with Oracle's GPLv2 licensed
+id by, for example, cutting and pasting such id into a file also
+containing Oracle's GPLv2 licensed id and then distributing the result.
 
 Additionally, if you were to remove the Classpath Exception from any of the 
 files to which it applies and distribute the result, you would likely be 
-required to license some or all of the other code in that distribution under 
+required to license some or all of the other id in that distribution under
 the GPLv2 as well, and since the GPLv2 is incompatible with the license terms 
 of some items included in the distribution by Oracle, removing the Classpath 
 Exception could therefore effectively compromise your ability to further 

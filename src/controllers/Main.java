@@ -1,5 +1,7 @@
 package controllers;
 
+import core.User;
+import dao.Users;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -17,6 +19,8 @@ public class Main extends Application {
         primaryStage.setMinWidth(1344);
         primaryStage.setResizable(false);
         primaryStage.show();
+
+        new Users().addObject(new User("aylton@gmail.com", "123123123", true, 1));
     }
 
 
