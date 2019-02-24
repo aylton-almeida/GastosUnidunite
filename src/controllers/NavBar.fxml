@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<?import javafx.scene.layout.StackPane?>
+
+<StackPane fx:id="mainStackPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity"
+           prefHeight="790.0"
+           prefWidth="1344.0" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1"
+           fx:controller="controllers.NavBarController">
+    <BorderPane fx:id="mainBorderPane" prefHeight="200.0" prefWidth="200.0">
+        <left>
+            <VBox prefHeight="790.0" prefWidth="329.0" style="-fx-background-color: #3c8fdc;"
+                  BorderPane.alignment="CENTER_LEFT">
+                <Pane prefHeight="100.0" prefWidth="328.0" style="-fx-background-color: #3A7CF3;"
+                      styleClass="top-menu-panel" stylesheets="@Home.css">
+                    <JFXButton prefHeight="96.0" prefWidth="329.0" style="-fx-background-color: transparent;"
+                               text="Sua Conta" textFill="WHITE">
+                        <font>
+                            <Font size="30.0"/>
+                        </font>
+                        <padding>
+                            <Insets right="150.0"/>
+                        </padding>
+                    </JFXButton>
+                </Pane>
+                <Pane prefHeight="696.0" prefWidth="328.0">
+                    <VBox.margin>
+                        <Insets/>
+                    </VBox.margin>
+                    <JFXButton fx:id="homeButton" buttonType="RAISED" layoutX="-1.0" layoutY="60.0"
+                               onAction="#goToHome" prefHeight="52.0" prefWidth="331.0"
+                               style="-fx-background-color: #3A7CF3;" text="Geral" textFill="WHITE">
+                        <font>
+                            <Font size="18.0"/>
+                        </font>
+                        <padding>
+                            <Insets right="230.0"/>
+                        </padding>
+                    </JFXButton>
+                    <JFXButton fx:id="productsButton" layoutX="-1.0" layoutY="135.0" onAction="#goToProducts"
+                               prefHeight="52.0" prefWidth="331.0" text="Produtos" textAlignment="CENTER"
+                               textFill="WHITE">
+                        <font>
+                            <Font size="18.0"/>
+                        </font>
+                        <padding>
+                            <Insets right="200.0"/>
+                        </padding>
+                    </JFXButton>
+                    <JFXButton fx:id="clientsButton" layoutX="-1.0" layoutY="211.0" onAction="#goToClients"
+                               prefHeight="52.0" prefWidth="331.0" text="Clientes" textAlignment="CENTER"
+                               textFill="WHITE">
+                        <font>
+                            <Font size="18.0"/>
+                        </font>
+                        <padding>
+                            <Insets right="205.0"/>
+                        </padding>
+                    </JFXButton>
+                    <JFXButton fx:id="employeesButton" layoutX="-1.0" layoutY="286.0" onAction="#goToEmployees"
+                               prefHeight="52.0" prefWidth="331.0" text="Funcionarios" textAlignment="CENTER"
+                               textFill="WHITE">
+                        <font>
+                            <Font size="18.0"/>
+                        </font>
+                        <padding>
+                            <Insets right="165.0"/>
+                        </padding>
+                    </JFXButton>
+                    <JFXButton fx:id="salesButton" layoutX="-1.0" layoutY="360.0" onAction="#goToSales"
+                               prefHeight="52.0" prefWidth="331.0" text="Vendas" textAlignment="CENTER"
+                               textFill="WHITE">
+                        <font>
+                            <Font size="18.0"/>
+                        </font>
+                        <padding>
+                            <Insets right="215.0"/>
+                        </padding>
+                    </JFXButton>
+                    <JFXButton fx:id="expensesButton" layoutX="-1.0" layoutY="435.0" onAction="#goToExpenses"
+                               prefHeight="52.0" prefWidth="331.0" text="Gastos" textAlignment="CENTER"
+                               textFill="WHITE">
+                        <font>
+                            <Font size="18.0"/>
+                        </font>
+                        <padding>
+                            <Insets right="220.0"/>
+                        </padding>
+                    </JFXButton>
+                    <JFXButton fx:id="totalsButton" layoutX="-1.0" layoutY="510.0" onAction="#goToTotals"
+                               prefHeight="52.0" prefWidth="331.0" text="Totais" textAlignment="CENTER"
+                               textFill="WHITE">
+                        <font>
+                            <Font size="18.0"/>
+                        </font>
+                        <padding>
+                            <Insets right="225.0"/>
+                        </padding>
+                    </JFXButton>
+                </Pane>
+            </VBox>
+        </left>
+    </BorderPane>
+</StackPane>

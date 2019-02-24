@@ -6,6 +6,7 @@
       <sourceFolder url="file://$MODULE_DIR$/src" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/src/img" type="java-resource" />
       <sourceFolder url="file://$MODULE_DIR$/src/scenes" type="java-resource" />
+      <sourceFolder url="file://$MODULE_DIR$/src/junittest" type="java-test-resource" />
     </content>
     <orderEntry type="jdk" jdkName="11" jdkType="JavaSDK" />
     <orderEntry type="sourceFolder" forTests="false" />

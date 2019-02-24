@@ -2,46 +2,26 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="cdb932d9-7e58-4d94-93a9-e7b232ef17da" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/src/controllers/Products.fxml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/controllers/ProductsController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/exceptions/UserException.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/interfaces/Registrabel.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/services/UserService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/controllers/LogoLeftBar.fxml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/controllers/Main.fxml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/controllers/MainController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/controllers/NavBar.fxml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/controllers/NavBarController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/controllers/RegisterProducts.fxml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/controllers/RegisterProductsController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Documentação/Interfaces de usuário/Interface de Produtos.docx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/GastosUnidunite.iml" beforeDir="false" afterPath="$PROJECT_DIR$/GastosUnidunite.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Users" beforeDir="false" afterPath="$PROJECT_DIR$/Users" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/libraries/javafx-sdk-11.0.2/legal/javafx.base/ADDITIONAL_LICENSE_INFO" beforeDir="false" afterPath="$PROJECT_DIR$/libraries/javafx-sdk-11.0.2/legal/javafx.base/ADDITIONAL_LICENSE_INFO" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/libraries/javafx-sdk-11.0.2/legal/javafx.base/ASSEMBLY_EXCEPTION" beforeDir="false" afterPath="$PROJECT_DIR$/libraries/javafx-sdk-11.0.2/legal/javafx.base/ASSEMBLY_EXCEPTION" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/libraries/javafx-sdk-11.0.2/legal/javafx.base/LICENSE" beforeDir="false" afterPath="$PROJECT_DIR$/libraries/javafx-sdk-11.0.2/legal/javafx.base/LICENSE" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/libraries/javafx-sdk-11.0.2/legal/javafx.controls/ADDITIONAL_LICENSE_INFO" beforeDir="false" afterPath="$PROJECT_DIR$/libraries/javafx-sdk-11.0.2/legal/javafx.controls/ADDITIONAL_LICENSE_INFO" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/libraries/javafx-sdk-11.0.2/legal/javafx.controls/ASSEMBLY_EXCEPTION" beforeDir="false" afterPath="$PROJECT_DIR$/libraries/javafx-sdk-11.0.2/legal/javafx.controls/ASSEMBLY_EXCEPTION" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/libraries/javafx-sdk-11.0.2/legal/javafx.controls/LICENSE" beforeDir="false" afterPath="$PROJECT_DIR$/libraries/javafx-sdk-11.0.2/legal/javafx.controls/LICENSE" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/libraries/javafx-sdk-11.0.2/legal/javafx.fxml/ADDITIONAL_LICENSE_INFO" beforeDir="false" afterPath="$PROJECT_DIR$/libraries/javafx-sdk-11.0.2/legal/javafx.fxml/ADDITIONAL_LICENSE_INFO" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/libraries/javafx-sdk-11.0.2/legal/javafx.fxml/ASSEMBLY_EXCEPTION" beforeDir="false" afterPath="$PROJECT_DIR$/libraries/javafx-sdk-11.0.2/legal/javafx.fxml/ASSEMBLY_EXCEPTION" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/libraries/javafx-sdk-11.0.2/legal/javafx.fxml/LICENSE" beforeDir="false" afterPath="$PROJECT_DIR$/libraries/javafx-sdk-11.0.2/legal/javafx.fxml/LICENSE" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/libraries/javafx-sdk-11.0.2/legal/javafx.graphics/ADDITIONAL_LICENSE_INFO" beforeDir="false" afterPath="$PROJECT_DIR$/libraries/javafx-sdk-11.0.2/legal/javafx.graphics/ADDITIONAL_LICENSE_INFO" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/libraries/javafx-sdk-11.0.2/legal/javafx.graphics/ASSEMBLY_EXCEPTION" beforeDir="false" afterPath="$PROJECT_DIR$/libraries/javafx-sdk-11.0.2/legal/javafx.graphics/ASSEMBLY_EXCEPTION" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/libraries/javafx-sdk-11.0.2/legal/javafx.graphics/LICENSE" beforeDir="false" afterPath="$PROJECT_DIR$/libraries/javafx-sdk-11.0.2/legal/javafx.graphics/LICENSE" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/libraries/javafx-sdk-11.0.2/legal/javafx.graphics/jpeg_fx.md" beforeDir="false" afterPath="$PROJECT_DIR$/libraries/javafx-sdk-11.0.2/legal/javafx.graphics/jpeg_fx.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/libraries/javafx-sdk-11.0.2/legal/javafx.media/ADDITIONAL_LICENSE_INFO" beforeDir="false" afterPath="$PROJECT_DIR$/libraries/javafx-sdk-11.0.2/legal/javafx.media/ADDITIONAL_LICENSE_INFO" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/libraries/javafx-sdk-11.0.2/legal/javafx.media/ASSEMBLY_EXCEPTION" beforeDir="false" afterPath="$PROJECT_DIR$/libraries/javafx-sdk-11.0.2/legal/javafx.media/ASSEMBLY_EXCEPTION" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/libraries/javafx-sdk-11.0.2/legal/javafx.media/LICENSE" beforeDir="false" afterPath="$PROJECT_DIR$/libraries/javafx-sdk-11.0.2/legal/javafx.media/LICENSE" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/libraries/javafx-sdk-11.0.2/legal/javafx.media/glib.md" beforeDir="false" afterPath="$PROJECT_DIR$/libraries/javafx-sdk-11.0.2/legal/javafx.media/glib.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/libraries/javafx-sdk-11.0.2/legal/javafx.media/gstreamer.md" beforeDir="false" afterPath="$PROJECT_DIR$/libraries/javafx-sdk-11.0.2/legal/javafx.media/gstreamer.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/libraries/javafx-sdk-11.0.2/legal/javafx.swing/ADDITIONAL_LICENSE_INFO" beforeDir="false" afterPath="$PROJECT_DIR$/libraries/javafx-sdk-11.0.2/legal/javafx.swing/ADDITIONAL_LICENSE_INFO" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/libraries/javafx-sdk-11.0.2/legal/javafx.swing/ASSEMBLY_EXCEPTION" beforeDir="false" afterPath="$PROJECT_DIR$/libraries/javafx-sdk-11.0.2/legal/javafx.swing/ASSEMBLY_EXCEPTION" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/libraries/javafx-sdk-11.0.2/legal/javafx.swing/LICENSE" beforeDir="false" afterPath="$PROJECT_DIR$/libraries/javafx-sdk-11.0.2/legal/javafx.swing/LICENSE" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/libraries/javafx-sdk-11.0.2/legal/javafx.web/ADDITIONAL_LICENSE_INFO" beforeDir="false" afterPath="$PROJECT_DIR$/libraries/javafx-sdk-11.0.2/legal/javafx.web/ADDITIONAL_LICENSE_INFO" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/libraries/javafx-sdk-11.0.2/legal/javafx.web/ASSEMBLY_EXCEPTION" beforeDir="false" afterPath="$PROJECT_DIR$/libraries/javafx-sdk-11.0.2/legal/javafx.web/ASSEMBLY_EXCEPTION" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/libraries/javafx-sdk-11.0.2/legal/javafx.web/LICENSE" beforeDir="false" afterPath="$PROJECT_DIR$/libraries/javafx-sdk-11.0.2/legal/javafx.web/LICENSE" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/libraries/javafx-sdk-11.0.2/legal/javafx.web/icu_web.md" beforeDir="false" afterPath="$PROJECT_DIR$/libraries/javafx-sdk-11.0.2/legal/javafx.web/icu_web.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/libraries/javafx-sdk-11.0.2/legal/javafx.web/webkit.md" beforeDir="false" afterPath="$PROJECT_DIR$/libraries/javafx-sdk-11.0.2/legal/javafx.web/webkit.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/GastosUnidunite/controllers/Home.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/GastosUnidunite/controllers/Home.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/GastosUnidunite/controllers/Login.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/GastosUnidunite/controllers/Login.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/controllers/Home.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/controllers/Home.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/controllers/HomeController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/controllers/HomeController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/controllers/Login.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/controllers/Login.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/controllers/LoginController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/controllers/LoginController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/controllers/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/controllers/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/core/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/core/User.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/dao/Users.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/dao/Users.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/controllers/Products.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/controllers/Products.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/controllers/ProductsController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/controllers/ProductsController.java" afterDir="false" />
     </list>
     <ignored path="JavaFxApplication.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -99,54 +79,85 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/controllers/HomeController.java">
+        <entry file="file://$PROJECT_DIR$/src/controllers/NavBarController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="255">
-              <caret line="25" column="5" selection-start-line="25" selection-start-column="5" selection-end-line="25" selection-end-column="5" />
+            <state relative-caret-position="491">
+              <caret line="52" column="22" selection-start-line="52" selection-start-column="22" selection-end-line="52" selection-end-column="22" />
+              <folding>
+                <element signature="imports" expanded="true" />
+                <element signature="e#1279#1280#0" expanded="true" />
+                <element signature="e#1322#1323#0" expanded="true" />
+                <element signature="method#normalizeButton#0;class#NavBarController#0" />
+                <element signature="e#1309#1310#0" expanded="true" />
+                <element signature="e#1339#1340#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/controllers/Products.fxml">
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/controllers/MainController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state>
-              <caret column="38" lean-forward="true" selection-start-column="38" selection-end-column="38" />
+            <state relative-caret-position="173">
+              <caret line="57" column="5" selection-start-line="57" selection-start-column="5" selection-end-line="57" selection-end-column="5" />
+              <folding>
+                <element signature="e#2205#2206#0" expanded="true" />
+                <element signature="e#2240#2241#0" expanded="true" />
+              </folding>
             </state>
           </provider>
-          <provider editor-type-id="JavaFX-Scene-Builder" />
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/controllers/ProductsController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state>
-              <caret column="20" selection-start-column="20" selection-end-column="20" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/dao/Users.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="30">
-              <caret line="2" column="7" selection-start-line="2" selection-start-column="7" selection-end-line="2" selection-end-column="7" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/services/UserService.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state>
-              <caret column="17" selection-start-column="17" selection-end-column="17" />
+            <state relative-caret-position="187">
+              <caret line="11" column="24" selection-start-line="11" selection-start-column="24" selection-end-line="11" selection-end-column="24" />
               <folding>
-                <element signature="method#loggout#0;class#UserService#0" />
-                <element signature="method#addUser#0;class#UserService#0" />
-                <element signature="method#removeUser#0;class#UserService#0" />
-                <element signature="method#updateUser#0;class#UserService#0" />
-                <element signature="e#1011#1012#0" expanded="true" />
-                <element signature="e#1037#1038#0" expanded="true" />
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/controllers/NavBar.fxml">
+          <provider editor-type-id="JavaFX-Scene-Builder" />
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="221">
+              <caret line="37" column="38" lean-forward="true" selection-start-line="37" selection-start-column="38" selection-end-line="37" selection-end-column="67" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/controllers/Products.fxml">
+          <provider editor-type-id="JavaFX-Scene-Builder" />
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="261">
+              <caret line="16" column="8" lean-forward="true" selection-start-line="16" selection-start-column="8" selection-end-line="16" selection-end-column="8" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/controllers/RegisterProducts.fxml">
+          <provider editor-type-id="JavaFX-Scene-Builder" />
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="459">
+              <caret line="27" column="15" selection-start-line="27" selection-start-column="15" selection-end-line="27" selection-end-column="15" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/controllers/LoginController.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="170">
+              <caret line="21" selection-start-line="21" selection-end-line="21" />
+              <folding>
+                <element signature="e#1315#1316#0" expanded="true" />
+                <element signature="e#1361#1362#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -182,9 +193,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/login/Controller.java" />
-        <option value="$PROJECT_DIR$/src/login/Login.java" />
-        <option value="$USER_HOME$/OneDrive/Área de Trabalho/sample.fxml" />
         <option value="$PROJECT_DIR$/src/Core/Usuario.java" />
         <option value="$PROJECT_DIR$/src/junitTest/UsuarioTest.java" />
         <option value="$PROJECT_DIR$/src/core/Usuario.java" />
@@ -201,7 +209,6 @@
         <option value="$PROJECT_DIR$/src/controllers/Home.css" />
         <option value="$PROJECT_DIR$/src/module-info.java" />
         <option value="$PROJECT_DIR$/src/controllers/Main.css" />
-        <option value="$PROJECT_DIR$/src/controllers/Login.fxml" />
         <option value="$PROJECT_DIR$/src/core/Sale.java" />
         <option value="$PROJECT_DIR$/src/core/Expense.java" />
         <option value="$PROJECT_DIR$/src/dao/Employees.java" />
@@ -212,23 +219,40 @@
         <option value="$PROJECT_DIR$/src/exceptions/UserException.java" />
         <option value="$PROJECT_DIR$/src/interfaces/Registrabel.java" />
         <option value="$PROJECT_DIR$/src/core/User.java" />
-        <option value="$PROJECT_DIR$/src/controllers/Main.java" />
         <option value="$PROJECT_DIR$/src/dao/Users.java" />
         <option value="$PROJECT_DIR$/src/services/UserService.java" />
-        <option value="$PROJECT_DIR$/src/controllers/Home.fxml" />
-        <option value="$PROJECT_DIR$/src/controllers/LoginController.java" />
-        <option value="$PROJECT_DIR$/src/controllers/HomeController.java" />
         <option value="$PROJECT_DIR$/src/controllers/Produtos.fxml" />
+        <option value="$PROJECT_DIR$/src/core/NavBar.java" />
+        <option value="$PROJECT_DIR$/src/controllers/RegisterUserController.java" />
+        <option value="$PROJECT_DIR$/src/controllers/RegisterUser.fxml" />
+        <option value="$PROJECT_DIR$/src/controllers/RegisterProductsController.java" />
+        <option value="$PROJECT_DIR$/src/controllers/navBar.fxml" />
+        <option value="$PROJECT_DIR$/src/controllers/LeftBar.fxml" />
+        <option value="$PROJECT_DIR$/src/controllers/test.fxml" />
+        <option value="$PROJECT_DIR$/src/controllers/Test.fxml" />
+        <option value="$PROJECT_DIR$/src/controllers/Main.fxml" />
+        <option value="$PROJECT_DIR$/src/controllers/HomeController.java" />
+        <option value="$PROJECT_DIR$/src/controllers/Main.java" />
+        <option value="$PROJECT_DIR$/src/controllers/LogoLeftBarController.java" />
+        <option value="$PROJECT_DIR$/src/controllers/LogoLeftBar.fxml" />
+        <option value="$PROJECT_DIR$/src/controllers/Login.fxml" />
+        <option value="$PROJECT_DIR$/src/controllers/Home.fxml" />
         <option value="$PROJECT_DIR$/src/controllers/Products.fxml" />
+        <option value="$PROJECT_DIR$/src/controllers/MainController.java" />
+        <option value="$PROJECT_DIR$/src/controllers/NavBarController.java" />
+        <option value="$PROJECT_DIR$/src/controllers/ProductsController.java" />
+        <option value="$PROJECT_DIR$/src/controllers/LoginController.java" />
+        <option value="$PROJECT_DIR$/src/controllers/RegisterProducts.fxml" />
+        <option value="$PROJECT_DIR$/src/controllers/NavBar.fxml" />
       </list>
     </option>
   </component>
   <component name="PhpWorkspaceProjectConfiguration" backward_compatibility_performed="true" />
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="960" />
-    <option name="y" value="27" />
-    <option name="width" value="930" />
-    <option name="height" value="1053" />
+    <option name="x" value="283" />
+    <option name="y" value="167" />
+    <option name="width" value="1409" />
+    <option name="height" value="860" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectView">
@@ -236,8 +260,8 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="PackagesPane" />
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -264,6 +288,10 @@
   </component>
   <component name="PropertiesComponent">
     <property name="Downloaded.Files.Path.Enabled" value="false" />
+    <property name="GenerateAntBuildDialog.backupFiles" value="true" />
+    <property name="GenerateAntBuildDialog.enableUiFormCompile" value="true" />
+    <property name="GenerateAntBuildDialog.forceTargetJdk" value="true" />
+    <property name="GenerateAntBuildDialog.outputFileNameProperty" value="gastosunidunite" />
     <property name="GoToClass.includeLibraries" value="false" />
     <property name="GoToClass.toSaveIncludeLibraries" value="false" />
     <property name="GoToFile.includeJavaFiles" value="false" />
@@ -275,12 +303,12 @@
     <property name="Repository.Attach.JavaDocs" value="false" />
     <property name="Repository.Attach.Sources" value="false" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1550848589698" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1551052552811" />
     <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary" value="JUnit5" />
     <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5" value="" />
     <property name="create.test.in.the.same.root" value="true" />
     <property name="dynamic.classpath" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../CódigosTeste/JFoenix-master" />
+    <property name="last_opened_file_path" value="$USER_HOME$/CódigosTeste/JFoenix-master" />
     <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
@@ -435,9 +463,10 @@
     <option name="totallyTimeSpent" value="1302000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="27" width="1920" height="1053" extended-state="6" />
+    <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
+    <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.6703755" visible="true" weight="0.12966916" />
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.6703755" visible="true" weight="0.27985075" />
       <window_info id="Structure" order="1" weight="0.25" />
       <window_info id="Favorites" order="2" />
       <window_info id="Designer" order="3" />
@@ -445,8 +474,8 @@
       <window_info id="UI Designer" order="5" />
       <window_info id="Capture Tool" order="6" />
       <window_info anchor="bottom" id="Message" order="0" />
-      <window_info anchor="bottom" id="Find" order="1" weight="0.3275488" />
-      <window_info anchor="bottom" id="Run" order="2" weight="0.2516269" />
+      <window_info anchor="bottom" id="Find" order="1" weight="0.32719395" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.25135428" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.39805827" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -457,7 +486,7 @@
       <window_info anchor="bottom" id="Changes" order="10" />
       <window_info anchor="bottom" id="Profiler" order="11" />
       <window_info anchor="bottom" id="Event Log" order="12" />
-      <window_info anchor="bottom" id="Messages" order="13" weight="0.324295" />
+      <window_info anchor="bottom" id="Messages" order="13" weight="0.32286024" />
       <window_info anchor="bottom" id="Terminal" order="14" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
@@ -471,41 +500,6 @@
       <window_info anchor="right" id="Palette&#9;" order="9" />
       <window_info anchor="right" id="Theme Preview" order="10" />
     </layout>
-    <layout-to-restore>
-      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.6703755" visible="true" weight="0.12966916" />
-      <window_info id="Structure" order="1" weight="0.25" />
-      <window_info id="Favorites" order="2" />
-      <window_info id="Designer" order="3" />
-      <window_info id="Image Layers" order="4" />
-      <window_info id="UI Designer" order="5" />
-      <window_info id="Capture Tool" order="6" />
-      <window_info anchor="bottom" id="Message" order="0" />
-      <window_info anchor="bottom" id="Find" order="1" weight="0.3275488" />
-      <window_info anchor="bottom" id="Run" order="2" weight="0.2516269" />
-      <window_info anchor="bottom" id="Debug" order="3" weight="0.39805827" />
-      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
-      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
-      <window_info anchor="bottom" id="TODO" order="6" />
-      <window_info anchor="bottom" id="Application Servers" order="7" />
-      <window_info anchor="bottom" id="Version Control" order="8" />
-      <window_info anchor="bottom" id="Problems" order="9" />
-      <window_info anchor="bottom" id="Changes" order="10" />
-      <window_info anchor="bottom" id="Profiler" order="11" />
-      <window_info anchor="bottom" id="Event Log" order="12" />
-      <window_info anchor="bottom" id="Messages" order="13" weight="0.32502708" />
-      <window_info anchor="bottom" id="Terminal" order="14" />
-      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
-      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
-      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
-      <window_info anchor="right" id="JetGradle" order="3" />
-      <window_info anchor="right" id="Database" order="4" />
-      <window_info anchor="right" id="Palette" order="5" />
-      <window_info anchor="right" id="Maven Projects" order="6" />
-      <window_info anchor="right" id="Maven" order="7" />
-      <window_info anchor="right" id="Capture Analysis" order="8" />
-      <window_info anchor="right" id="Palette&#9;" order="9" />
-      <window_info anchor="right" id="Theme Preview" order="10" />
-    </layout-to-restore>
   </component>
   <component name="UnknownFeatures">
     <option featureType="com.intellij.fileTypeFactory" implementationName="*.css" />
@@ -519,7 +513,6 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$USER_HOME$/OneDrive/Área de Trabalho/Main.java" />
     <entry file="file://$USER_HOME$/OneDrive/Área de Trabalho/sample.fxml" />
     <entry file="file://$PROJECT_DIR$/src/junitTest/UsuarioTest.java" />
     <entry file="file://$PROJECT_DIR$/src/core/Usuario.java" />
@@ -564,9 +557,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/controllers/Home.css">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/dao/Employees.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="105">
@@ -597,13 +587,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/module-info.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="45">
-          <caret line="3" column="25" selection-start-line="3" selection-start-column="25" selection-end-line="3" selection-end-column="25" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/interfaces/Registrabel.java">
       <provider selected="true" editor-type-id="text-editor">
         <state>
@@ -611,23 +594,9 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/controllers/Main.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="195">
-          <caret line="19" column="39" selection-start-line="19" selection-start-column="39" selection-end-line="19" selection-end-column="39" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/core/User.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="465">
-          <caret line="40" lean-forward="true" selection-start-line="40" selection-end-line="40" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/dao/Users.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="30">
+        <state relative-caret-position="34">
           <caret line="2" column="7" selection-start-line="2" selection-start-column="7" selection-end-line="2" selection-end-column="7" />
         </state>
       </provider>
@@ -641,56 +610,168 @@
             <element signature="method#addUser#0;class#UserService#0" />
             <element signature="method#removeUser#0;class#UserService#0" />
             <element signature="method#updateUser#0;class#UserService#0" />
-            <element signature="e#1011#1012#0" expanded="true" />
-            <element signature="e#1037#1038#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/controllers/Home.fxml">
+    <entry file="file://$PROJECT_DIR$/src/core/User.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="263">
-          <caret line="100" column="47" lean-forward="true" selection-end-line="135" />
-        </state>
-      </provider>
-      <provider editor-type-id="JavaFX-Scene-Builder" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/controllers/Login.fxml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="225">
-          <caret line="15" column="10" lean-forward="true" selection-start-line="15" selection-start-column="10" selection-end-line="15" selection-end-column="10" />
-        </state>
-      </provider>
-      <provider editor-type-id="JavaFX-Scene-Builder" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/controllers/LoginController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="443">
-          <caret line="49" column="4" selection-start-line="49" selection-start-column="4" selection-end-line="54" selection-end-column="5" />
+        <state relative-caret-position="527">
+          <caret line="40" lean-forward="true" selection-start-line="40" selection-end-line="40" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/controllers/HomeController.java">
+    <entry file="file://$PROJECT_DIR$/src/core/NavBar.java" />
+    <entry file="file://$PROJECT_DIR$/src/controllers/RegisterProductsController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="204">
+          <caret line="17" column="10" selection-start-line="17" selection-start-column="10" selection-end-line="17" selection-end-column="10" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/controllers/Home.css">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="255">
-          <caret line="25" column="5" selection-start-line="25" selection-start-column="5" selection-end-line="25" selection-end-column="5" />
+          <caret line="15" column="19" selection-start-line="15" selection-start-column="19" selection-end-line="15" selection-end-column="19" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/controllers/LeftBar.fxml" />
+    <entry file="file://$PROJECT_DIR$/src/controllers/Test.java" />
+    <entry file="file://$PROJECT_DIR$/src/controllers/LogoNavBar.java" />
+    <entry file="file://$PROJECT_DIR$/src/controllers/HomeController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="119">
+          <caret line="10" column="4" lean-forward="true" selection-start-line="10" selection-start-column="4" selection-end-line="14" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/controllers/Main.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="323">
+          <caret line="25" column="1" selection-start-line="25" selection-start-column="1" selection-end-line="25" selection-end-column="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/controllers/LogoLeftBarController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="34">
+          <caret line="2" column="31" lean-forward="true" selection-start-line="2" selection-start-column="31" selection-end-line="2" selection-end-column="31" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/controllers/LogoLeftBar.fxml">
+      <provider editor-type-id="JavaFX-Scene-Builder" />
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="136">
+          <caret line="8" column="70" lean-forward="true" selection-start-line="8" selection-start-column="70" selection-end-line="8" selection-end-column="70" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/controllers/Main.fxml">
+      <provider editor-type-id="JavaFX-Scene-Builder" />
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="119">
+          <caret line="7" column="13" lean-forward="true" selection-start-line="7" selection-start-column="13" selection-end-line="7" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/module-info.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="51">
+          <caret line="3" column="25" selection-start-line="3" selection-start-column="25" selection-end-line="3" selection-end-column="25" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/controllers/Login.fxml">
+      <provider editor-type-id="JavaFX-Scene-Builder" />
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="204">
+          <caret line="12" column="37" selection-start-line="12" selection-start-column="37" selection-end-line="12" selection-end-column="37" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/controllers/Home.fxml">
+      <provider editor-type-id="JavaFX-Scene-Builder" />
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="170">
+          <caret line="10" column="33" selection-start-line="10" selection-start-column="33" selection-end-line="10" selection-end-column="33" />
+          <folding>
+            <element signature="n#top#0;n#BorderPane#0;n#!!top" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/controllers/ProductsController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret column="20" selection-start-column="20" selection-end-column="20" />
+        <state relative-caret-position="187">
+          <caret line="11" column="24" selection-start-line="11" selection-start-column="24" selection-end-line="11" selection-end-column="24" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/controllers/NavBarController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="491">
+          <caret line="52" column="22" selection-start-line="52" selection-start-column="22" selection-end-line="52" selection-end-column="22" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#1279#1280#0" expanded="true" />
+            <element signature="e#1322#1323#0" expanded="true" />
+            <element signature="method#normalizeButton#0;class#NavBarController#0" />
+            <element signature="e#1309#1310#0" expanded="true" />
+            <element signature="e#1339#1340#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/controllers/LoginController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="170">
+          <caret line="21" selection-start-line="21" selection-end-line="21" />
+          <folding>
+            <element signature="e#1315#1316#0" expanded="true" />
+            <element signature="e#1361#1362#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/controllers/RegisterProducts.fxml">
+      <provider editor-type-id="JavaFX-Scene-Builder" />
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="459">
+          <caret line="27" column="15" selection-start-line="27" selection-start-column="15" selection-end-line="27" selection-end-column="15" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/controllers/MainController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="173">
+          <caret line="57" column="5" selection-start-line="57" selection-start-column="5" selection-end-line="57" selection-end-column="5" />
+          <folding>
+            <element signature="e#2205#2206#0" expanded="true" />
+            <element signature="e#2240#2241#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/controllers/Products.fxml">
+      <provider editor-type-id="JavaFX-Scene-Builder" />
       <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret column="38" lean-forward="true" selection-start-column="38" selection-end-column="38" />
+        <state relative-caret-position="261">
+          <caret line="16" column="8" lean-forward="true" selection-start-line="16" selection-start-column="8" selection-end-line="16" selection-end-column="8" />
         </state>
       </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/controllers/NavBar.fxml">
       <provider editor-type-id="JavaFX-Scene-Builder" />
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="221">
+          <caret line="37" column="38" lean-forward="true" selection-start-line="37" selection-start-column="38" selection-end-line="37" selection-end-column="67" />
+        </state>
+      </provider>
     </entry>
   </component>
   <component name="masterDetails">
@@ -751,6 +832,7 @@
             <option name="proportions">
               <list>
                 <option value="0.2" />
+                <option value="0.6" />
               </list>
             </option>
           </splitter-proportions>
