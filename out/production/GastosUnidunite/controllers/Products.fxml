@@ -3,44 +3,33 @@
 <?import com.jfoenix.controls.JFXButton?>
 <?import com.jfoenix.controls.JFXTextField?>
 <?import com.jfoenix.controls.JFXTreeTableView?>
-<?import javafx.geometry.Insets?>
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.Pane?>
-<?import javafx.scene.layout.StackPane?>
-<?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<BorderPane fx:id="mainBorderPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity"
-            prefHeight="790.0" prefWidth="1018.0" xmlns="http://javafx.com/javafx/10.0.1"
-            xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.ProductsController"
-            BorderPane.alignment="CENTER">
+<BorderPane fx:id="mainBorderPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="790.0" prefWidth="1018.0" BorderPane.alignment="CENTER" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.ProductsController">
     <top>
-        <Pane prefHeight="98.0" prefWidth="1018.0" style="-fx-background-color: #3A7CF3;"
-              styleClass="nav-bar-panel" stylesheets="@Home.css" BorderPane.alignment="CENTER">
+        <Pane prefHeight="98.0" prefWidth="1018.0" style="-fx-background-color: #3A7CF3;" styleClass="nav-bar-panel" stylesheets="@Home.css" BorderPane.alignment="CENTER">
             <children>
-                <JFXButton buttonType="RAISED" layoutX="291.0" layoutY="41.0"
-                           style="-fx-background-color: #6cb235;" text="Buscar" textFill="WHITE">
+                <JFXButton buttonType="RAISED" layoutX="291.0" layoutY="41.0" style="-fx-background-color: #6cb235;" text="Buscar" textFill="WHITE">
                     <font>
-                        <Font size="13.0"/>
+                        <Font size="13.0" />
                     </font>
                 </JFXButton>
-                <JFXButton buttonType="RAISED" layoutX="798.0" layoutY="34.0" onAction="#goToRegisterProductButton"
-                           prefHeight="43.0" prefWidth="193.0" style="-fx-background-color: #3c8fdc;"
-                           text="Cadastrar Produto" textFill="WHITE">
+                <JFXButton buttonType="RAISED" layoutX="768.0" layoutY="34.0" onAction="#goToRegisterProductButton" prefHeight="43.0" prefWidth="223.0" style="-fx-background-color: #3c8fdc;" text="Cadastrar Produto" textFill="WHITE">
                     <font>
-                        <Font size="19.0"/>
+                        <Font size="19.0" />
                     </font>
                 </JFXButton>
-                <JFXTextField focusColor="#6cb235" labelFloat="true" layoutX="56.0" layoutY="36.0"
-                              prefHeight="25.0" prefWidth="217.0" promptText="Pesquisar">
+                <JFXTextField focusColor="#6cb235" labelFloat="true" layoutX="56.0" layoutY="36.0" prefHeight="25.0" prefWidth="217.0" promptText="Pesquisar">
                     <font>
-                        <Font size="18.0"/>
+                        <Font size="18.0" />
                     </font>
                 </JFXTextField>
             </children>
         </Pane>
     </top>
     <center>
-        <JFXTreeTableView fx:id="mainTableTree" prefHeight="790.0" prefWidth="1018.0" stylesheets="@Home.css" BorderPane.alignment="CENTER"/>
+        <JFXTreeTableView fx:id="mainTableTree" prefHeight="790.0" prefWidth="1018.0" stylesheets="@Home.css" BorderPane.alignment="CENTER" />
     </center>
 </BorderPane>

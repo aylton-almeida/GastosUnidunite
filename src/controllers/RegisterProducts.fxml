@@ -6,63 +6,55 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.StackPane?>
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<BorderPane fx:id="mainBorderPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity"
-            prefHeight="790.0" prefWidth="1018.0" BorderPane.alignment="CENTER" xmlns="http://javafx.com/javafx/10.0.1"
-            xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.RegisterProductsController">
-    <top>
-        <Pane prefHeight="98.0" prefWidth="1018.0" style="-fx-background-color: #3A7CF3;" styleClass="nav-bar-panel"
-              stylesheets="@Home.css" BorderPane.alignment="CENTER">
-            <Label layoutX="50.0" layoutY="32.0" text="Cadastrar Produto" textFill="WHITE">
-                <font>
-                    <Font size="24.0"/>
-                </font>
-            </Label>
-        </Pane>
-    </top>
-    <center>
-        <AnchorPane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
-            <JFXButton buttonType="RAISED" cancelButton="true" layoutX="407.0" layoutY="527.0"
-                       onAction="#registerProduct" prefHeight="39.0" prefWidth="205.0" ripplerFill="WHITE"
-                       style="-fx-background-color: #3c8fdc;" text="Concluir" textFill="WHITE">
-                <font>
-                    <Font size="18.0"/>
-                </font>
-            </JFXButton>
-            <JFXTextField fx:id="nameInput" focusColor="#3c8fdc" labelFloat="true" layoutX="233.0" layoutY="127.0"
-                          promptText="Nome * ">
-                <font>
-                    <Font size="18.0"/>
-                </font>
-            </JFXTextField>
-            <JFXTextField fx:id="codeInput" focusColor="#3c8fdc" labelFloat="true" layoutX="583.0" layoutY="127.0"
-                          onKeyTyped="#checkNumber" promptText="Código *">
-                <font>
-                    <Font size="18.0"/>
-                </font>
-            </JFXTextField>
-            <JFXTextField fx:id="valueInput" focusColor="#3c8fdc" labelFloat="true" layoutX="583.0" layoutY="257.0"
-                          onKeyTyped="#checkNumber" promptText="Valor *">
-                <font>
-                    <Font size="18.0"/>
-                </font>
-            </JFXTextField>
-            <JFXTextField fx:id="factoryInput" focusColor="#3c8fdc" labelFloat="true" layoutX="233.0" layoutY="387.0"
-                          prefHeight="39.0" prefWidth="350.0" promptText="Fábrica">
-                <font>
-                    <Font size="18.0"/>
-                </font>
-            </JFXTextField>
-            <JFXTextField fx:id="sizeInput" focusColor="#3c8fdc" labelFloat="true" layoutX="233.0" layoutY="257.0"
-                          promptText="Tamanho *">
-                <font>
-                    <Font size="18.0"/>
-                </font>
-            </JFXTextField>
-            <Text layoutX="416.0" layoutY="602.0" strokeType="OUTSIDE" strokeWidth="0.0"
-                  text="Campos com um * são obrigatorios" wrappingWidth="188.388671875"/>
-        </AnchorPane>
-    </center>
-</BorderPane>
+<StackPane fx:id="mainStackPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="790.0" prefWidth="1018.0" BorderPane.alignment="CENTER" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.RegisterProductsController">
+    <BorderPane fx:id="mainBorderPane">
+        <top>
+            <Pane prefHeight="98.0" prefWidth="1018.0" style="-fx-background-color: #3A7CF3;" styleClass="nav-bar-panel" stylesheets="@Home.css" BorderPane.alignment="CENTER">
+                <Label layoutX="50.0" layoutY="32.0" text="Cadastrar Produto" textFill="WHITE">
+                    <font>
+                        <Font size="24.0" />
+                    </font>
+                </Label>
+            </Pane>
+        </top>
+        <center>
+            <AnchorPane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+                <JFXTextField fx:id="nameInput" focusColor="#3c8fdc" labelFloat="true" layoutX="233.0" layoutY="127.0" promptText="Nome * ">
+                    <font>
+                        <Font size="18.0" />
+                    </font>
+                </JFXTextField>
+                <JFXTextField fx:id="codeInput" focusColor="#3c8fdc" labelFloat="true" layoutX="583.0" layoutY="127.0" onKeyTyped="#checkNumber" promptText="Código *">
+                    <font>
+                        <Font size="18.0" />
+                    </font>
+                </JFXTextField>
+                <JFXTextField fx:id="sizeInput" focusColor="#3c8fdc" labelFloat="true" layoutX="233.0" layoutY="257.0" promptText="Tamanho *">
+                    <font>
+                        <Font size="18.0" />
+                    </font>
+                </JFXTextField>
+                <JFXTextField fx:id="valueInput" focusColor="#3c8fdc" labelFloat="true" layoutX="583.0" layoutY="257.0" onKeyTyped="#checkNumber" promptText="Valor *">
+                    <font>
+                        <Font size="18.0" />
+                    </font>
+                </JFXTextField>
+                <JFXTextField fx:id="factoryInput" focusColor="#3c8fdc" labelFloat="true" layoutX="233.0" layoutY="387.0" prefHeight="39.0" prefWidth="350.0" promptText="Fábrica">
+                    <font>
+                        <Font size="18.0" />
+                    </font>
+                </JFXTextField>
+                <JFXButton buttonType="RAISED" cancelButton="true" layoutX="407.0" layoutY="527.0" onAction="#registerProduct" prefHeight="39.0" prefWidth="205.0" ripplerFill="WHITE" style="-fx-background-color: #3c8fdc;" text="Concluir" textFill="WHITE">
+                    <font>
+                        <Font size="18.0" />
+                    </font>
+                </JFXButton>
+                <Text layoutX="388.0" layoutY="590.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Campos com um * são obrigatorios" wrappingWidth="242.388671875" />
+            </AnchorPane>
+        </center>
+    </BorderPane>
+</StackPane>
