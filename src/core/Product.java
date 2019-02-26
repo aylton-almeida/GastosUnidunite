@@ -3,6 +3,7 @@ package core;
 import com.jfoenix.controls.datamodels.treetable.RecursiveTreeObject;
 import interfaces.Registrabel;
 
+import javafx.beans.property.IntegerProperty;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.SimpleIntegerProperty;
 import javafx.beans.property.SimpleDoubleProperty;
@@ -38,12 +39,20 @@ public class Product extends RecursiveTreeObject<Product> implements Registrabel
         return id.get();
     }
 
+    public IntegerProperty getID(){
+        return this.id;
+    }
+
     public void setId(int id) {
         this.id = new SimpleIntegerProperty(id);
     }
 
     public String getName() {
         return name.get();
+    }
+
+    public SimpleStringProperty getNAME(){
+        return this.name;
     }
 
     public void setName(String name) {
@@ -54,6 +63,10 @@ public class Product extends RecursiveTreeObject<Product> implements Registrabel
         return factory.get();
     }
 
+    public SimpleStringProperty getFACTORY(){
+        return this.factory;
+    }
+
     public void setFactory(String factory) {
         this.factory = new SimpleStringProperty(factory);
     }
@@ -62,12 +75,20 @@ public class Product extends RecursiveTreeObject<Product> implements Registrabel
         return size.get();
     }
 
+    public SimpleStringProperty getSIZE(){
+        return this.size;
+    }
+
     public void setSize(String size) {
         this.size = new SimpleStringProperty(size);
     }
 
     public double getValue() {
         return value.get();
+    }
+
+    public SimpleDoubleProperty getVALUE(){
+        return this.value;
     }
 
     public void setValue(double value) {
