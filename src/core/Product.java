@@ -3,21 +3,19 @@ package core;
 import com.jfoenix.controls.datamodels.treetable.RecursiveTreeObject;
 import interfaces.Registrabel;
 
-import javafx.beans.property.IntegerProperty;
-import javafx.beans.property.SimpleStringProperty;
-import javafx.beans.property.SimpleIntegerProperty;
-import javafx.beans.property.SimpleDoubleProperty;
+import javafx.beans.property.*;
+
 import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
 import java.io.DataInputStream;
 import java.io.DataOutputStream;
 
 public class Product extends RecursiveTreeObject<Product> implements Registrabel {
-    private SimpleIntegerProperty id;
-    private SimpleStringProperty name;
-    private SimpleStringProperty factory;
-    private SimpleStringProperty size;
-    private SimpleDoubleProperty value;
+    private IntegerProperty id;
+    private StringProperty name;
+    private StringProperty factory;
+    private StringProperty size;
+    private DoubleProperty value;
 
     public Product(int id, String name, String factory, String size, double value) {
         setId(id);
@@ -39,7 +37,7 @@ public class Product extends RecursiveTreeObject<Product> implements Registrabel
         return id.get();
     }
 
-    public IntegerProperty getID(){
+    public IntegerProperty getIdProperty(){
         return this.id;
     }
 
@@ -51,7 +49,7 @@ public class Product extends RecursiveTreeObject<Product> implements Registrabel
         return name.get();
     }
 
-    public SimpleStringProperty getNAME(){
+    public StringProperty getNameProperty(){
         return this.name;
     }
 
@@ -63,7 +61,7 @@ public class Product extends RecursiveTreeObject<Product> implements Registrabel
         return factory.get();
     }
 
-    public SimpleStringProperty getFACTORY(){
+    public StringProperty getFactoryProperty(){
         return this.factory;
     }
 
@@ -75,7 +73,7 @@ public class Product extends RecursiveTreeObject<Product> implements Registrabel
         return size.get();
     }
 
-    public SimpleStringProperty getSIZE(){
+    public StringProperty getSizeProperty(){
         return this.size;
     }
 
@@ -87,7 +85,7 @@ public class Product extends RecursiveTreeObject<Product> implements Registrabel
         return value.get();
     }
 
-    public SimpleDoubleProperty getVALUE(){
+    public DoubleProperty getValueProperty(){
         return this.value;
     }
 
