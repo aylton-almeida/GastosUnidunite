@@ -3,6 +3,7 @@
 <?import com.jfoenix.controls.JFXButton?>
 <?import com.jfoenix.controls.JFXTextField?>
 <?import com.jfoenix.controls.JFXTreeTableView?>
+<?import javafx.scene.control.TreeTableColumn?>
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
@@ -30,6 +31,13 @@
         </Pane>
     </top>
     <center>
-        <JFXTreeTableView fx:id="mainTableTree" prefHeight="790.0" prefWidth="1018.0" stylesheets="@Home.css" BorderPane.alignment="CENTER" />
+        <JFXTreeTableView fx:id="mainTableTree" prefHeight="790.0" prefWidth="1018.0" stylesheets="@Home.css" BorderPane.alignment="CENTER">
+         <columns>
+            <TreeTableColumn fx:id="idColumn" prefWidth="121.0" text="ID" />
+            <TreeTableColumn fx:id="nameColumn" prefWidth="109.0" text="Nome" />
+            <TreeTableColumn fx:id="sizeColumn" prefWidth="103.0" text="Tamanho" />
+            <TreeTableColumn fx:id="factoryColumn" prefWidth="128.0" text="Fabrica" />
+            <TreeTableColumn fx:id="valueColumn" prefWidth="126.0" text="Preço" />
+         </columns></JFXTreeTableView>
     </center>
 </BorderPane>
