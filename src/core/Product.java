@@ -1,21 +1,21 @@
 package core;
 
-import com.jfoenix.controls.datamodels.treetable.RecursiveTreeObject;
 import interfaces.Registrabel;
-
-import javafx.beans.property.*;
+import javafx.beans.property.SimpleDoubleProperty;
+import javafx.beans.property.SimpleIntegerProperty;
+import javafx.beans.property.SimpleStringProperty;
 
 import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
 import java.io.DataInputStream;
 import java.io.DataOutputStream;
 
-public class Product extends RecursiveTreeObject<Product> implements Registrabel {
-    private IntegerProperty id;
-    private StringProperty name;
-    private StringProperty factory;
-    private StringProperty size;
-    private DoubleProperty value;
+public class Product implements Registrabel {
+    private SimpleIntegerProperty id;
+    private SimpleStringProperty name;
+    private SimpleStringProperty factory;
+    private SimpleStringProperty size;
+    private SimpleDoubleProperty value;
 
     public Product(int id, String name, String factory, String size, double value) {
         setId(id);
@@ -37,20 +37,12 @@ public class Product extends RecursiveTreeObject<Product> implements Registrabel
         return id.get();
     }
 
-    public IntegerProperty getIdProperty(){
-        return this.id;
-    }
-
     public void setId(int id) {
         this.id = new SimpleIntegerProperty(id);
     }
 
     public String getName() {
         return name.get();
-    }
-
-    public StringProperty getNameProperty(){
-        return this.name;
     }
 
     public void setName(String name) {
@@ -61,10 +53,6 @@ public class Product extends RecursiveTreeObject<Product> implements Registrabel
         return factory.get();
     }
 
-    public StringProperty getFactoryProperty(){
-        return this.factory;
-    }
-
     public void setFactory(String factory) {
         this.factory = new SimpleStringProperty(factory);
     }
@@ -73,20 +61,12 @@ public class Product extends RecursiveTreeObject<Product> implements Registrabel
         return size.get();
     }
 
-    public StringProperty getSizeProperty(){
-        return this.size;
-    }
-
     public void setSize(String size) {
         this.size = new SimpleStringProperty(size);
     }
 
     public double getValue() {
         return value.get();
-    }
-
-    public DoubleProperty getValueProperty(){
-        return this.value;
     }
 
     public void setValue(double value) {
@@ -109,11 +89,11 @@ public class Product extends RecursiveTreeObject<Product> implements Registrabel
     public Registrabel setByteArray(byte[] b) throws Exception {
         ByteArrayInputStream record = new ByteArrayInputStream(b);
         DataInputStream input = new DataInputStream(record);
-        setName(input.readUTF());
-        setValue(input.readDouble());
-        setFactory(input.readUTF());
         setId(input.readInt());
+        setName(input.readUTF());
         setSize(input.readUTF());
+        setFactory(input.readUTF());
+        setValue(input.readDouble());
         return this;
     }
 }
