@@ -1,6 +1,6 @@
 package dao;
 
-import core.Employee;
+import logic.Employee;
 import interfaces.Dao;
 
 import java.util.List;

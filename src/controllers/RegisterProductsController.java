@@ -2,7 +2,7 @@ package controllers;
 
 
 import com.jfoenix.controls.JFXTextField;
-import core.Product;
+import logic.Product;
 import javafx.fxml.Initializable;
 import javafx.scene.input.KeyEvent;
 import services.ProductService;

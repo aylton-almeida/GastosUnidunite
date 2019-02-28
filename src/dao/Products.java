@@ -1,7 +1,6 @@
 package dao;
 
-import core.Product;
-import core.User;
+import logic.Product;
 import interfaces.Dao;
 
 import java.io.RandomAccessFile;

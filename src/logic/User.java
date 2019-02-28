@@ -1,4 +1,4 @@
-package core;
+package logic;
 
 import exceptions.UserException;
 import interfaces.Registrabel;

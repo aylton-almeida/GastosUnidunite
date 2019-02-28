@@ -1,6 +1,6 @@
 package services;
 
-import core.Product;
+import logic.Product;
 import dao.Products;
 
 import java.util.List;

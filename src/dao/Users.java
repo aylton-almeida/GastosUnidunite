@@ -1,6 +1,6 @@
 package dao;
 
-import core.User;
+import logic.User;
 import interfaces.Dao;
 import java.io.*;
 import java.util.ArrayList;

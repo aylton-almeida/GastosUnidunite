@@ -1,6 +1,6 @@
 package controllers;
 
-import core.Product;
+import logic.Product;
 import javafx.event.ActionEvent;
 import javafx.fxml.Initializable;
 import javafx.scene.control.TableColumn;

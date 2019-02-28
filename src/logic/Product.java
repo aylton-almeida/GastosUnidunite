@@ -1,4 +1,4 @@
-package core;
+package logic;
 
 import interfaces.Registrabel;
 import javafx.beans.property.SimpleDoubleProperty;
@@ -89,11 +89,11 @@ public class Product implements Registrabel {
     public Registrabel setByteArray(byte[] b) throws Exception {
         ByteArrayInputStream record = new ByteArrayInputStream(b);
         DataInputStream input = new DataInputStream(record);
-        setId(input.readInt());
         setName(input.readUTF());
-        setSize(input.readUTF());
         setFactory(input.readUTF());
+        setSize(input.readUTF());
         setValue(input.readDouble());
+        setId(input.readInt());
         return this;
     }
 }

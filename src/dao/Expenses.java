@@ -1,6 +1,6 @@
 package dao;
 
-import core.Expense;
+import logic.Expense;
 import interfaces.Dao;
 
 import java.util.List;
