@@ -3,6 +3,8 @@ package controllers;
 import com.jfoenix.controls.JFXButton;
 import javafx.event.ActionEvent;
 import javafx.fxml.Initializable;
+import javafx.scene.layout.BorderPane;
+import javafx.scene.layout.StackPane;
 
 import java.net.URL;
 import java.util.ArrayList;
@@ -19,63 +21,44 @@ public class NavBarController extends MainController implements Initializable {
     public JFXButton expensesButton;
     public JFXButton totalsButton;
 
-    @Override
-    public void initialize(URL url, ResourceBundle resourceBundle) {
-        loadCenterUI("Home.fxml");
-    }
-
     public void goToProducts(ActionEvent event) {
         clearNavBar();
         normalizeButton();
-        highightButton(productsButton);
+        highLightButton(productsButton);
         loadCenterUI("Products.fxml");
     }
 
     public void goToSales(ActionEvent event) {
-        clearNavBar();
-        normalizeButton();
-        highightButton(salesButton);
         loadCenterUI("Sales.fxml");
     }
 
     public void goToExpenses(ActionEvent event) {
-        clearNavBar();
-        normalizeButton();
-        highightButton(expensesButton);
         loadCenterUI("Expenses.fxml");
     }
 
     public void goToEmployees(ActionEvent event) {
-        clearNavBar();
-        normalizeButton();
-        highightButton(employeesButton);
         loadCenterUI("Employees.fxml");
     }
 
     public void goToTotals(ActionEvent event) {
-        clearNavBar();
-        normalizeButton();
-        highightButton(totalsButton);
         loadCenterUI("Totals.fxml");
     }
 
     public void goToClients(ActionEvent event) {
         clearNavBar();
         normalizeButton();
-        highightButton(clientsButton);
+        highLightButton(clientsButton);
         loadCenterUI("Clients.fxml");
     }
 
     public void goToHome(ActionEvent event) {
         clearNavBar();
         normalizeButton();
-        highightButton(homeButton);
+        highLightButton(homeButton);
         loadCenterUI("Home.fxml");
     }
 
-
-    //Voltar o botão para as cores normais
-    public void normalizeButton() {
+    private void normalizeButton() {
         List<JFXButton> buttons = new ArrayList<>();
         buttons.add(homeButton);
         buttons.add(productsButton);
@@ -92,9 +75,14 @@ public class NavBarController extends MainController implements Initializable {
                 });
     }
 
-    //Colocar destaque no bottao
-    public void highightButton(JFXButton button){
+    private void highLightButton(JFXButton button){
         button.setButtonType(com.jfoenix.controls.JFXButton.ButtonType.RAISED);
         button.setStyle("-fx-background-color: #3A7CF3;");
+    }
+
+
+    @Override
+    public void initialize(URL url, ResourceBundle resourceBundle) {
+        loadCenterUI("Home.fxml");
     }
 }

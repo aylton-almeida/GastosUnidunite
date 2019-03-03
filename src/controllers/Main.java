@@ -10,7 +10,7 @@ public class Main extends Application {
 
     @Override
     public void start(Stage primaryStage) throws Exception{
-        Parent root = FXMLLoader.load(getClass().getResource("NavBar.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("Main.fxml"));
         primaryStage.setTitle("Gerenciador Financeiro");
         primaryStage.setScene(new Scene(root));
         primaryStage.setMinHeight(790);

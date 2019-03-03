@@ -11,7 +11,7 @@
 
 <BorderPane fx:id="mainBorderPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="790.0" prefWidth="1018.0" BorderPane.alignment="CENTER" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.ProductsController">
     <top>
-        <Pane prefHeight="98.0" prefWidth="1018.0" style="-fx-background-color: #3A7CF3;" styleClass="nav-bar-panel" stylesheets="@Home.css" BorderPane.alignment="CENTER">
+        <Pane prefHeight="98.0" prefWidth="1018.0" style="-fx-background-color: #3A7CF3;" styleClass="nav-bar-panel" stylesheets="@Main.css" BorderPane.alignment="CENTER">
             <children>
                 <Label layoutX="50.0" layoutY="20.0" text="Pesquisa por código:" textFill="WHITE">
                     <font>
@@ -42,7 +42,7 @@
         </Pane>
     </top>
    <center>
-      <TableView fx:id="mainTableView" prefHeight="698.0" prefWidth="1018.0" stylesheets="@Home.css" BorderPane.alignment="CENTER">
+      <TableView fx:id="mainTableView" prefHeight="698.0" prefWidth="1018.0" stylesheets="@Main.css" BorderPane.alignment="CENTER">
         <columns>
           <TableColumn fx:id="idColumn" prefWidth="100.0" text="ID" />
           <TableColumn fx:id="nameColumn" prefWidth="250.0" text="Nome" />

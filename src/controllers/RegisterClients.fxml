@@ -13,7 +13,7 @@
 <StackPane fx:id="mainStackPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="790.0" prefWidth="1018.0" BorderPane.alignment="CENTER" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.RegisterClientsController">
     <BorderPane fx:id="mainBorderPane">
         <top>
-            <Pane prefHeight="98.0" prefWidth="1018.0" style="-fx-background-color: #3A7CF3;" styleClass="nav-bar-panel" stylesheets="@Home.css" BorderPane.alignment="CENTER">
+            <Pane prefHeight="98.0" prefWidth="1018.0" style="-fx-background-color: #3A7CF3;" styleClass="nav-bar-panel" stylesheets="@Main.css" BorderPane.alignment="CENTER">
                 <Label layoutX="50.0" layoutY="32.0" text="Cadastrar Produto" textFill="WHITE">
                     <font>
                         <Font size="24.0" />
@@ -43,12 +43,12 @@
                         <Font size="18.0" />
                     </font>
                 </JFXTextField>
-                <JFXButton buttonType="RAISED" cancelButton="true" layoutX="407.0" layoutY="527.0" onAction="#registerClient" prefHeight="39.0" prefWidth="205.0" ripplerFill="WHITE" style="-fx-background-color: #3c8fdc;" text="Concluir" textFill="WHITE">
+                <JFXButton buttonType="RAISED" cancelButton="true" layoutX="407.0" layoutY="527.0" prefHeight="39.0" onAction="#registerClient" prefWidth="205.0" ripplerFill="WHITE" style="-fx-background-color: #3c8fdc;" text="Concluir" textFill="WHITE">
                     <font>
                         <Font size="18.0" />
                     </font>
                 </JFXButton>
-                <Text layoutX="388.0" layoutY="590.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Campos com um * são obrigatorios" wrappingWidth="242.388671875" />
+                <Text layoutX="414.0" layoutY="592.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Campos com um * são obrigatorios" wrappingWidth="190.388671875" />
             </AnchorPane>
         </center>
     </BorderPane>
