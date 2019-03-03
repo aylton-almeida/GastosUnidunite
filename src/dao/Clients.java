@@ -23,13 +23,14 @@ public class Clients implements Dao<Client> {
     }
 
     @Override
-    public List getAllObjects() throws Exception {
+    public List<Client> getAllObjects() throws Exception {
         RandomAccessFile file = new RandomAccessFile(getFileName(), "r");
         List<Client> clientList = new ArrayList();
+        file.readInt();
         int actualPoint = 0;
         while (actualPoint < file.length()) {
             int size = file.readInt();
-            byte b[] = new byte[size];
+            byte[] b = new byte[size];
             file.read(b);
             clientList.add((Client) new Client().setByteArray(b));
             actualPoint += 4 + size;
@@ -39,12 +40,13 @@ public class Clients implements Dao<Client> {
     }
 
     @Override
-    public Object getObject(Object key) throws Exception {
+    public Client getObject(Object key) throws Exception {
         RandomAccessFile file = new RandomAccessFile(getFileName(), "r");
         int actualPoint = 0;
+        file.readInt();
         while (actualPoint < file.length()) {
             int size = file.readInt();
-            byte b[] = new byte[size];
+            byte[] b = new byte[size];
             file.read(b);
             Client client = (Client) new Client().setByteArray(b);
             if (client.getId() == (int) key)
@@ -58,9 +60,13 @@ public class Clients implements Dao<Client> {
     @Override
     public void addObject(Client o) throws Exception {
         RandomAccessFile file = new RandomAccessFile(getFileName(), "rw");
+        int newID = file.readInt() + 1;
+        o.setId(newID);
         file.seek(file.length());
         file.writeInt(o.getByteArray().length);
         file.write(o.getByteArray());
+        file.seek(0);
+        file.writeInt(newID);
         file.close();
     }
 

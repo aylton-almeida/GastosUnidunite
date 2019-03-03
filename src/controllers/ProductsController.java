@@ -45,7 +45,7 @@ public class ProductsController extends MainController implements Initializable 
                 .forEach(product -> mainTableView.getItems().add(product));
     }
 
-    public void goToRegisterProductButton(ActionEvent event) {
+    public void goToRegisterProduct(ActionEvent event) {
         clearMainArea();
         loadCenterUI("RegisterProducts.fxml");
     }

@@ -2,9 +2,11 @@ package controllers;
 
 import com.jfoenix.controls.JFXDialog;
 import com.jfoenix.controls.JFXDialogLayout;
+import com.jfoenix.controls.JFXTextField;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
+import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.StackPane;
 import javafx.scene.text.Text;
@@ -76,5 +78,20 @@ public class MainController implements Initializable {
     public void clearMainArea() {
         this.mainBorderPane.setCenter(null);
         this.mainBorderPane.setTop(null);
+    }
+
+    public void checkNumber(KeyEvent keyEvent) {
+        JFXTextField field = ((JFXTextField) keyEvent.getSource());
+        if (!keyEvent.getCharacter().matches("[0-9]*") && !keyEvent.getCharacter().matches(".")) {
+            if (field.getText().length() == 1) {
+                field.setText("");
+            } else {
+                if (field.getText().length() > 0) {
+                    String input = field.getText();
+                    field.setText(input.substring(0, input.length() - 1));
+                }
+            }
+        }
+        field.positionCaret(field.getText().length());
     }
 }

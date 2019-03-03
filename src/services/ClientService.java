@@ -11,4 +11,8 @@ public class ClientService {
     public List<Client> getAllClients() throws Exception {
         return clients.getAllObjects();
     }
+
+    public void addClient(Client c) throws Exception{
+        clients.addObject(c);
+    }
 }

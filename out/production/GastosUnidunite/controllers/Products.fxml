@@ -23,7 +23,7 @@
                         <Font size="13.0" />
                     </font>
                 </JFXButton>
-                <JFXButton buttonType="RAISED" layoutX="768.0" layoutY="34.0" onAction="#goToRegisterProductButton" prefHeight="43.0" prefWidth="223.0" style="-fx-background-color: #3c8fdc;" text="Cadastrar Produto" textFill="WHITE">
+                <JFXButton buttonType="RAISED" layoutX="768.0" layoutY="34.0" onAction="#goToRegisterProduct" prefHeight="43.0" prefWidth="223.0" style="-fx-background-color: #3c8fdc;" text="Cadastrar Produto" textFill="WHITE">
                     <font>
                         <Font size="19.0" />
                     </font>

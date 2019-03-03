@@ -9,7 +9,7 @@ import java.io.ByteArrayOutputStream;
 import java.io.DataInputStream;
 import java.io.DataOutputStream;
 
-public class Client implements Registrabel, Comparable {
+public class  Client implements Registrabel, Comparable {
 
     private SimpleStringProperty name;
     private SimpleStringProperty adress;
@@ -17,11 +17,10 @@ public class Client implements Registrabel, Comparable {
     private SimpleIntegerProperty id;
     private SimpleIntegerProperty phone;
 
-    public Client(String name, String adress, String email, int id, int phone) {
+    public Client(String name, String adress, String email, int phone) {
         setName(name);
         setAdress(adress);
         setEmail(email);
-        setId(id);
         setPhone(phone);
     }
 

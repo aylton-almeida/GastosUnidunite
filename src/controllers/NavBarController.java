@@ -27,59 +27,54 @@ public class NavBarController extends MainController implements Initializable {
     public void goToProducts(ActionEvent event) {
         clearNavBar();
         normalizeButton();
-        productsButton.setButtonType(com.jfoenix.controls.JFXButton.ButtonType.RAISED);
-        productsButton.setStyle("-fx-background-color: #3A7CF3;");
+        highightButton(productsButton);
         loadCenterUI("Products.fxml");
     }
 
     public void goToSales(ActionEvent event) {
         clearNavBar();
         normalizeButton();
-        salesButton.setButtonType(com.jfoenix.controls.JFXButton.ButtonType.RAISED);
-        salesButton.setStyle("-fx-background-color: #3A7CF3;");
+        highightButton(salesButton);
         loadCenterUI("Sales.fxml");
     }
 
     public void goToExpenses(ActionEvent event) {
         clearNavBar();
         normalizeButton();
-        expensesButton.setButtonType(com.jfoenix.controls.JFXButton.ButtonType.RAISED);
-        expensesButton.setStyle("-fx-background-color: #3A7CF3;");
+        highightButton(expensesButton);
         loadCenterUI("Expenses.fxml");
     }
 
     public void goToEmployees(ActionEvent event) {
         clearNavBar();
         normalizeButton();
-        employeesButton.setButtonType(com.jfoenix.controls.JFXButton.ButtonType.RAISED);
-        employeesButton.setStyle("-fx-background-color: #3A7CF3;");
+        highightButton(employeesButton);
         loadCenterUI("Employees.fxml");
     }
 
     public void goToTotals(ActionEvent event) {
         clearNavBar();
         normalizeButton();
-        totalsButton.setButtonType(com.jfoenix.controls.JFXButton.ButtonType.RAISED);
-        totalsButton.setStyle("-fx-background-color: #3A7CF3;");
+        highightButton(totalsButton);
         loadCenterUI("Totals.fxml");
     }
 
     public void goToClients(ActionEvent event) {
         clearNavBar();
         normalizeButton();
-        clientsButton.setButtonType(com.jfoenix.controls.JFXButton.ButtonType.RAISED);
-        clientsButton.setStyle("-fx-background-color: #3A7CF3;");
+        highightButton(clientsButton);
         loadCenterUI("Clients.fxml");
     }
 
     public void goToHome(ActionEvent event) {
         clearNavBar();
         normalizeButton();
-        homeButton.setButtonType(com.jfoenix.controls.JFXButton.ButtonType.RAISED);
-        homeButton.setStyle("-fx-background-color: #3A7CF3;");
+        highightButton(homeButton);
         loadCenterUI("Home.fxml");
     }
 
+
+    //Voltar o botão para as cores normais
     public void normalizeButton() {
         List<JFXButton> buttons = new ArrayList<>();
         buttons.add(homeButton);
@@ -95,5 +90,11 @@ public class NavBarController extends MainController implements Initializable {
                     button.setButtonType(com.jfoenix.controls.JFXButton.ButtonType.FLAT);
                     button.setStyle("-fx-background-color: #3c8fdc;");
                 });
+    }
+
+    //Colocar destaque no bottao
+    public void highightButton(JFXButton button){
+        button.setButtonType(com.jfoenix.controls.JFXButton.ButtonType.RAISED);
+        button.setStyle("-fx-background-color: #3A7CF3;");
     }
 }
