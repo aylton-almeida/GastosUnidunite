@@ -2,15 +2,15 @@ package controllers;
 
 
 import com.jfoenix.controls.JFXTextField;
-import logic.Product;
 import javafx.fxml.Initializable;
 import javafx.scene.input.KeyEvent;
+import logic.Product;
 import services.ProductService;
 
 import java.net.URL;
 import java.util.ResourceBundle;
 
-public class RegisterProductsController extends MainController implements Initializable {
+public class RegisterProductsController extends MainController {
 
 
     public JFXTextField nameInput;
@@ -48,10 +48,5 @@ public class RegisterProductsController extends MainController implements Initia
             }
         }
         field.positionCaret(field.getText().length());
-    }
-
-    @Override
-    public void initialize(URL url, ResourceBundle resourceBundle) {
-
     }
 }

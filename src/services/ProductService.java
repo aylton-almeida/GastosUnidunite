@@ -1,7 +1,7 @@
 package services;
 
-import logic.Product;
 import dao.Products;
+import logic.Product;
 
 import java.util.List;
 

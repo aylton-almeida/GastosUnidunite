@@ -1,18 +1,17 @@
 package dao;
 
 import interfaces.Dao;
-import logic.Product;
+import logic.Client;
 
 import java.io.RandomAccessFile;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Products implements Dao<Product> {
-
+public class Clients implements Dao<Client> {
     private String fileName;
 
-    public Products(){
-        setFileName("products");
+    public Clients() {
+        setFileName("clients");
     }
 
     public String getFileName() {
@@ -24,32 +23,32 @@ public class Products implements Dao<Product> {
     }
 
     @Override
-    public List<Product> getAllObjects() throws Exception {
+    public List getAllObjects() throws Exception {
         RandomAccessFile file = new RandomAccessFile(getFileName(), "r");
-        List<Product> productList = new ArrayList();
+        List<Client> clientList = new ArrayList();
         int actualPoint = 0;
         while (actualPoint < file.length()) {
             int size = file.readInt();
             byte b[] = new byte[size];
             file.read(b);
-            productList.add((Product) new Product().setByteArray(b));
+            clientList.add((Client) new Client().setByteArray(b));
             actualPoint += 4 + size;
         }
         file.close();
-        return productList;
+        return clientList;
     }
 
     @Override
-    public Product getObject(Object key) throws Exception {
+    public Object getObject(Object key) throws Exception {
         RandomAccessFile file = new RandomAccessFile(getFileName(), "r");
         int actualPoint = 0;
         while (actualPoint < file.length()) {
             int size = file.readInt();
             byte b[] = new byte[size];
             file.read(b);
-            Product product = (Product) new Product().setByteArray(b);
-            if (product.getId() == (int) key)
-                return product;
+            Client client = (Client) new Client().setByteArray(b);
+            if (client.getId() == (int) key)
+                return client;
             actualPoint += 4 + size;
         }
         file.close();
@@ -57,7 +56,7 @@ public class Products implements Dao<Product> {
     }
 
     @Override
-    public void addObject(Product o) throws Exception {
+    public void addObject(Client o) throws Exception {
         RandomAccessFile file = new RandomAccessFile(getFileName(), "rw");
         file.seek(file.length());
         file.writeInt(o.getByteArray().length);
@@ -66,12 +65,12 @@ public class Products implements Dao<Product> {
     }
 
     @Override
-    public void updateObject(Product o) throws Exception {
+    public void updateObject(Client o) throws Exception {
 
     }
 
     @Override
-    public void deleteObject(Product o) throws Exception {
+    public void deleteObject(Client o) throws Exception {
 
     }
 }

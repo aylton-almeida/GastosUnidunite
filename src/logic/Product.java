@@ -10,7 +10,7 @@ import java.io.ByteArrayOutputStream;
 import java.io.DataInputStream;
 import java.io.DataOutputStream;
 
-public class Product implements Registrabel {
+public class Product implements Registrabel, Comparable {
     private SimpleIntegerProperty id;
     private SimpleStringProperty name;
     private SimpleStringProperty factory;
@@ -95,5 +95,10 @@ public class Product implements Registrabel {
         setValue(input.readDouble());
         setId(input.readInt());
         return this;
+    }
+
+    @Override
+    public int compareTo(Object o) {
+        return this.getId() - ((Product) o).getId();
     }
 }

@@ -2,6 +2,7 @@
 
 <?import com.jfoenix.controls.JFXButton?>
 <?import com.jfoenix.controls.JFXTextField?>
+<?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.layout.BorderPane?>
@@ -12,7 +13,12 @@
     <top>
         <Pane prefHeight="98.0" prefWidth="1018.0" style="-fx-background-color: #3A7CF3;" styleClass="nav-bar-panel" stylesheets="@Home.css" BorderPane.alignment="CENTER">
             <children>
-                <JFXButton buttonType="RAISED" layoutX="291.0" layoutY="41.0" style="-fx-background-color: #6cb235;" text="Buscar" textFill="WHITE">
+                <Label layoutX="50.0" layoutY="20.0" text="Pesquisa por código:" textFill="WHITE">
+                    <font>
+                        <Font size="18.0" />
+                    </font>
+                </Label>
+                <JFXButton buttonType="RAISED" layoutX="291.0" layoutY="54.0" onAction="#filterSearch" style="-fx-background-color: #6cb235;" text="Buscar" textFill="WHITE">
                     <font>
                         <Font size="13.0" />
                     </font>
@@ -22,11 +28,16 @@
                         <Font size="19.0" />
                     </font>
                 </JFXButton>
-                <JFXTextField focusColor="#6cb235" labelFloat="true" layoutX="56.0" layoutY="36.0" prefHeight="25.0" prefWidth="217.0" promptText="Pesquisar">
+                <JFXTextField fx:id="searchInput" focusColor="#6cb235" layoutX="50.0" layoutY="50.0" prefHeight="25.0" prefWidth="217.0" promptText="Pesquisar...">
                     <font>
-                        <Font size="18.0" />
+                        <Font size="14.0" />
                     </font>
                 </JFXTextField>
+            <JFXButton buttonType="RAISED" layoutX="364.0" layoutY="54.0" onAction="#clearSearch" style="-fx-background-color: #6cb235;" text="Limpar filtros" textFill="WHITE">
+               <font>
+                  <Font size="13.0" />
+               </font>
+            </JFXButton>
             </children>
         </Pane>
     </top>

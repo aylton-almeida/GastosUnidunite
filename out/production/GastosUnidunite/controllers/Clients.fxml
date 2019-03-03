@@ -9,7 +9,7 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
-<BorderPane fx:id="mainBorderPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="790.0" prefWidth="1018.0" BorderPane.alignment="CENTER" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.ProductsController">
+<BorderPane fx:id="mainBorderPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="790.0" prefWidth="1018.0" BorderPane.alignment="CENTER" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.ClientsController">
     <top>
         <Pane prefHeight="98.0" prefWidth="1018.0" style="-fx-background-color: #3A7CF3;" styleClass="nav-bar-panel" stylesheets="@Home.css" BorderPane.alignment="CENTER">
             <children>
@@ -23,7 +23,7 @@
                         <Font size="13.0" />
                     </font>
                 </JFXButton>
-                <JFXButton buttonType="RAISED" layoutX="768.0" layoutY="34.0" onAction="#goToRegisterProductButton" prefHeight="43.0" prefWidth="223.0" style="-fx-background-color: #3c8fdc;" text="Cadastrar Produto" textFill="WHITE">
+                <JFXButton buttonType="RAISED" layoutX="768.0" layoutY="34.0" onAction="#goToRegisterClientsButton" prefHeight="43.0" prefWidth="223.0" style="-fx-background-color: #3c8fdc;" text="Cadastrar Cliente" textFill="WHITE">
                     <font>
                         <Font size="19.0" />
                     </font>
@@ -33,23 +33,23 @@
                         <Font size="14.0" />
                     </font>
                 </JFXTextField>
-            <JFXButton buttonType="RAISED" layoutX="364.0" layoutY="54.0" onAction="#clearSearch" style="-fx-background-color: #6cb235;" text="Limpar filtros" textFill="WHITE">
-               <font>
-                  <Font size="13.0" />
-               </font>
-            </JFXButton>
+                <JFXButton buttonType="RAISED" layoutX="364.0" layoutY="54.0" onAction="#clearSearch" style="-fx-background-color: #6cb235;" text="Limpar filtros" textFill="WHITE">
+                    <font>
+                        <Font size="13.0" />
+                    </font>
+                </JFXButton>
             </children>
         </Pane>
     </top>
-   <center>
-      <TableView fx:id="mainTableView" prefHeight="698.0" prefWidth="1018.0" stylesheets="@Home.css" BorderPane.alignment="CENTER">
-        <columns>
-          <TableColumn fx:id="idColumn" prefWidth="100.0" text="ID" />
-          <TableColumn fx:id="nameColumn" prefWidth="250.0" text="Nome" />
-            <TableColumn fx:id="sizeColumn" prefWidth="150.0" text="Tamanho" />
-            <TableColumn fx:id="factoryColumn" prefWidth="300.0" text="Fábrica" />
-            <TableColumn fx:id="valueColumn" prefWidth="216.0" text="Valor (R$)" />
-        </columns>
-      </TableView>
-   </center>
+    <center>
+        <TableView fx:id="mainTableView" prefHeight="698.0" prefWidth="1018.0" stylesheets="@Home.css" BorderPane.alignment="CENTER">
+            <columns>
+                <TableColumn fx:id="idColumn" prefWidth="100.0" text="ID" />
+                <TableColumn fx:id="nameColumn" prefWidth="214.0" text="Nome" />
+                <TableColumn fx:id="adressColumn" prefWidth="302.0" text="Endereço" />
+                <TableColumn fx:id="emailColumn" prefWidth="200.0" text="E-mail" />
+                <TableColumn fx:id="phoneColumn" prefWidth="200.0" text="Telefone" />
+            </columns>
+        </TableView>
+    </center>
 </BorderPane>

@@ -1,7 +1,8 @@
 package services;
 
-import logic.User;
 import dao.Users;
+import logic.User;
+
 import java.util.ArrayList;
 import java.util.List;
 
