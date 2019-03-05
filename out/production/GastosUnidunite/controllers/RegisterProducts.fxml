@@ -22,7 +22,7 @@
                         <Font size="18.0" />
                     </font>
                 </JFXTextField>
-                <JFXTextField fx:id="codeInput" focusColor="#3c8fdc" labelFloat="true" layoutX="583.0" layoutY="127.0" onKeyTyped="#checkNumber" promptText="Código *">
+                <JFXTextField fx:id="codeInput" focusColor="#3c8fdc" labelFloat="true" layoutX="583.0" layoutY="127.0" promptText="Código *">
                     <font>
                         <Font size="18.0" />
                     </font>
@@ -32,7 +32,7 @@
                         <Font size="18.0" />
                     </font>
                 </JFXTextField>
-                <JFXTextField fx:id="valueInput" focusColor="#3c8fdc" labelFloat="true" layoutX="583.0" layoutY="257.0" onKeyTyped="#checkNumber" promptText="Valor *">
+                <JFXTextField fx:id="valueInput" focusColor="#3c8fdc" labelFloat="true" layoutX="583.0" layoutY="257.0" promptText="Valor *">
                     <font>
                         <Font size="18.0" />
                     </font>

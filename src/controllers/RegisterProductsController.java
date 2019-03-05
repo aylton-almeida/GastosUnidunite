@@ -23,7 +23,7 @@ public class RegisterProductsController extends MainController implements Initia
     public void registerProduct() {
         if (!nameInput.getText().isEmpty() && !codeInput.getText().isEmpty() && !valueInput.getText().isEmpty() && !sizeInput.getText().isEmpty()){
             try {
-                new ProductService().addProduct(new Product(Integer.parseInt(codeInput.getText()), nameInput.getText(), factoryInput.getText(), sizeInput.getText(), Double.parseDouble(valueInput.getText())));
+                new ProductService().addProduct(new Product(Integer.parseInt(codeInput.getText()), nameInput.getText(), factoryInput.getText(), sizeInput.getText(), Double.parseDouble(valueInput.getText().replaceAll(",", "."))));
                 showMsg("Produto cadastrado com sucesso");
                 clearMainArea();
                 loadCenterUI("Products.fxml");
@@ -36,6 +36,11 @@ public class RegisterProductsController extends MainController implements Initia
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-
+        addNumberValidator(valueInput);
+        addNumberValidator(codeInput);
+        addRequiredValidator(nameInput);
+        addRequiredValidator(codeInput);
+        addRequiredValidator(valueInput);
+        addRequiredValidator(sizeInput);
     }
 }

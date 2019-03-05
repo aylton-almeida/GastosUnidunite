@@ -1,13 +1,11 @@
 package controllers;
 
-import com.jfoenix.controls.JFXDialog;
-import com.jfoenix.controls.JFXDialogLayout;
-import com.jfoenix.controls.JFXSpinner;
-import com.jfoenix.controls.JFXTextField;
+import com.jfoenix.controls.*;
+import com.jfoenix.validation.NumberValidator;
+import com.jfoenix.validation.RequiredFieldValidator;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
-import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.StackPane;
 import javafx.scene.text.Text;
@@ -86,20 +84,44 @@ public class MainController implements Initializable{
         mainStackPane.getChildren().remove(1);
     }
 
-    //Não funcional
-    public void checkNumber(KeyEvent keyEvent){
-        JFXTextField field = ((JFXTextField)keyEvent.getSource());
-        if (!keyEvent.getCharacter().matches("[0-9]*") && !keyEvent.getCharacter().matches(".")){
-            if (field.getText().length() == 1){
-                field.setText("");
-            }else{
-                if (field.getText().length() > 0){
-                    String input = field.getText();
-                    field.setText(input.substring(0, input.length() - 1));
-                }
-            }
+    public boolean isEmailValid(JFXTextField field){
+        if (!field.getText().contains("@") || !field.getText().contains(".com")){
+            return false;
         }
-        field.positionCaret(field.getText().length());
+        return true;
+    }
+
+    public void addRequiredValidator(JFXTextField field){
+        RequiredFieldValidator requiredFieldValidator = new RequiredFieldValidator();
+        requiredFieldValidator.setMessage("Esse campo é obrigatório");
+        field.getValidators().add(requiredFieldValidator);
+        field.focusedProperty().addListener(((o, oldValue, newValue) -> {
+            if (!newValue)
+                field.validate();
+        }));
+    }
+
+    public void addRequiredValidator(JFXPasswordField field){
+        RequiredFieldValidator requiredFieldValidator = new RequiredFieldValidator();
+        requiredFieldValidator.setMessage("Esse campo é obrigatório");
+        field.getValidators().add(requiredFieldValidator);
+        field.focusedProperty().addListener(((o, oldValue, newValue) -> {
+            if (!newValue)
+                field.validate();
+        }));
+    }
+
+    public void addNumberValidator(JFXTextField field){
+        NumberValidator numberValidator = new NumberValidator();
+        numberValidator.setMessage("Digite apenas números");
+        field.getValidators().add(numberValidator);
+        field.setOnKeyReleased(e ->{
+            String text = field.getText();
+            if (!field.getText().isEmpty() && !field.validate()){
+                field.setText(text.substring(0, text.length() - 1));
+                field.positionCaret(field.getText().length());
+            }
+        });
     }
 
     @Override

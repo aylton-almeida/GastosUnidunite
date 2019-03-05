@@ -27,7 +27,7 @@
                         <Font size="18.0" />
                     </font>
                 </JFXTextField>
-                <JFXTextField fx:id="phoneInput" focusColor="#3c8fdc" labelFloat="true" layoutX="583.0" layoutY="257.0" onKeyTyped="#checkNumber" promptText="Telefone *">
+                <JFXTextField fx:id="phoneInput" focusColor="#3c8fdc" labelFloat="true" layoutX="583.0" layoutY="257.0" promptText="Telefone *">
                     <font>
                         <Font size="18.0" />
                     </font>
@@ -37,7 +37,7 @@
                         <Font size="18.0" />
                     </font>
                 </JFXTextField>
-                <JFXButton buttonType="RAISED" cancelButton="true" layoutX="407.0" layoutY="527.0" prefHeight="39.0" onAction="#registerClient" prefWidth="205.0" ripplerFill="WHITE" style="-fx-background-color: #3c8fdc;" text="Concluir" textFill="WHITE">
+                <JFXButton buttonType="RAISED" cancelButton="true" layoutX="407.0" layoutY="527.0" onAction="#registerClient" prefHeight="39.0" prefWidth="205.0" ripplerFill="WHITE" style="-fx-background-color: #3c8fdc;" text="Concluir" textFill="WHITE">
                     <font>
                         <Font size="18.0" />
                     </font>

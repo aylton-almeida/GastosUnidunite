@@ -1,23 +1,24 @@
 package controllers;
 
+import com.jfoenix.controls.JFXPasswordField;
+import com.jfoenix.controls.JFXTextField;
 import javafx.event.ActionEvent;
 import javafx.fxml.Initializable;
 import javafx.scene.control.PasswordField;
-import javafx.scene.control.TextField;
 import services.UserService;
 
 import java.net.URL;
 import java.util.ResourceBundle;
 
 public class LoginController extends MainController implements Initializable {
-    public PasswordField inputPass;
-    public TextField inputEmail;
+    public JFXPasswordField inputPass;
+    public JFXTextField inputEmail;
 
     public void makeLogin(ActionEvent event) {
         showLoader();
         String userInput = inputEmail.getText();
         String passInput = inputPass.getText();
-        if (!userInput.isEmpty() && passInput.length() >= 8) {
+        if (!userInput.isEmpty() && passInput.length() >= 8 && isEmailValid(inputEmail)) {
             try {
                 if (new UserService().login(userInput, passInput)) {
                     clearScreen();
@@ -40,6 +41,8 @@ public class LoginController extends MainController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
+        addRequiredValidator(inputEmail);
+        addRequiredValidator(inputPass);
         loadLeftUI("LogoLeftBar.fxml");
     }
 
