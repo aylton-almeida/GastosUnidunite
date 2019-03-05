@@ -8,6 +8,10 @@ import java.util.List;
 public class ClientService {
     private Clients clients;
 
+    public ClientService(){
+        this.clients = new Clients();
+    }
+
     public List<Client> getAllClients() throws Exception {
         return clients.getAllObjects();
     }

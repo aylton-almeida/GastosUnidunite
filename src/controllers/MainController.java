@@ -4,7 +4,6 @@ import com.jfoenix.controls.JFXDialog;
 import com.jfoenix.controls.JFXDialogLayout;
 import com.jfoenix.controls.JFXSpinner;
 import com.jfoenix.controls.JFXTextField;
-import javafx.event.ActionEvent;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
@@ -85,6 +84,22 @@ public class MainController implements Initializable{
 
     public void hideLoader(){
         mainStackPane.getChildren().remove(1);
+    }
+
+    //Não funcional
+    public void checkNumber(KeyEvent keyEvent){
+        JFXTextField field = ((JFXTextField)keyEvent.getSource());
+        if (!keyEvent.getCharacter().matches("[0-9]*") && !keyEvent.getCharacter().matches(".")){
+            if (field.getText().length() == 1){
+                field.setText("");
+            }else{
+                if (field.getText().length() > 0){
+                    String input = field.getText();
+                    field.setText(input.substring(0, input.length() - 1));
+                }
+            }
+        }
+        field.positionCaret(field.getText().length());
     }
 
     @Override

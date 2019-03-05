@@ -15,9 +15,9 @@ public class  Client implements Registrabel, Comparable {
     private SimpleStringProperty adress;
     private SimpleStringProperty email;
     private SimpleIntegerProperty id;
-    private SimpleIntegerProperty phone;
+    private SimpleStringProperty phone;
 
-    public Client(String name, String adress, String email, int phone) {
+    public Client(String name, String adress, String email, String phone) {
         setName(name);
         setAdress(adress);
         setEmail(email);
@@ -29,7 +29,7 @@ public class  Client implements Registrabel, Comparable {
         setAdress("");
         setEmail("");
         setId(-1);
-        setPhone(0);
+        setPhone("");
 
     }
 
@@ -65,12 +65,12 @@ public class  Client implements Registrabel, Comparable {
         this.id = new SimpleIntegerProperty(id);
     }
 
-    public int getPhone() {
+    public String getPhone() {
         return phone.get();
     }
 
-    public void setPhone(int phone) {
-        this.phone = new SimpleIntegerProperty(phone);
+    public void setPhone(String phone) {
+        this.phone = new SimpleStringProperty(phone);
     }
 
     @Override
@@ -80,7 +80,7 @@ public class  Client implements Registrabel, Comparable {
         output.writeUTF(getName());
         output.writeUTF(getAdress());
         output.writeUTF(getEmail());
-        output.writeInt(getPhone());
+        output.writeUTF(getPhone());
         output.writeInt(getId());
         return record.toByteArray();
     }
@@ -92,7 +92,7 @@ public class  Client implements Registrabel, Comparable {
         setName(input.readUTF());
         setAdress(input.readUTF());
         setEmail(input.readUTF());
-        setPhone(input.readInt());
+        setPhone(input.readUTF());
         setId(input.readInt());
         return this;
     }

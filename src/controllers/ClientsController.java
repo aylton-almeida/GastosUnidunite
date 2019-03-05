@@ -7,8 +7,6 @@ import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 import logic.Client;
-import logic.Client;
-import services.ClientService;
 import services.ClientService;
 
 import java.net.URL;
@@ -26,24 +24,24 @@ public class ClientsController extends MainController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-//        idColumn.setCellValueFactory(new PropertyValueFactory<>("Id"));
-//        nameColumn.setCellValueFactory(new PropertyValueFactory<>("Name"));
-//        adressColumn.setCellValueFactory(new PropertyValueFactory<>("Adress"));
-//        emailColumn.setCellValueFactory(new PropertyValueFactory<>("Email"));
-//        phoneColumn.setCellValueFactory(new PropertyValueFactory<>("Phone"));
-//
-//
-//        List<Client> list = null;
-//        try {
-//            list = new ClientService().getAllClients();
-//        } catch (Exception e) {
-//            showMsg(e.getMessage());
-//            e.printStackTrace();
-//        }
-//
-//        list.stream()
-//                .sorted(Client::compareTo)
-//                .forEach(client -> mainTableView.getItems().add(client));
+        idColumn.setCellValueFactory(new PropertyValueFactory<>("Id"));
+        nameColumn.setCellValueFactory(new PropertyValueFactory<>("Name"));
+        adressColumn.setCellValueFactory(new PropertyValueFactory<>("Adress"));
+        emailColumn.setCellValueFactory(new PropertyValueFactory<>("Email"));
+        phoneColumn.setCellValueFactory(new PropertyValueFactory<>("Phone"));
+
+
+        List<Client> list = null;
+        try {
+            list = new ClientService().getAllClients();
+        } catch (Exception e) {
+            showMsg(e.getMessage());
+            e.printStackTrace();
+        }
+
+        list.stream()
+                .sorted(Client::compareTo)
+                .forEach(client -> mainTableView.getItems().add(client));
     }
 
     public void goToRegisterClients(ActionEvent event) {

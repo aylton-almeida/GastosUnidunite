@@ -27,7 +27,7 @@ public class Clients implements Dao<Client> {
         RandomAccessFile file = new RandomAccessFile(getFileName(), "r");
         List<Client> clientList = new ArrayList();
         file.readInt();
-        int actualPoint = 0;
+        int actualPoint = 4;
         while (actualPoint < file.length()) {
             int size = file.readInt();
             byte[] b = new byte[size];
@@ -42,8 +42,8 @@ public class Clients implements Dao<Client> {
     @Override
     public Client getObject(Object key) throws Exception {
         RandomAccessFile file = new RandomAccessFile(getFileName(), "r");
-        int actualPoint = 0;
         file.readInt();
+        int actualPoint = 4;
         while (actualPoint < file.length()) {
             int size = file.readInt();
             byte[] b = new byte[size];
@@ -60,13 +60,18 @@ public class Clients implements Dao<Client> {
     @Override
     public void addObject(Client o) throws Exception {
         RandomAccessFile file = new RandomAccessFile(getFileName(), "rw");
-        int newID = file.readInt() + 1;
+        int newID;
+        if (file.length() != 0) {
+            newID = file.readInt() + 1;
+        }else{
+            newID = 1;
+        }
         o.setId(newID);
+        file.seek(0);
+        file.writeInt(newID);
         file.seek(file.length());
         file.writeInt(o.getByteArray().length);
         file.write(o.getByteArray());
-        file.seek(0);
-        file.writeInt(newID);
         file.close();
     }
 

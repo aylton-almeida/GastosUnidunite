@@ -3,8 +3,6 @@ package controllers;
 import com.jfoenix.controls.JFXButton;
 import javafx.event.ActionEvent;
 import javafx.fxml.Initializable;
-import javafx.scene.layout.BorderPane;
-import javafx.scene.layout.StackPane;
 
 import java.net.URL;
 import java.util.ArrayList;
