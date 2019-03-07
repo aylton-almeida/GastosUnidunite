@@ -60,15 +60,8 @@ public class Clients implements Dao<Client> {
     @Override
     public void addObject(Client o) throws Exception {
         RandomAccessFile file = new RandomAccessFile(getFileName(), "rw");
-        int newID;
-        if (file.length() != 0) {
-            newID = file.readInt() + 1;
-        }else{
-            newID = 1;
-        }
-        o.setId(newID);
         file.seek(0);
-        file.writeInt(newID);
+        file.writeInt(o.getId());
         file.seek(file.length());
         file.writeInt(o.getByteArray().length);
         file.write(o.getByteArray());

@@ -14,9 +14,10 @@ public class RegisterClientsController extends MainController implements Initial
     public JFXTextField phoneInput;
     public JFXTextField adressInput;
     public JFXTextField emailInput;
+    public JFXTextField codeInput;
 
     public void registerClient(ActionEvent event) {
-        if (!nameInput.getText().isEmpty() && !adressInput.getText().isEmpty() && !phoneInput.getText().isEmpty()) {
+        if (!nameInput.getText().isEmpty() && !phoneInput.getText().isEmpty() && !codeInput.getText().isEmpty()) {
             if (!emailInput.getText().isEmpty()) {
                 if (isEmailValid(emailInput)) {
                     register();
@@ -31,7 +32,7 @@ public class RegisterClientsController extends MainController implements Initial
 
     private void register() {
         try {
-            new ClientService().addClient(new Client(nameInput.getText(), adressInput.getText(), emailInput.getText(), phoneInput.getText()));
+            new ClientService().addClient(new Client(nameInput.getText(), adressInput.getText(), emailInput.getText(), phoneInput.getText(), Integer.parseInt(codeInput.getText())));
             showMsg("Cliente cadastrado com sucesso");
             clearMainArea();
             loadCenterUI("Clients.fxml");
@@ -44,8 +45,9 @@ public class RegisterClientsController extends MainController implements Initial
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         addNumberValidator(phoneInput);
+        addNumberValidator(codeInput);
         addRequiredValidator(nameInput);
         addRequiredValidator(phoneInput);
-        addRequiredValidator(adressInput);
+        addRequiredValidator(codeInput);
     }
 }

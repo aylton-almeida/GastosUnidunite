@@ -27,7 +27,7 @@
                         <Font size="18.0" />
                     </font>
                 </JFXTextField>
-                <JFXTextField fx:id="sizeInput" focusColor="#3c8fdc" labelFloat="true" layoutX="233.0" layoutY="257.0" promptText="Tamanho *">
+                <JFXTextField fx:id="sizeInput" focusColor="#3c8fdc" labelFloat="true" layoutX="233.0" layoutY="257.0" promptText="Tamanho">
                     <font>
                         <Font size="18.0" />
                     </font>
