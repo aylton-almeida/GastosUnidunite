@@ -85,7 +85,7 @@ public class MainController implements Initializable{
     }
 
     public boolean isEmailValid(JFXTextField field){
-        if (!field.getText().contains("@") || !field.getText().contains(".com")){
+        if (!field.getText().contains("@") && !field.getText().contains(".")){
             return false;
         }
         return true;

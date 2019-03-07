@@ -17,11 +17,12 @@ public class  Client implements Registrabel, Comparable {
     private SimpleIntegerProperty id;
     private SimpleStringProperty phone;
 
-    public Client(String name, String adress, String email, String phone) {
+    public Client(String name, String adress, String email, String phone, int id) {
         setName(name);
         setAdress(adress);
         setEmail(email);
         setPhone(phone);
+        setId(id);
     }
 
     public Client() {
