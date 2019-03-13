@@ -20,9 +20,9 @@ public class User implements Registrabel {
         setId(id);
     }
 
-    public User() throws UserException {
+    public User() {
         setEmail("");
-        setPassword("12345678");
+        this.password = "12345678";
         setIsAdmin(false);
         setId(-1);
     }
@@ -57,7 +57,6 @@ public class User implements Registrabel {
     public int getId() {
         return id;
     }
-
     public void setId(int id) {
         this.id = id;
     }

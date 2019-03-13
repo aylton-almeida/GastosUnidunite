@@ -4,7 +4,7 @@ import com.jfoenix.controls.JFXPasswordField;
 import com.jfoenix.controls.JFXTextField;
 import javafx.event.ActionEvent;
 import javafx.fxml.Initializable;
-import javafx.scene.control.PasswordField;
+import logic.User;
 import services.UserService;
 
 import java.net.URL;
@@ -20,7 +20,9 @@ public class LoginController extends MainController implements Initializable {
         String passInput = inputPass.getText();
         if (!userInput.isEmpty() && passInput.length() >= 8 && isEmailValid(inputEmail)) {
             try {
-                if (new UserService().login(userInput, passInput)) {
+                User user = new UserService().login(userInput, passInput);
+                if (user.getId() != -1) {
+                    setLoggedUser(user);
                     clearScreen();
                     loadLeftUI("NavBar.fxml");
                     hideLoader();

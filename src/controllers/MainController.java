@@ -9,6 +9,7 @@ import javafx.scene.Parent;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.StackPane;
 import javafx.scene.text.Text;
+import logic.User;
 
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -17,6 +18,7 @@ public class MainController implements Initializable{
 
     public StackPane mainStackPane;
     public BorderPane mainBorderPane;
+    public static User loggedUser = null;
 
     public MainController(StackPane stackPane, BorderPane borderPane){
         this.mainStackPane = stackPane;
@@ -26,6 +28,14 @@ public class MainController implements Initializable{
     public MainController(){
         this.mainBorderPane = null;
         this.mainStackPane = null;
+    }
+
+    public User getLoggedUser(){
+        return loggedUser;
+    }
+
+    public void setLoggedUser(User user){
+        this.loggedUser = user;
     }
 
     public void showMsg(String text){

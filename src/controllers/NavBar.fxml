@@ -14,7 +14,7 @@
                   BorderPane.alignment="CENTER_LEFT">
                 <Pane prefHeight="100.0" prefWidth="328.0" style="-fx-background-color: #3A7CF3;"
                       styleClass="top-menu-panel" stylesheets="@Main.css">
-                    <JFXButton prefHeight="96.0" prefWidth="329.0" style="-fx-background-color: transparent;"
+                    <JFXButton fx:id="accountButton" prefHeight="96.0" onAction="#goToAccount" prefWidth="329.0" style="-fx-background-color: transparent;"
                                text="Sua Conta" textFill="WHITE">
                         <font>
                             <Font size="30.0"/>
