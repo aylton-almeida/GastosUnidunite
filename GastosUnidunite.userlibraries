@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<eclipse-userlibraries>
+  <library name="jfoenix-9.0.8">
+    <archive path="/home/stevreeper/Documents/IdeaProjects/GastosUnidunite/libraries/jfoenix-9.0.8.jar" />
+  </library>
+  <library name="javafx11">
+    <archive path="/home/stevreeper/Documents/Libraries/JavaFx11/lib/javafx-swt.jar" />
+    <archive path="/home/stevreeper/Documents/Libraries/JavaFx11/lib/javafx.base.jar" />
+    <archive path="/home/stevreeper/Documents/Libraries/JavaFx11/lib/javafx.controls.jar" />
+    <archive path="/home/stevreeper/Documents/Libraries/JavaFx11/lib/javafx.fxml.jar" />
+    <archive path="/home/stevreeper/Documents/Libraries/JavaFx11/lib/javafx.graphics.jar" />
+    <archive path="/home/stevreeper/Documents/Libraries/JavaFx11/lib/javafx.media.jar" />
+    <archive path="/home/stevreeper/Documents/Libraries/JavaFx11/lib/javafx.swing.jar" />
+    <archive path="/home/stevreeper/Documents/Libraries/JavaFx11/lib/javafx.web.jar" />
+  </library>
+</eclipse-userlibraries>
+
