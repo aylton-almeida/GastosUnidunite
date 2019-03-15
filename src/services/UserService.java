@@ -1,10 +1,8 @@
 package services;
 
 import dao.Users;
-import exceptions.UserException;
 import logic.User;
 
-import java.util.ArrayList;
 import java.util.List;
 
 public class UserService {
@@ -31,8 +29,8 @@ public class UserService {
 
     }
 
-    public void addUser (String email, String pass) throws Exception {
-        users.addObject(new User(email, pass, false, 0));
+    public void addUser (String email, String pass, boolean isAdmin) throws Exception {
+        users.addObject(new User(email, pass, isAdmin));
     }
 
     public void removeUser(int id) throws Exception {

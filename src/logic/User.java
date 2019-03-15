@@ -13,11 +13,11 @@ public class User implements Registrabel {
     private boolean isAdmin;
     private int id;
 
-    public User(String email, String password, boolean isAdmin, int id) throws UserException {
+    public User(String email, String password, boolean isAdmin) throws UserException {
         setEmail(email);
         setPassword(password);
         setIsAdmin(isAdmin);
-        setId(id);
+        setId(-1);
     }
 
     public User() {
@@ -46,7 +46,7 @@ public class User implements Registrabel {
             throw new UserException("Senha invalida");
     }
 
-    private boolean isAdmin() {
+    public boolean isAdmin() {
         return isAdmin;
     }
 
