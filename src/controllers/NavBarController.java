@@ -18,6 +18,14 @@ public class NavBarController extends MainController implements Initializable {
     public JFXButton salesButton;
     public JFXButton expensesButton;
     public JFXButton totalsButton;
+    public JFXButton accountButton;
+
+    public void goToAccount(ActionEvent event) {
+        clearNavBar();
+        normalizeButton();
+        highLightButton(accountButton);
+        loadCenterUI("YourAccount.fxml");
+    }
 
     public void goToProducts(ActionEvent event) {
         clearNavBar();
@@ -39,7 +47,7 @@ public class NavBarController extends MainController implements Initializable {
     }
 
     public void goToTotals(ActionEvent event) {
-        loadCenterUI("Totals.fxml");
+        showMsg(super.getLoggedUser().getEmail());
     }
 
     public void goToClients(ActionEvent event) {

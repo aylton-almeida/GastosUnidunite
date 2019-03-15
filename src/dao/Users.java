@@ -27,7 +27,8 @@ public class Users implements Dao<User> {
     public List<User> getAllObjects() throws Exception {
         RandomAccessFile file = new RandomAccessFile(getFileName(), "r");
         List<User> userList = new ArrayList();
-        int actualPoint = 0;
+        file.readInt();
+        int actualPoint = 4;
         while (actualPoint < file.length()) {
             int size = file.readInt();
             byte b[] = new byte[size];
@@ -42,7 +43,8 @@ public class Users implements Dao<User> {
     @Override
     public User getObject(Object key) throws Exception {
         RandomAccessFile file = new RandomAccessFile(getFileName(), "r");
-        int actualPoint = 0;
+        file.readInt();
+        int actualPoint = 4;
         while (actualPoint < file.length()) {
             int size = file.readInt();
             byte b[] = new byte[size];
@@ -59,6 +61,12 @@ public class Users implements Dao<User> {
     @Override
     public void addObject(User o) throws Exception {
         RandomAccessFile file = new RandomAccessFile(getFileName(), "rw");
+        int oldId = 0;
+        if (file.length() > 0)
+            oldId = file.readInt();
+        o.setId(oldId + 1);
+        file.seek(0);
+        file.writeInt(o.getId());
         file.seek(file.length());
         file.writeInt(o.getByteArray().length);
         file.write(o.getByteArray());
@@ -67,7 +75,22 @@ public class Users implements Dao<User> {
 
     @Override
     public void updateObject(User o) throws Exception {
-
+        RandomAccessFile file = new RandomAccessFile(getFileName(), "rw");
+        file.readInt();
+        int actualPoint = 4;
+        while (actualPoint < file.length()) {
+            int size = file.readInt();
+            byte b[] = new byte[size];
+            file.read(b);
+            User user = (User) new User().setByteArray(b);
+            if (user.getId() == o.getId()){
+                file.seek(actualPoint);
+                file.writeInt(o.getByteArray().length);
+                file.write(o.getByteArray());
+                actualPoint = (int)file.length();
+            }else actualPoint += 4 + size;
+        }
+        file.close();
     }
 
     @Override
