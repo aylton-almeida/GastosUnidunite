@@ -9,6 +9,8 @@
     <orderEntry type="jdk" jdkName="11" jdkType="JavaSDK" />
     <orderEntry type="sourceFolder" forTests="false" />
     <orderEntry type="library" exported="" name="javafx11" level="application" />
-    <orderEntry type="library" name="jfoenix-9.0.8" level="project" />
+    <orderEntry type="library" name="jfoenix-9.0.81" level="project" />
+    <orderEntry type="library" name="openjfx-11.0.2_linux-x64_bin-sdk" level="project" />
+    <orderEntry type="library" name="javafx-swt" level="project" />
   </component>
 </module>

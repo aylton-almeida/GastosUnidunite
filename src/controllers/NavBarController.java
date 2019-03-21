@@ -64,6 +64,13 @@ public class NavBarController extends MainController implements Initializable {
         loadCenterUI("Home.fxml");
     }
 
+    public void goToFuncionarios{
+        clearNavBar();
+        normalizeButton();
+        highLightButton(employeesButton);
+        loadCenterUI();
+    }
+
     private void normalizeButton() {
         List<JFXButton> buttons = new ArrayList<>();
         buttons.add(homeButton);
@@ -74,15 +81,15 @@ public class NavBarController extends MainController implements Initializable {
         buttons.add(clientsButton);
         buttons.add(totalsButton);
         buttons.stream()
-                .filter(button -> button.buttonTypeProperty().get() == com.jfoenix.controls.JFXButton.ButtonType.RAISED)
+                .filter(button -> button.buttonTypeProperty().get() == JFXButton.ButtonType.RAISED)
                 .forEach(button -> {
-                    button.setButtonType(com.jfoenix.controls.JFXButton.ButtonType.FLAT);
+                    button.setButtonType(JFXButton.ButtonType.FLAT);
                     button.setStyle("-fx-background-color: #3c8fdc;");
                 });
     }
 
     private void highLightButton(JFXButton button){
-        button.setButtonType(com.jfoenix.controls.JFXButton.ButtonType.RAISED);
+        button.setButtonType(JFXButton.ButtonType.RAISED);
         button.setStyle("-fx-background-color: #3A7CF3;");
     }
 
