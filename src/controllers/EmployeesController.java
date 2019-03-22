@@ -30,7 +30,7 @@ public class EmployeesController extends MainController implements Initializable
 
         List<Employee> list = null;
         try {
-            list = new EmployeeService().getAllClients();
+            list = new EmployeeService().getAllEmployee();
         } catch (Exception e) {
             showMsg(e.getMessage());
             e.printStackTrace();
@@ -49,7 +49,7 @@ public class EmployeesController extends MainController implements Initializable
 
         List<Employee> list = null;
         try {
-            list = new EmployeeService().getAllClients();
+            list = new EmployeeService().getAllEmployee();
         } catch (Exception e) {
             showMsg(e.getMessage());
             e.printStackTrace();
@@ -66,7 +66,7 @@ public class EmployeesController extends MainController implements Initializable
         mainTableView.getItems().clear();
         List<Employee> list = null;
         try {
-            list = new EmployeeService().getAllClients();
+            list = new EmployeeService().getAllEmployee();
         } catch (Exception e) {
             showMsg(e.getMessage());
             e.printStackTrace();

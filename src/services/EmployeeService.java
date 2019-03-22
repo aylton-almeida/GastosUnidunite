@@ -1,4 +1,4 @@
-package logic;
+package services;
 
 import dao.Employees;
 import logic.Employee;
@@ -12,11 +12,11 @@ public class EmployeeService {
         this.employees = new Employees();
     }
 
-    public List<Employee> getAllClients() throws Exception {
+    public List<Employee> getAllEmployee() throws Exception {
         return employees.getAllObjects();
     }
 
-    public void addClient(Employee e) throws Exception{
+    public void addEmployee(Employee e) throws Exception{
         employees.addObject(e);
     }
 }
