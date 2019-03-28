@@ -48,7 +48,10 @@ public class Users implements Dao<User> {
 
     @Override
     public User getObject(Object key) throws Exception {
-
+        PreparedStatement preparedStatement = connection.prepareStatement("SELECT * from tbl_user WHERE id = ?;");
+        preparedStatement.setInt(1, (int)key);
+        ResultSet results = preparedStatement.executeQuery();
+        System.out.println(results.getString(2) + results.getString(3));
         return null;
     }
 
