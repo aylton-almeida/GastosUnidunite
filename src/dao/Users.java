@@ -3,100 +3,71 @@ package dao;
 import interfaces.Dao;
 import logic.User;
 
-import java.io.RandomAccessFile;
 import java.util.ArrayList;
 import java.util.List;
+import java.sql.*;
+import java.util.Properties;
 
 public class Users implements Dao<User> {
+    private String host = "bancounidunite.mysql.database.azure.com";
+    private String database = "unidunite";
+    private String user = "AyltonJunior@bancounidunite";
+    private String password = "Aylton123";
+    private Connection connection = null;
 
-    private String fileName;
+    public Users() throws Exception {
+        Class.forName("com.mysql.jdbc.Driver");
+        String url = String.format("jdbc:mysql://%s/%s", host, database);
 
-    public Users() {
-        setFileName("Users");
-    }
+        //Set connection properties
+        Properties properties = new Properties();
+        properties.setProperty("user", user);
+        properties.setProperty("password", password);
+        properties.setProperty("useSSL", "true");
+        properties.setProperty("verifyServerCertificate", "true");
+        properties.setProperty("requireSSL", "false");
 
-    public String getFileName() {
-        return fileName;
-    }
+        connection = DriverManager.getConnection(url, properties);
 
-    public void setFileName(String fileName) {
-        this.fileName = fileName;
+        if (connection == null)
+            throw new Exception("Failed to create connection to database.");
     }
 
     @Override
     public List<User> getAllObjects() throws Exception {
-        RandomAccessFile file = new RandomAccessFile(getFileName(), "r");
-        List<User> userList = new ArrayList();
-        file.readInt();
-        int actualPoint = 4;
-        while (actualPoint < file.length()) {
-            int size = file.readInt();
-            byte b[] = new byte[size];
-            file.read(b);
-            userList.add((User) new User().setByteArray(b));
-            actualPoint += 4 + size;
+        List<User> list = new ArrayList<>();
+        Statement statement = connection.createStatement();
+        ResultSet results = statement.executeQuery("SELECT * from tbl_user;");
+        while (results.next()) {
+            User user = new User(results.getString(2), results.getString(3), results.getBoolean(4));
+            user.setId(results.getInt(1));
+            list.add(user);
         }
-        file.close();
-        return userList;
+        return list;
     }
 
     @Override
     public User getObject(Object key) throws Exception {
-        RandomAccessFile file = new RandomAccessFile(getFileName(), "r");
-        file.readInt();
-        int actualPoint = 4;
-        while (actualPoint < file.length()) {
-            int size = file.readInt();
-            byte b[] = new byte[size];
-            file.read(b);
-            User user = (User) new User().setByteArray(b);
-            if (user.getId() == (int) key)
-                return user;
-            actualPoint += 4 + size;
-        }
-        file.close();
+
         return null;
     }
 
     @Override
     public void addObject(User o) throws Exception {
-        RandomAccessFile file = new RandomAccessFile(getFileName(), "rw");
-        int oldId = 0;
-        if (file.length() > 0)
-            oldId = file.readInt();
-        o.setId(oldId + 1);
-        file.seek(0);
-        file.writeInt(o.getId());
-        file.seek(file.length());
-        file.writeInt(o.getByteArray().length);
-        file.write(o.getByteArray());
-        file.close();
+        PreparedStatement preparedStatement = connection.prepareStatement("INSERT INTO tbl_user (email, password, isAdmin) VALUES (?, ?, ?);");
+        preparedStatement.setString(1, o.getEmail());
+        preparedStatement.setString(2, o.getPassword());
+        preparedStatement.setBoolean(3, o.isAdmin());
+        preparedStatement.executeUpdate();
     }
 
     @Override
     public void updateObject(User o) throws Exception {
-        RandomAccessFile file = new RandomAccessFile(getFileName(), "rw");
-        file.readInt();
-        int actualPoint = 4;
-        while (actualPoint < file.length()) {
-            int size = file.readInt();
-            byte b[] = new byte[size];
-            file.read(b);
-            User user = (User) new User().setByteArray(b);
-            if (user.getId() == o.getId()){
-                file.seek(actualPoint);
-                file.writeInt(o.getByteArray().length);
-                file.write(o.getByteArray());
-                actualPoint = (int)file.length();
-            }else actualPoint += 4 + size;
-        }
-        file.close();
+
     }
 
     @Override
     public void deleteObject(User o) throws Exception {
 
     }
-
-
 }

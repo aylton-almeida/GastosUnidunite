@@ -1,10 +1,12 @@
 package controllers;
 
+import dao.Users;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
+import logic.User;
 
 public class Main extends Application {
 
