@@ -13,16 +13,11 @@ public class UserService {
     }
 
     public User login(String email, String password) throws Exception {
-        List<User> userList;
-        userList = users.getAllObjects();
-        return userList.stream()
-                .filter(user -> user.getEmail().equals(email) && user.getPassword().equals(password))
-                .findFirst()
-                .orElseGet(() -> {
-                    User invalidUser = new User();
-                    invalidUser.setId(-1);
-                    return invalidUser;
-                });
+        User user = users.getObjectByEmail(email);
+        if (user != null)
+            if (user.getPassword().equals(password))
+                return user;
+        return new User();
     }
 
     public void loggout() {
@@ -30,10 +25,6 @@ public class UserService {
 
     public void addUser(String email, String pass, boolean isAdmin) throws Exception {
         users.addObject(new User(email, pass, isAdmin));
-    }
-
-    public void removeUser(int id) throws Exception {
-        users.deleteObject(users.getObject(id));
     }
 
     public void updateUser(User user) throws Exception {
