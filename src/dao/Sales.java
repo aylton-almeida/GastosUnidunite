@@ -1,7 +1,7 @@
 package dao;
 
-import core.Sale;
 import interfaces.Dao;
+import logic.Sale;
 
 import java.util.List;
 

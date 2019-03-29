@@ -1,56 +1,51 @@
 package controllers;
 
-import com.jfoenix.controls.JFXButton;
-import com.jfoenix.controls.JFXDialog;
-import com.jfoenix.controls.JFXDialogLayout;
+import com.jfoenix.controls.JFXPasswordField;
+import com.jfoenix.controls.JFXTextField;
 import javafx.event.ActionEvent;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Node;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
-import javafx.scene.control.Button;
-import javafx.scene.control.PasswordField;
-import javafx.scene.control.TextField;
-import javafx.scene.layout.AnchorPane;
-import javafx.scene.layout.StackPane;
-import javafx.scene.text.Text;
-import javafx.stage.Stage;
+import javafx.fxml.Initializable;
+import logic.User;
 import services.UserService;
 
-public class LoginController {
-    public Button btnLogin;
-    public PasswordField inputPass;
-    public TextField inputEmail;
-    public AnchorPane mainPane;
-    public StackPane myStackPane;
+import java.net.URL;
+import java.util.ResourceBundle;
+
+public class LoginController extends MainController implements Initializable {
+    public JFXPasswordField inputPass;
+    public JFXTextField inputEmail;
 
     public void makeLogin(ActionEvent event) {
+        showLoader();
         String userInput = inputEmail.getText();
         String passInput = inputPass.getText();
-        if (!userInput.isEmpty() && passInput.length() >= 8) {
+        if (!userInput.isEmpty() && passInput.length() >= 8 && isEmailValid(inputEmail)) {
             try {
-                if (new UserService().login(userInput, passInput)){
-                    //Create new scene
-                    Parent homeParent = FXMLLoader.load(getClass().getResource("Home.fxml"));
-                    Scene homeScene = new Scene(homeParent);
-                    //Get atual scene
-                    Stage window = (Stage) ((Node) event.getSource()).getScene().getWindow();
-                    window.setScene(homeScene);
-                    window.show();
-                }else{
+                User user = new UserService().login(userInput, passInput);
+                if (user.getId() != -1) {
+                    setLoggedUser(user);
+                    clearScreen();
+                    loadLeftUI("NavBar.fxml");
+                    hideLoader();
+                } else {
+                    hideLoader();
                     showMsg("Email ou senha incorretos");
                 }
             } catch (Exception e) {
+                hideLoader();
                 showMsg(e.getMessage());
                 e.printStackTrace();
             }
-        } else showMsg("Preencha os campos corretamente");
+        } else {
+            hideLoader();
+            showMsg("Preencha os campos corretamente");
+        }
     }
 
-    private void showMsg(String text) {
-        JFXDialogLayout dialogLayout = new JFXDialogLayout();
-        dialogLayout.setBody(new Text(text));
-        JFXDialog dialog = new JFXDialog(myStackPane, dialogLayout, JFXDialog.DialogTransition.CENTER);
-        dialog.show();
+    @Override
+    public void initialize(URL url, ResourceBundle resourceBundle) {
+        addRequiredValidator(inputEmail);
+        addRequiredValidator(inputPass);
+        loadLeftUI("LogoLeftBar.fxml");
     }
+
 }

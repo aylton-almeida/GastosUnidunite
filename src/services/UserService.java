@@ -1,30 +1,35 @@
 package services;
 
-import core.User;
 import dao.Users;
-import java.util.ArrayList;
+import logic.User;
+
 import java.util.List;
 
 public class UserService {
-    private Users users;
+    private static Users users;
 
-    public UserService(){
+    public UserService() throws Exception{
         this.users = new Users();
     }
 
-    public boolean login(String email, String password) throws Exception {
-        List<User> userList = new ArrayList<>();
+    public User login(String email, String password) throws Exception {
+        List<User> userList;
         userList = users.getAllObjects();
         return userList.stream()
-                .anyMatch(user -> user.getEmail().equals(email) && user.getPassword().equals(password));
+                .filter(user -> user.getEmail().equals(email) && user.getPassword().equals(password))
+                .findFirst()
+                .orElseGet(() -> {
+                    User invalidUser = new User();
+                    invalidUser.setId(-1);
+                    return invalidUser;
+                });
     }
 
-    public void loggout(){
-
+    public void loggout() {
     }
 
-    public void addUser (String email, String pass) throws Exception {
-        users.addObject(new User(email, pass, false, 0));
+    public void addUser(String email, String pass, boolean isAdmin) throws Exception {
+        users.addObject(new User(email, pass, isAdmin));
     }
 
     public void removeUser(int id) throws Exception {
@@ -35,7 +40,7 @@ public class UserService {
         users.updateObject(user);
     }
 
-    public boolean changePassword(String oldPass, String newPass){
+    public boolean changePassword(String oldPass, String newPass) {
         return true;
     }
 }
