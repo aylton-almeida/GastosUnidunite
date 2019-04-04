@@ -41,10 +41,6 @@ public class Products implements Dao<Product> {
         Statement statement = connection.createStatement();
         ResultSet results = statement.executeQuery("SELECT * from tbl_product;");
         while (results.next()) {
-            System.out.println(results.getInt(1));
-            System.out.println(results.getString(2));
-            System.out.println(results.getString(3));
-
             Product product = new Product(results.getInt(1), results.getString(2), results.getString(5), results.getString(4), results.getDouble(3));
             list.add(product);
         }
