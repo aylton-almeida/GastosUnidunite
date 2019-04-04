@@ -43,6 +43,9 @@ public class NavBarController extends MainController implements Initializable {
     }
 
     public void goToEmployees(ActionEvent event) {
+        clearNavBar();
+        normalizeButton();
+        highLightButton(employeesButton);
         loadCenterUI("Employees.fxml");
     }
 
@@ -62,13 +65,6 @@ public class NavBarController extends MainController implements Initializable {
         normalizeButton();
         highLightButton(homeButton);
         loadCenterUI("Home.fxml");
-    }
-
-    public void goToEmployees{
-        clearNavBar();
-        normalizeButton();
-        highLightButton(employeesButton);
-        loadCenterUI();
     }
 
     private void normalizeButton() {

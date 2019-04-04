@@ -15,7 +15,7 @@ public class RegisterEmployeesController extends MainController implements Initi
     public JFXTextField phoneInput;
     public JFXTextField codeInput;
 
-    void RegisterEmployee(ActionEvent event){
+   public void RegisterEmployee(ActionEvent event){
         if (!nameInput.getText().isEmpty() && !phoneInput.getText().isEmpty() && !codeInput.getText().isEmpty()) {
 
                 register();

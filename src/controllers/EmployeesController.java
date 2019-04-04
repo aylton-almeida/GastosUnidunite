@@ -41,6 +41,11 @@ public class EmployeesController extends MainController implements Initializable
                 .forEach(employee -> mainTableView.getItems().add(employee));
     }
 
+    public void goToRegisterEmployees (ActionEvent event) {
+        clearMainArea();
+        loadCenterUI("RegisterEmployees.fxml");
+    }
+
     public void filterSearch(ActionEvent event) {
 
         mainTableView.getItems().clear();
