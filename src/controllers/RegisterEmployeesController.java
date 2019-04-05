@@ -25,7 +25,7 @@ public class RegisterEmployeesController extends MainController implements Initi
 
     private void register() {
         try {
-            new EmployeeService().addEmployee(new Employee(nameInput.getText(), phoneInput.getText(), Integer.parseInt(codeInput.getText())));
+            new EmployeeService().addEmployee(new Employee(nameInput.getText(), phoneInput.getText()));
             showMsg("Funcionario cadastrado com sucesso");
             clearMainArea();
             loadCenterUI("Funcionario.fxml");
