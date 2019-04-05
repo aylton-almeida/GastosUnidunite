@@ -6,9 +6,9 @@ import logic.Employee;
 import java.util.List;
 
 public class EmployeeService {
-    private Employees employees;
+    private static Employees employees;
 
-    public EmployeeService(){
+    public EmployeeService() throws Exception{
         this.employees = new Employees();
     }
 

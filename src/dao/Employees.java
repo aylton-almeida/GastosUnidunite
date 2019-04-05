@@ -2,70 +2,72 @@ package dao;
 
 import interfaces.Dao;
 import logic.Employee;
-
-import java.io.RandomAccessFile;
+import java.sql.*;
+import java.util.Properties;
 import java.util.ArrayList;
 import java.util.List;
 
 public class Employees implements Dao<Employee> {
 
-    private String fileName;
 
-    public Employees() {
-        setFileName("employees");
+    private String host = "bancounidunite.mysql.database.azure.com";
+    private String database = "unidunite";
+    private String user = "AyltonJunior@bancounidunite";
+    private String password = "Aylton123";
+    private Connection connection = null;
+
+
+    public Employees() throws Exception {
+        Class.forName("com.mysql.jdbc.Driver");
+        String url = String.format("jdbc:mysql://%s/%s", host, database);
+
+        //Set connection properties
+        Properties properties = new Properties();
+        properties.setProperty("user", user);
+        properties.setProperty("password", password);
+        properties.setProperty("useSSL", "true");
+        properties.setProperty("verifyServerCertificate", "true");
+        properties.setProperty("requireSSL", "false");
+
+        connection = DriverManager.getConnection(url, properties);
+
+        if (connection == null)
+            throw new Exception("Failed to create connection to database.");
     }
 
-    public String getFileName() {
-        return fileName;
-    }
 
-    public void setFileName(String fileName) {
-        this.fileName = fileName;
-    }
 
     @Override
     public List<Employee> getAllObjects() throws Exception {
-        RandomAccessFile file = new RandomAccessFile(getFileName(), "r");
-        List<Employee> employeeList = new ArrayList();
-        file.readInt();
-        int actualPoint = 4;
-        while (actualPoint < file.length()) {
-            int size = file.readInt();
-            byte[] b = new byte[size];
-            file.read(b);
-            employeeList.add((Employee) new Employee().setByteArray(b));
-            actualPoint += 4 + size;
+        List<Employee> list = new ArrayList<>();
+        Statement statement = connection.createStatement();
+        ResultSet results = statement.executeQuery("SELECT * from tbl_employee;");
+        while (results.next()) {
+            Employee employee = new Employee(results.getString(2), results.getString(3));
+            employee.setId(results.getInt(1));
+            list.add(employee);
         }
-        file.close();
-        return employeeList;
+        return list;
     }
 
     @Override
     public Employee getObject(Object key) throws Exception {
-        RandomAccessFile file = new RandomAccessFile(getFileName(), "r");
-        file.readInt();
-        int actualPoint = 4;
-        while (actualPoint < file.length()) {
-            int size = file.readInt();
-            byte[] b = new byte[size];
-            file.read(b);
-            Employee employee = (Employee) new Employee().setByteArray(b);
-            if (employee.getId() == (int) key)
-                return employee;
-            actualPoint += 4 + size;
+        PreparedStatement preparedStatement = connection.prepareStatement("SELECT * from tbl_employee WHERE id = ?;");
+        preparedStatement.setInt(1, (int) key);
+        ResultSet results = preparedStatement.executeQuery();
+        if (results.next()) {
+            Employee employee = new Employee(results.getString(2), results.getString(3));
+            employee.setId(results.getInt(1));
+            return employee;
         }
-        file.close();
         return null;
     }
-
     public void addObject(Employee o) throws Exception {
-        RandomAccessFile file = new RandomAccessFile(getFileName(), "rw");
-        file.seek(0);
-        file.writeInt(o.getId());
-        file.seek(file.length());
-        file.writeInt(o.getByteArray().length);
-        file.write(o.getByteArray());
-        file.close();
+        PreparedStatement preparedStatement = connection.prepareStatement("INSERT INTO tbl_employee (name, phone) VALUES (?, ?);");
+        preparedStatement.setString(1, o.getName());
+        preparedStatement.setString(2, o.getPhone());
+        preparedStatement.executeUpdate();
+
     }
 
     @Override

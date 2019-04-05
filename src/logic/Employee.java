@@ -15,10 +15,11 @@ public class Employee implements Registrabel, Comparable {
     private SimpleIntegerProperty id;
     private SimpleStringProperty phone;
 
-    public Employee(String name, String phone, int id) {
+    public Employee(String name, String phone) {
         setName(name);
         setPhone(phone);
-        setId(id);
+        setId(-1);
+
     }
 
     public Employee() {
