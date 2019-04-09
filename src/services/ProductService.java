@@ -6,9 +6,9 @@ import logic.Product;
 import java.util.List;
 
 public class ProductService {
-    private Products products;
+    private static Products products;
 
-    public ProductService() {
+    public ProductService() throws Exception {
         this.products = new Products();
     }
 

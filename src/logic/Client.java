@@ -12,14 +12,14 @@ import java.io.DataOutputStream;
 public class  Client implements Registrabel, Comparable {
 
     private SimpleStringProperty name;
-    private SimpleStringProperty adress;
+    private SimpleStringProperty address;
     private SimpleStringProperty email;
     private SimpleIntegerProperty id;
     private SimpleStringProperty phone;
 
-    public Client(String name, String adress, String email, String phone, int id) {
+    public Client(String name, String address, String email, String phone, int id) {
         setName(name);
-        setAdress(adress);
+        setAddress(address);
         setEmail(email);
         setPhone(phone);
         setId(id);
@@ -27,7 +27,7 @@ public class  Client implements Registrabel, Comparable {
 
     public Client() {
         setName("");
-        setAdress("");
+        setAddress("");
         setEmail("");
         setId(-1);
         setPhone("");
@@ -42,12 +42,12 @@ public class  Client implements Registrabel, Comparable {
         this.name = new SimpleStringProperty(name);
     }
 
-    public String getAdress() {
-        return adress.get();
+    public String getAddress() {
+        return address.get();
     }
 
-    public void setAdress(String adress) {
-        this.adress = new SimpleStringProperty(adress);
+    public void setAddress(String address) {
+        this.address = new SimpleStringProperty(address);
     }
 
     public String getEmail() {
@@ -79,7 +79,7 @@ public class  Client implements Registrabel, Comparable {
         ByteArrayOutputStream record = new ByteArrayOutputStream();
         DataOutputStream output = new DataOutputStream(record);
         output.writeUTF(getName());
-        output.writeUTF(getAdress());
+        output.writeUTF(getAddress());
         output.writeUTF(getEmail());
         output.writeUTF(getPhone());
         output.writeInt(getId());
@@ -91,7 +91,7 @@ public class  Client implements Registrabel, Comparable {
         ByteArrayInputStream record = new ByteArrayInputStream(b);
         DataInputStream input = new DataInputStream(record);
         setName(input.readUTF());
-        setAdress(input.readUTF());
+        setAddress(input.readUTF());
         setEmail(input.readUTF());
         setPhone(input.readUTF());
         setId(input.readInt());

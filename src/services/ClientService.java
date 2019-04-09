@@ -6,9 +6,9 @@ import logic.Client;
 import java.util.List;
 
 public class ClientService {
-    private Clients clients;
+    private static Clients clients;
 
-    public ClientService(){
+    public ClientService() throws Exception {
         this.clients = new Clients();
     }
 
