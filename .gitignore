@@ -94,3 +94,5 @@ fabric.properties
 
 #.xml files
 *.xml
+
+.idea/
