@@ -24,7 +24,7 @@ public class LoginController extends MainController implements Initializable {
                 if (user.getId() != -1) {
                     setLoggedUser(user);
                     clearScreen();
-                    loadLeftUI("NavBar.fxml");
+                    loadLeftUI("/fxml/NavBar.fxml");
                     hideLoader();
                 } else {
                     hideLoader();
@@ -45,7 +45,7 @@ public class LoginController extends MainController implements Initializable {
     public void initialize(URL url, ResourceBundle resourceBundle) {
         addRequiredValidator(inputEmail);
         addRequiredValidator(inputPass);
-        loadLeftUI("LogoLeftBar.fxml");
+        loadLeftUI("/fxml/LogoLeftBar.fxml");
     }
 
 }

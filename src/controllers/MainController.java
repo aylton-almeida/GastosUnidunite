@@ -136,6 +136,6 @@ public class MainController implements Initializable{
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        loadCenterUI("Login.fxml");
+        loadCenterUI("/fxml/Login.fxml");
     }
 }

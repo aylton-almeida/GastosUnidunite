@@ -21,67 +21,52 @@ public class ClientsController extends MainController implements Initializable {
     public TableColumn adressColumn;
     public TableColumn emailColumn;
     public TableColumn phoneColumn;
+    private List<Client> clientsList;
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         idColumn.setCellValueFactory(new PropertyValueFactory<>("Id"));
         nameColumn.setCellValueFactory(new PropertyValueFactory<>("Name"));
-        adressColumn.setCellValueFactory(new PropertyValueFactory<>("Adress"));
+        adressColumn.setCellValueFactory(new PropertyValueFactory<>("Address"));
         emailColumn.setCellValueFactory(new PropertyValueFactory<>("Email"));
         phoneColumn.setCellValueFactory(new PropertyValueFactory<>("Phone"));
 
-
-        List<Client> list = null;
         try {
-            list = new ClientService().getAllClients();
+            this.clientsList = new ClientService().getAllClients();
         } catch (Exception e) {
             showMsg(e.getMessage());
             e.printStackTrace();
         }
 
-        list.stream()
+        showOnTable();
+    }
+
+    private void showOnTable() {
+        this.clientsList.stream()
                 .sorted(Client::compareTo)
                 .forEach(client -> mainTableView.getItems().add(client));
     }
 
     public void goToRegisterClients(ActionEvent event) {
         clearMainArea();
-        loadCenterUI("RegisterClients.fxml");
+        loadCenterUI("/fxml/RegisterClients.fxml");
     }
 
     public void filterSearch(ActionEvent event) {
 
-        mainTableView.getItems().clear();
-
         String input = searchInput.getText();
 
-        List<Client> list = null;
-        try {
-            list = new ClientService().getAllClients();
-        } catch (Exception e) {
-            showMsg(e.getMessage());
-            e.printStackTrace();
-        }
+        mainTableView.getItems().clear();
 
-        list.stream()
-                .filter(client -> client.getId() == Integer.parseInt(input))
-                .forEach(client -> mainTableView.getItems().add(client));
+        clientsList.forEach(client -> {
+            if (("" + client.getId()).equals(input) || client.getName().equalsIgnoreCase(input))
+                mainTableView.getItems().add(client);
+        });
     }
 
     public void clearSearch(ActionEvent event) {
-
         searchInput.setText(null);
         mainTableView.getItems().clear();
-        List<Client> list = null;
-        try {
-            list = new ClientService().getAllClients();
-        } catch (Exception e) {
-            showMsg(e.getMessage());
-            e.printStackTrace();
-        }
-
-        list.stream()
-                .sorted(Client::compareTo)
-                .forEach(client -> mainTableView.getItems().add(client));
+        showOnTable();
     }
 }
