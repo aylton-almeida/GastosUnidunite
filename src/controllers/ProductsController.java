@@ -23,24 +23,7 @@ public class ProductsController extends MainController implements Initializable 
     public TableColumn<Product, Double> valueColumn;
     public JFXTextField searchInput;
     private List<Product> productList;
-
-    @Override
-    public void initialize(URL url, ResourceBundle resourceBundle) {
-        idColumn.setCellValueFactory(new PropertyValueFactory<>("Id"));
-        nameColumn.setCellValueFactory(new PropertyValueFactory<>("Name"));
-        sizeColumn.setCellValueFactory(new PropertyValueFactory<>("Size"));
-        factoryColumn.setCellValueFactory(new PropertyValueFactory<>("Factory"));
-        valueColumn.setCellValueFactory(new PropertyValueFactory<>("Value"));
-
-        try {
-            this.productList = new ProductService().getAllProducts();
-        } catch (Exception e) {
-            showMsg(e.getMessage());
-            e.printStackTrace();
-        }
-
-        showOnTable();
-    }
+    private ProductService productService;
 
     private void showOnTable() {
         this.productList.stream()
@@ -66,9 +49,32 @@ public class ProductsController extends MainController implements Initializable 
     }
 
     public void clearSearch(ActionEvent event) {
-
         searchInput.setText(null);
         mainTableView.getItems().clear();
+        showOnTable();
+    }
+
+    @Override
+    public void initialize(URL url, ResourceBundle resourceBundle) {
+        idColumn.setCellValueFactory(new PropertyValueFactory<>("Id"));
+        nameColumn.setCellValueFactory(new PropertyValueFactory<>("Name"));
+        sizeColumn.setCellValueFactory(new PropertyValueFactory<>("Size"));
+        factoryColumn.setCellValueFactory(new PropertyValueFactory<>("Factory"));
+        valueColumn.setCellValueFactory(new PropertyValueFactory<>("Value"));
+
+        try {
+            productService = new ProductService();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        try {
+            this.productList = productService.getAllProducts();
+        } catch (Exception e) {
+            showMsg(e.getMessage());
+            e.printStackTrace();
+        }
+
         showOnTable();
     }
 }

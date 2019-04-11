@@ -22,24 +22,7 @@ public class ClientsController extends MainController implements Initializable {
     public TableColumn emailColumn;
     public TableColumn phoneColumn;
     private List<Client> clientsList;
-
-    @Override
-    public void initialize(URL url, ResourceBundle resourceBundle) {
-        idColumn.setCellValueFactory(new PropertyValueFactory<>("Id"));
-        nameColumn.setCellValueFactory(new PropertyValueFactory<>("Name"));
-        adressColumn.setCellValueFactory(new PropertyValueFactory<>("Address"));
-        emailColumn.setCellValueFactory(new PropertyValueFactory<>("Email"));
-        phoneColumn.setCellValueFactory(new PropertyValueFactory<>("Phone"));
-
-        try {
-            this.clientsList = new ClientService().getAllClients();
-        } catch (Exception e) {
-            showMsg(e.getMessage());
-            e.printStackTrace();
-        }
-
-        showOnTable();
-    }
+    private ClientService clientService;
 
     private void showOnTable() {
         this.clientsList.stream()
@@ -67,6 +50,30 @@ public class ClientsController extends MainController implements Initializable {
     public void clearSearch(ActionEvent event) {
         searchInput.setText(null);
         mainTableView.getItems().clear();
+        showOnTable();
+    }
+
+    @Override
+    public void initialize(URL url, ResourceBundle resourceBundle) {
+        idColumn.setCellValueFactory(new PropertyValueFactory<>("Id"));
+        nameColumn.setCellValueFactory(new PropertyValueFactory<>("Name"));
+        adressColumn.setCellValueFactory(new PropertyValueFactory<>("Address"));
+        emailColumn.setCellValueFactory(new PropertyValueFactory<>("Email"));
+        phoneColumn.setCellValueFactory(new PropertyValueFactory<>("Phone"));
+
+        try {
+            clientService = new ClientService();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        try {
+            this.clientsList = clientService.getAllClients();
+        } catch (Exception e) {
+            showMsg(e.getMessage());
+            e.printStackTrace();
+        }
+
         showOnTable();
     }
 }

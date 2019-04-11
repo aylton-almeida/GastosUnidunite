@@ -27,7 +27,7 @@
                         <Font size="18.0" />
                     </font>
                 </JFXPasswordField>
-                <JFXPasswordField fx:id="confPassInput" focusColor="#3c8fdc" labelFloat="true" layoutX="583.0" layoutY="257.0" promptText="Confirmar Senha  *">
+                <JFXPasswordField fx:id="confPassInput" focusColor="#3c8fdc" labelFloat="true" layoutX="583.0" layoutY="257.0" promptText="Confirmar Senha *">
                     <font>
                         <Font size="18.0" />
                     </font>
