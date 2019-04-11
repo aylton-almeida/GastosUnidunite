@@ -84,14 +84,10 @@ public class YourAccountController extends MainController implements Initializab
         addRequiredValidator(passInput);
         addRequiredValidator(confPassInput);
 
-        showLoader();
-
         try {
             userService = new UserService();
         } catch (Exception e) {
             e.printStackTrace();
         }
-
-        hideLoader();
     }
 }

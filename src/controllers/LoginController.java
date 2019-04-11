@@ -16,7 +16,7 @@ public class LoginController extends MainController implements Initializable {
     private static UserService userService;
 
     public void makeLogin(ActionEvent event) {
-        showLoader();
+//        showLoader();
         String userInput = inputEmail.getText();
         String passInput = inputPass.getText();
         if (!userInput.isEmpty() && passInput.length() >= 8 && isEmailValid(inputEmail)) {
@@ -35,19 +35,19 @@ public class LoginController extends MainController implements Initializable {
                 if (user[0].getId() != -1) {
                     setLoggedUser(user[0]);
                     clearScreen();
+                    // hideLoader();
                     loadLeftUI("/fxml/NavBar.fxml");
-                    hideLoader();
                 } else {
-                    hideLoader();
+                    //hideLoader();
                     showMsg("Email ou senha incorretos");
                 }
             } catch (Exception e) {
-                hideLoader();
+                //hideLoader();
                 showMsg(e.getMessage());
                 e.printStackTrace();
             }
         } else {
-            hideLoader();
+            //hideLoader();
             showMsg("Preencha os campos corretamente");
         }
     }
