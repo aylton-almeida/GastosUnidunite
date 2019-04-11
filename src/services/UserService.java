@@ -3,8 +3,6 @@ package services;
 import dao.Users;
 import logic.User;
 
-import java.util.List;
-
 public class UserService {
     private static Users users;
 

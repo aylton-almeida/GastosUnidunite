@@ -1,16 +1,10 @@
 package logic;
 
-import interfaces.Registrabel;
 import javafx.beans.property.SimpleDoubleProperty;
 import javafx.beans.property.SimpleIntegerProperty;
 import javafx.beans.property.SimpleStringProperty;
 
-import java.io.ByteArrayInputStream;
-import java.io.ByteArrayOutputStream;
-import java.io.DataInputStream;
-import java.io.DataOutputStream;
-
-public class Product implements Registrabel, Comparable {
+public class Product implements Comparable {
     private SimpleIntegerProperty id;
     private SimpleStringProperty name;
     private SimpleStringProperty factory;
@@ -71,30 +65,6 @@ public class Product implements Registrabel, Comparable {
 
     public void setValue(double value) {
         this.value = new SimpleDoubleProperty(value);
-    }
-
-    @Override
-    public byte[] getByteArray() throws Exception {
-        ByteArrayOutputStream record = new ByteArrayOutputStream();
-        DataOutputStream output = new DataOutputStream(record);
-        output.writeUTF(getName());
-        output.writeUTF(getFactory());
-        output.writeUTF(getSize());
-        output.writeDouble(getValue());
-        output.writeInt(getId());
-        return record.toByteArray();
-    }
-
-    @Override
-    public Registrabel setByteArray(byte[] b) throws Exception {
-        ByteArrayInputStream record = new ByteArrayInputStream(b);
-        DataInputStream input = new DataInputStream(record);
-        setName(input.readUTF());
-        setFactory(input.readUTF());
-        setSize(input.readUTF());
-        setValue(input.readDouble());
-        setId(input.readInt());
-        return this;
     }
 
     @Override
