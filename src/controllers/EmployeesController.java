@@ -1,49 +1,40 @@
 package controllers;
+
 import com.jfoenix.controls.JFXTextField;
 import javafx.event.ActionEvent;
 import javafx.fxml.Initializable;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.input.KeyEvent;
 import logic.Employee;
 import services.EmployeeService;
 
 import java.net.URL;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.ResourceBundle;
 
 
-public class EmployeesController extends MainController implements Initializable{
+public class EmployeesController extends MainController implements Initializable {
 
     public JFXTextField searchInput;
-    public TableView mainTableView;
-    public TableColumn idColumn;
-    public TableColumn nameColumn;
-    public TableColumn phoneColumn;
+    public TableView<Employee> mainTableView;
+    public TableColumn<Employee, Integer> idColumn;
+    public TableColumn<Employee, String> nameColumn;
+    public TableColumn<Employee, String> phoneColumn;
+    private List<Employee> listEmployee = new ArrayList<>();
+    private static EmployeeService employeeService;
 
-    @Override
-    public void initialize(URL url, ResourceBundle resourceBundle) {
-        idColumn.setCellValueFactory(new PropertyValueFactory<>("Id"));
-        nameColumn.setCellValueFactory(new PropertyValueFactory<>("Name"));
-        phoneColumn.setCellValueFactory(new PropertyValueFactory<>("Phone"));
-
-
-        List<Employee> list = null;
-        try {
-            list = new EmployeeService().getAllEmployee();
-        } catch (Exception e) {
-            showMsg(e.getMessage());
-            e.printStackTrace();
-        }
-
-        list.stream()
+    private void setOnTable() {
+        this.listEmployee.stream()
                 .sorted(Employee::compareTo)
                 .forEach(employee -> mainTableView.getItems().add(employee));
     }
 
-    public void goToRegisterEmployees (ActionEvent event) {
+    public void goToRegisterEmployees(ActionEvent event) {
         clearMainArea();
-        loadCenterUI("RegisterEmployees.fxml");
+        loadCenterUI("/fxml/RegisterEmployees.fxml");
     }
 
     public void filterSearch(ActionEvent event) {
@@ -52,33 +43,33 @@ public class EmployeesController extends MainController implements Initializable
 
         String input = searchInput.getText();
 
-        List<Employee> list = null;
-        try {
-            list = new EmployeeService().getAllEmployee();
-        } catch (Exception e) {
-            showMsg(e.getMessage());
-            e.printStackTrace();
-        }
-
-        list.stream()
-                .filter(employee -> employee.getId() == Integer.parseInt(input))
-                .forEach(employee -> mainTableView.getItems().add(employee));
+        listEmployee.forEach((e) -> {
+            if (("" + e.getId()).equals(input) || e.getName().toLowerCase().contains(input.toLowerCase()))
+                mainTableView.getItems().add(e);
+        });
     }
 
     public void clearSearch(ActionEvent event) {
-
         searchInput.setText(null);
         mainTableView.getItems().clear();
-        List<Employee> list = null;
+
+        setOnTable();
+    }
+
+    @Override
+    public void initialize(URL url, ResourceBundle resourceBundle) {
+        idColumn.setCellValueFactory(new PropertyValueFactory<>("Id"));
+        nameColumn.setCellValueFactory(new PropertyValueFactory<>("Name"));
+        phoneColumn.setCellValueFactory(new PropertyValueFactory<>("Phone"));
+
         try {
-            list = new EmployeeService().getAllEmployee();
+            employeeService = new EmployeeService();
+            listEmployee = employeeService.getAllEmployee();
         } catch (Exception e) {
             showMsg(e.getMessage());
             e.printStackTrace();
         }
 
-        list.stream()
-                .sorted(Employee::compareTo)
-                .forEach(employee -> mainTableView.getItems().add(employee));
+        setOnTable();
     }
 }

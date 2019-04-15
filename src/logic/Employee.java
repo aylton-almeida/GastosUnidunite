@@ -9,7 +9,7 @@ import java.io.ByteArrayOutputStream;
 import java.io.DataInputStream;
 import java.io.DataOutputStream;
 
-public class Employee implements Registrabel, Comparable {
+public class Employee implements Comparable {
 
     private SimpleStringProperty name;
     private SimpleIntegerProperty id;
@@ -22,11 +22,16 @@ public class Employee implements Registrabel, Comparable {
 
     }
 
+    public Employee(String name, String phone, int id){
+        setName(name);
+        setPhone(phone);
+        setId(id);
+    }
+
     public Employee() {
         setName("");
         setId(-1);
         setPhone("");
-
     }
 
     public String getName() {
@@ -54,26 +59,7 @@ public class Employee implements Registrabel, Comparable {
     }
 
     @Override
-    public byte[] getByteArray() throws Exception {
-        ByteArrayOutputStream record = new ByteArrayOutputStream();
-        DataOutputStream output = new DataOutputStream(record);
-        output.writeUTF(getName());
-        output.writeInt(getId());
-        return record.toByteArray();
-    }
-
-    @Override
-    public Registrabel setByteArray(byte[] b) throws Exception {
-        ByteArrayInputStream record = new ByteArrayInputStream(b);
-        DataInputStream input = new DataInputStream(record);
-        setName(input.readUTF());
-        setPhone(input.readUTF());
-        setId(input.readInt());
-        return this;
-    }
-
-    @Override
     public int compareTo(Object o) {
-        return this.getId() - ((Client) o).getId();
+        return this.getId() - ((Employee) o).getId();
     }
 }

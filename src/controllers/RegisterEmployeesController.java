@@ -13,14 +13,12 @@ import java.util.ResourceBundle;
 public class RegisterEmployeesController extends MainController implements Initializable {
     public JFXTextField nameInput;
     public JFXTextField phoneInput;
-    public JFXTextField codeInput;
 
-   public void RegisterEmployee(ActionEvent event){
-        if (!nameInput.getText().isEmpty() && !phoneInput.getText().isEmpty() && !codeInput.getText().isEmpty()) {
-
-                register();
-            }else showMsg("Preencha todos os campos corretamente");
-        }
+    public void RegisterEmployee(ActionEvent event) {
+        if (!nameInput.getText().isEmpty() && !phoneInput.getText().isEmpty()) {
+            register();
+        } else showMsg("Preencha todos os campos corretamente");
+    }
 
 
     private void register() {
@@ -28,7 +26,7 @@ public class RegisterEmployeesController extends MainController implements Initi
             new EmployeeService().addEmployee(new Employee(nameInput.getText(), phoneInput.getText()));
             showMsg("Funcionario cadastrado com sucesso");
             clearMainArea();
-            loadCenterUI("Funcionario.fxml");
+            loadCenterUI("/fxml/Employees.fxml");
         } catch (Exception e) {
             showMsg(e.getMessage());
             e.printStackTrace();
@@ -37,11 +35,8 @@ public class RegisterEmployeesController extends MainController implements Initi
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        addNumberValidator(phoneInput);
-        addNumberValidator(codeInput);
         addRequiredValidator(nameInput);
         addRequiredValidator(phoneInput);
-        addRequiredValidator(codeInput);
     }
-    }
+}
 

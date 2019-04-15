@@ -9,7 +9,7 @@ public class EmployeeService {
     private static Employees employees;
 
     public EmployeeService() throws Exception{
-        this.employees = new Employees();
+        employees = new Employees();
     }
 
     public List<Employee> getAllEmployee() throws Exception {

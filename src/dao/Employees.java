@@ -43,7 +43,7 @@ public class Employees implements Dao<Employee> {
         Statement statement = connection.createStatement();
         ResultSet results = statement.executeQuery("SELECT * from tbl_employee;");
         while (results.next()) {
-            Employee employee = new Employee(results.getString(2), results.getString(3));
+            Employee employee = new Employee(results.getString(2), results.getString(3), results.getInt(1));
             employee.setId(results.getInt(1));
             list.add(employee);
         }
@@ -52,14 +52,11 @@ public class Employees implements Dao<Employee> {
 
     @Override
     public Employee getObject(Object key) throws Exception {
-        PreparedStatement preparedStatement = connection.prepareStatement("SELECT * from tbl_employee WHERE id = ?;");
+        PreparedStatement preparedStatement = connection.prepareStatement("SELECT * from tbl_product WHERE id = ?;");
         preparedStatement.setInt(1, (int) key);
         ResultSet results = preparedStatement.executeQuery();
-        if (results.next()) {
-            Employee employee = new Employee(results.getString(2), results.getString(3));
-            employee.setId(results.getInt(1));
-            return employee;
-        }
+        if (results.next())
+            return new Employee(results.getString(2), results.getString(3), results.getInt(1));
         return null;
     }
     public void addObject(Employee o) throws Exception {
