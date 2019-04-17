@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXDatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+
+<BorderPane fx:id="mainBorderPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="790.0" prefWidth="1018.0" BorderPane.alignment="CENTER" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.SalesController">
+    <top>
+        <Pane prefHeight="98.0" prefWidth="1018.0" style="-fx-background-color: #3A7CF3;" styleClass="nav-bar-panel" stylesheets="@Main.css" BorderPane.alignment="CENTER">
+            <children>
+                <Label layoutX="50.0" layoutY="20.0" text="Escolha o periodo:" textFill="WHITE">
+                    <font>
+                        <Font size="18.0" />
+                    </font>
+                </Label>
+                <JFXDatePicker fx:id="toDateInput" defaultColor="#6cb235" layoutX="258.0" layoutY="50.0" promptText="Ate...." styleClass="jfx-date-picker" stylesheets="@Main.css" />
+                <JFXDatePicker fx:id="fromDateInput" defaultColor="#6cb235" layoutX="50.0" layoutY="50.0" promptText="De...." styleClass="jfx-date-picker" stylesheets="@Main.css" />
+                <JFXButton buttonType="RAISED" layoutX="463.0" layoutY="50.0" onAction="#applyFilter" style="-fx-background-color: #6cb235;" text="Buscar" textFill="WHITE">
+                    <font>
+                        <Font size="13.0" />
+                    </font>
+                </JFXButton>
+                <JFXButton buttonType="RAISED" layoutX="798.0" layoutY="34.0" onAction="#goToRegisterSale" prefHeight="43.0" prefWidth="193.0" style="-fx-background-color: #3c8fdc;" text="Cadastrar Venda" textFill="WHITE">
+                    <font>
+                        <Font size="19.0" />
+                    </font>
+                </JFXButton>
+            <JFXButton buttonType="RAISED" layoutX="534.0" layoutY="50.0" onAction="#clearFilter" style="-fx-background-color: #6cb235;" text="Limpar Filtros" textFill="WHITE">
+               <font>
+                  <Font size="13.0" />
+               </font>
+            </JFXButton>
+            </children>
+        </Pane>
+    </top>
+    <center>
+        <TableView fx:id="mainTableView" prefHeight="698.0" prefWidth="1018.0" stylesheets="@Main.css" BorderPane.alignment="CENTER">
+            <columns>
+                <TableColumn fx:id="idColumn" prefWidth="100.0" text="ID" />
+                <TableColumn fx:id="productsColumn" prefWidth="294.0" text="Produtos" />
+                <TableColumn fx:id="sellerColumn" prefWidth="200.0" text="Vendedor" />
+                <TableColumn fx:id="clientColumn" prefWidth="200.0" text="Cliente" />
+                <TableColumn fx:id="valueColumn" prefWidth="216.0" text="Valor (R$)" />
+            </columns>
+        </TableView>
+    </center>
+</BorderPane>

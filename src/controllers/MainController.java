@@ -6,6 +6,7 @@ import com.jfoenix.validation.RequiredFieldValidator;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
+import javafx.scene.control.ComboBox;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.StackPane;
 import javafx.scene.text.Text;
@@ -112,6 +113,16 @@ public class MainController implements Initializable{
     }
 
     public void addRequiredValidator(JFXPasswordField field){
+        RequiredFieldValidator requiredFieldValidator = new RequiredFieldValidator();
+        requiredFieldValidator.setMessage("Esse campo é obrigatório");
+        field.getValidators().add(requiredFieldValidator);
+        field.focusedProperty().addListener(((o, oldValue, newValue) -> {
+            if (!newValue)
+                field.validate();
+        }));
+    }
+
+    public void addRequiredValidator(JFXComboBox field){
         RequiredFieldValidator requiredFieldValidator = new RequiredFieldValidator();
         requiredFieldValidator.setMessage("Esse campo é obrigatório");
         field.getValidators().add(requiredFieldValidator);

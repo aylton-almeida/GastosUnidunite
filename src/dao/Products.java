@@ -1,10 +1,8 @@
 package dao;
 
 import interfaces.Dao;
-import logic.Client;
 import logic.Product;
 
-import java.io.RandomAccessFile;
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;

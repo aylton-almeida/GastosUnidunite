@@ -17,7 +17,7 @@ public class RegisterClientsController extends MainController implements Initial
     public JFXTextField codeInput;
 
     public void registerClient(ActionEvent event) {
-        if (!nameInput.getText().isEmpty() && !phoneInput.getText().isEmpty() && !codeInput.getText().isEmpty()) {
+        if (nameInput.validate() && phoneInput.validate() && codeInput.validate()) {
             if (!emailInput.getText().isEmpty()) {
                 if (isEmailValid(emailInput)) {
                     register();

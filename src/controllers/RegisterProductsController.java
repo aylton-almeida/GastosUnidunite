@@ -21,7 +21,7 @@ public class RegisterProductsController extends MainController implements Initia
 
 
     public void registerProduct() {
-        if (!nameInput.getText().isEmpty() && !codeInput.getText().isEmpty() && !valueInput.getText().isEmpty()){
+        if (nameInput.validate() && codeInput.validate() && valueInput.validate()){
             try {
                 new ProductService().addProduct(new Product(Integer.parseInt(codeInput.getText()), nameInput.getText(), factoryInput.getText(), sizeInput.getText(), Double.parseDouble(valueInput.getText().replaceAll(",", "."))));
                 showMsg("Produto cadastrado com sucesso");

@@ -35,7 +35,12 @@ public class NavBarController extends MainController implements Initializable {
     }
 
     public void goToSales(ActionEvent event) {
+        showLoader();
+        clearNavBar();
+        normalizeButton();
+        highLightButton(salesButton);
         loadCenterUI("/fxml/Sales.fxml");
+        hideLoader();
     }
 
     public void goToExpenses(ActionEvent event) {

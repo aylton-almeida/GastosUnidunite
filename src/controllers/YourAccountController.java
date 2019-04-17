@@ -48,10 +48,10 @@ public class YourAccountController extends MainController implements Initializab
     }
 
     public void createUser(ActionEvent event) {
-        if (!emailInput.getText().isEmpty() && !passInput.getText().isEmpty() && !confPassInput.getText().isEmpty()) {
+        if (emailInput.validate() && passInput.validate() && confPassInput.validate()) {
             try {
                 if (isEmailValid(emailInput)) {
-                    if (!passInput.getText().isEmpty() && passInput.getText().equals(confPassInput.getText())) {
+                    if (passInput.validate() && passInput.getText().equals(confPassInput.getText())) {
                         this.userService.addUser(emailInput.getText(), passInput.getText(), isAdminInput.selectedProperty().get());
                         showMsg("Usuário cadastrado com sucesso");
                         clearMainArea();

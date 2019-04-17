@@ -2,10 +2,11 @@ package dao;
 
 import interfaces.Dao;
 import logic.Employee;
+
 import java.sql.*;
-import java.util.Properties;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Properties;
 
 public class Employees implements Dao<Employee> {
 
