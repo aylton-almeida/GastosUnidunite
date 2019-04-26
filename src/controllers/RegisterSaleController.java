@@ -41,8 +41,7 @@ public class RegisterSaleController extends MainController implements Initializa
     private double totalValue;
 
     public void RegisterSale(ActionEvent actionEvent) {
-        System.out.println(payTypeInput.validate());
-        System.out.println(payTypeInput.getValue());
+
     }
 
     private void changeTotalValue() {
