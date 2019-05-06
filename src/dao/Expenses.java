@@ -84,6 +84,7 @@ public class Expenses implements Dao<Expense> {
         preparedStatement.setDouble(2, o.getValue());
         preparedStatement.setBoolean(3, o.isPublic());
         preparedStatement.setString(4,o.getDate());
+        preparedStatement.setInt(5, o.getId());
         preparedStatement.executeUpdate();
 
 

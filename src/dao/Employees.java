@@ -69,9 +69,10 @@ public class Employees implements Dao<Employee> {
 
     @Override
     public void updateObject(Employee o) throws Exception {
-        PreparedStatement preparedStatement = connection.prepareStatement("UPDATE tbl_employee (name, phone) VALUES (?, ?);");
+        PreparedStatement preparedStatement = connection.prepareStatement("UPDATE tbl_employee SET name = ?, phone = ? WHERE id = ?;");
         preparedStatement.setString(1, o.getName());
         preparedStatement.setString(2, o.getPhone());
+        preparedStatement.setInt(3, o.getId());
         preparedStatement.executeUpdate();
 
     }

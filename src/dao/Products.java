@@ -69,12 +69,12 @@ public class Products implements Dao<Product> {
 
     @Override
     public void updateObject(Product o) throws Exception {
-        PreparedStatement preparedStatement = connection.prepareStatement("UPDATE tbl_product (id, name, value, size, factory) VALUES (?, ?, ?, ?, ?);");
-        preparedStatement.setInt(1, o.getId());
-        preparedStatement.setString(2, o.getName());
-        preparedStatement.setDouble(3, o.getValue());
-        preparedStatement.setString(4, o.getSize());
-        preparedStatement.setString(5, o.getFactory());
+        PreparedStatement preparedStatement = connection.prepareStatement("UPDATE tbl_product SET name = ?, value = ?, size = ?, factory = ? WHERE id = ?;");
+        preparedStatement.setInt(5, o.getId());
+        preparedStatement.setString(1, o.getName());
+        preparedStatement.setDouble(2, o.getValue());
+        preparedStatement.setString(3, o.getSize());
+        preparedStatement.setString(4, o.getFactory());
         preparedStatement.executeUpdate();
     }
 

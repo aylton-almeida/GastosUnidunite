@@ -93,6 +93,9 @@ public class Users implements Dao<User> {
 
     @Override
     public void deleteObject(User o) throws Exception {
+        PreparedStatement preparedStatement = connection.prepareStatement("DELETE tbl_user WHERE id = ?;");
+        preparedStatement.setInt(1, o.getId());
+        preparedStatement.executeUpdate();
 
     }
 }
