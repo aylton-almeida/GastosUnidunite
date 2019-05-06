@@ -18,18 +18,11 @@ public class UserService {
         return new User();
     }
 
-    public void loggout() {
-    }
-
     public void addUser(String email, String pass, boolean isAdmin) throws Exception {
         users.addObject(new User(email, pass, isAdmin));
     }
 
     public void updateUser(User user) throws Exception {
         users.updateObject(user);
-    }
-
-    public boolean changePassword(String oldPass, String newPass) {
-        return true;
     }
 }

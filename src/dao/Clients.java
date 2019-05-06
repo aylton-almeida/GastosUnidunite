@@ -68,11 +68,11 @@ public class Clients implements Dao<Client> {
 
     @Override
     public void updateObject(Client o) throws Exception {
-        PreparedStatement preparedStatement = connection.prepareStatement("UPDATE tbl_client WHERE id = ?;");
-        preparedStatement.setString(2,o.getName());
-        preparedStatement.setString(3, o.getPhone());
-        preparedStatement.setString(4, o.getEmail());
-        preparedStatement.setString(5, o.getAddress());
+        PreparedStatement preparedStatement = connection.prepareStatement("UPDATE tbl_client (name, phone, email, address) VALUES (?, ?, ?, ?);");
+        preparedStatement.setString(1,o.getName());
+        preparedStatement.setString(2, o.getPhone());
+        preparedStatement.setString(3, o.getEmail());
+        preparedStatement.setString(4, o.getAddress());
         preparedStatement.executeUpdate();
 
     }

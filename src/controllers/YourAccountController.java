@@ -23,40 +23,23 @@ public class YourAccountController extends MainController implements Initializab
     public JFXButton updateDataBtn;
     public JFXButton createUserBtn;
     public JFXCheckBox isAdminInput;
-
-    @Override
-    public void initialize(URL url, ResourceBundle resourceBundle) {
-        labelBemVindo.setText("Bem vindo " + super.getLoggedUser().getEmail());
-        emailInput.setText(super.getLoggedUser().getEmail());
-        isAdminInput.selectedProperty().setValue(super.getLoggedUser().isAdmin());
-        if (!super.getLoggedUser().isAdmin()){
-            createUserBtn.setOpacity(0);
-            updateDataBtn.setLayoutX(407);
-            isAdminInput.setOpacity(0);
-        }
-
-        addRequiredValidator(emailInput);
-        addRequiredValidator(passInput);
-        addRequiredValidator(confPassInput);
-    }
+    private static UserService userService;
 
     public void updateData(ActionEvent event) {
-            User user = loggedUser;
+        User user = loggedUser;
         try {
             if (isEmailValid(emailInput)) {
                 user.setEmail(emailInput.getText());
                 if (passInput.getText().equals(confPassInput.getText())) {
                     user.setPassword(passInput.getText());
                     user.setIsAdmin(isAdminInput.selectedProperty().get());
-                    new UserService().updateUser(loggedUser);
+                    this.userService.updateUser(loggedUser);
                     showMsg("Usuario atualizado com sucesso");
                     clearMainArea();
-                    loadCenterUI("Home.fxml");
-                }
-                else
+                    loadCenterUI("/fxml/Home.fxml");
+                } else
                     showMsg("As senhas não coincidem");
-            }
-            else
+            } else
                 showMsg("Digite um e-mail valido");
         } catch (Exception e) {
             showMsg(e.getMessage());
@@ -65,24 +48,46 @@ public class YourAccountController extends MainController implements Initializab
     }
 
     public void createUser(ActionEvent event) {
-        if (!emailInput.getText().isEmpty() && !passInput.getText().isEmpty() && !confPassInput.getText().isEmpty()){
-            try{
-                if (isEmailValid(emailInput)){
-                    if (!passInput.getText().isEmpty() && passInput.getText().equals(confPassInput.getText())){
-                        new UserService().addUser(emailInput.getText(), passInput.getText(), isAdminInput.selectedProperty().get());
+        if (!emailInput.getText().isEmpty() && !passInput.getText().isEmpty() && !confPassInput.getText().isEmpty()) {
+            try {
+                if (isEmailValid(emailInput)) {
+                    if (!passInput.getText().isEmpty() && passInput.getText().equals(confPassInput.getText())) {
+                        this.userService.addUser(emailInput.getText(), passInput.getText(), isAdminInput.selectedProperty().get());
                         showMsg("Usuário cadastrado com sucesso");
                         clearMainArea();
-                        loadCenterUI("Home.fxml");
-                    }else{
+                        loadCenterUI("/fxml/Home.fxml");
+                    } else {
                         showMsg("As senhas não batem");
                     }
-                }else{
+                } else {
                     showMsg("Digite um email valido");
                 }
-            }catch (Exception e){
+            } catch (Exception e) {
                 showMsg(e.getMessage());
                 e.printStackTrace();
             }
+        }
+    }
+
+    @Override
+    public void initialize(URL url, ResourceBundle resourceBundle) {
+        labelBemVindo.setText("Bem vindo " + super.getLoggedUser().getEmail());
+        emailInput.setText(super.getLoggedUser().getEmail());
+        isAdminInput.selectedProperty().setValue(super.getLoggedUser().isAdmin());
+        if (!super.getLoggedUser().isAdmin()) {
+            createUserBtn.setOpacity(0);
+            updateDataBtn.setLayoutX(407);
+            isAdminInput.setOpacity(0);
+        }
+
+        addRequiredValidator(emailInput);
+        addRequiredValidator(passInput);
+        addRequiredValidator(confPassInput);
+
+        try {
+            userService = new UserService();
+        } catch (Exception e) {
+            e.printStackTrace();
         }
     }
 }

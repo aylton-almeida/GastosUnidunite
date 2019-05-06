@@ -26,7 +26,7 @@ public class RegisterProductsController extends MainController implements Initia
                 new ProductService().addProduct(new Product(Integer.parseInt(codeInput.getText()), nameInput.getText(), factoryInput.getText(), sizeInput.getText(), Double.parseDouble(valueInput.getText().replaceAll(",", "."))));
                 showMsg("Produto cadastrado com sucesso");
                 clearMainArea();
-                loadCenterUI("Products.fxml");
+                loadCenterUI("/fxml/Products.fxml");
             } catch (Exception e) {
                 showMsg(e.getMessage());
                 e.printStackTrace();

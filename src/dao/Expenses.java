@@ -69,20 +69,21 @@ public class Expenses implements Dao<Expense> {
 
     @Override
     public void addObject(Expense o) throws Exception {
-        PreparedStatement preparedStatement = connection.prepareStatement("INSERT INTO tbl_expense (id, description,priority, value, date) VALUES:(?,?,?,?,?); ");
-        preparedStatement.setInt(1, o.getId());
-        preparedStatement.setString(2, o.getDescription());
-        preparedStatement.setDouble(4, o.getValue());
-        preparedStatement.setBoolean(3,o.isPublic());
+        PreparedStatement preparedStatement = connection.prepareStatement("INSERT INTO tbl_expense (description,priority, value, date) VALUES:(?,?,?,?); ");
+        preparedStatement.setString(1, o.getDescription());
+        preparedStatement.setDouble(3, o.getValue());
+        preparedStatement.setBoolean(2,o.isPublic());
+        preparedStatement.setString(4, o.getDate());
         preparedStatement.executeUpdate();
     }
 
     @Override
     public void updateObject(Expense o) throws Exception {
-        PreparedStatement preparedStatement = connection.prepareStatement("UPDATE tbl_expense WHERE id = ?;");
-        preparedStatement.setString(2, o.getDescription());
-        preparedStatement.setDouble(4, o.getValue());
+        PreparedStatement preparedStatement = connection.prepareStatement("UPDATE tbl_expense SET description = ?, value = ?, priority = ?, date = ? WHERE id = ?; ");
+        preparedStatement.setString(1, o.getDescription());
+        preparedStatement.setDouble(2, o.getValue());
         preparedStatement.setBoolean(3, o.isPublic());
+        preparedStatement.setString(4,o.getDate());
         preparedStatement.executeUpdate();
 
 

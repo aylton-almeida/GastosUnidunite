@@ -35,7 +35,7 @@ public class RegisterClientsController extends MainController implements Initial
             new ClientService().addClient(new Client(nameInput.getText(), adressInput.getText(), emailInput.getText(), phoneInput.getText(), Integer.parseInt(codeInput.getText())));
             showMsg("Cliente cadastrado com sucesso");
             clearMainArea();
-            loadCenterUI("Clients.fxml");
+            loadCenterUI("/fxml/Clients.fxml");
         } catch (Exception e) {
             showMsg(e.getMessage());
             e.printStackTrace();

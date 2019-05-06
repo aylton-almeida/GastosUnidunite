@@ -24,26 +24,26 @@ public class NavBarController extends MainController implements Initializable {
         clearNavBar();
         normalizeButton();
         highLightButton(accountButton);
-        loadCenterUI("YourAccount.fxml");
+        loadCenterUI("/fxml/YourAccount.fxml");
     }
 
     public void goToProducts(ActionEvent event) {
         clearNavBar();
         normalizeButton();
         highLightButton(productsButton);
-        loadCenterUI("Products.fxml");
+        loadCenterUI("/fxml/Products.fxml");
     }
 
     public void goToSales(ActionEvent event) {
-        loadCenterUI("Sales.fxml");
+        loadCenterUI("/fxml/Sales.fxml");
     }
 
     public void goToExpenses(ActionEvent event) {
-        loadCenterUI("Expenses.fxml");
+        loadCenterUI("/fxml/Expenses.fxml");
     }
 
     public void goToEmployees(ActionEvent event) {
-        loadCenterUI("Employees.fxml");
+        loadCenterUI("/fxml/Employees.fxml");
     }
 
     public void goToTotals(ActionEvent event) {
@@ -51,17 +51,19 @@ public class NavBarController extends MainController implements Initializable {
     }
 
     public void goToClients(ActionEvent event) {
+        showLoader();
         clearNavBar();
         normalizeButton();
         highLightButton(clientsButton);
-        loadCenterUI("Clients.fxml");
+        loadCenterUI("/fxml/Clients.fxml");
+        hideLoader();
     }
 
     public void goToHome(ActionEvent event) {
         clearNavBar();
         normalizeButton();
         highLightButton(homeButton);
-        loadCenterUI("Home.fxml");
+        loadCenterUI("/fxml/Home.fxml");
     }
 
     private void normalizeButton() {
@@ -89,6 +91,6 @@ public class NavBarController extends MainController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        loadCenterUI("Home.fxml");
+        loadCenterUI("/fxml/Home.fxml");
     }
 }

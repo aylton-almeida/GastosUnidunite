@@ -22,6 +22,37 @@ public class ProductsController extends MainController implements Initializable 
     public TableColumn<Product, String> factoryColumn;
     public TableColumn<Product, Double> valueColumn;
     public JFXTextField searchInput;
+    private List<Product> productList;
+    private ProductService productService;
+
+    private void showOnTable() {
+        this.productList.stream()
+                .sorted(Product::compareTo)
+                .forEach(product -> mainTableView.getItems().add(product));
+    }
+
+    public void goToRegisterProduct(ActionEvent event) {
+        clearMainArea();
+        loadCenterUI("/fxml/RegisterProducts.fxml");
+    }
+
+    public void filterSearch(ActionEvent event) {
+
+        mainTableView.getItems().clear();
+
+        String input = searchInput.getText();
+
+        productList.forEach(product -> {
+            if (("" + product.getId()).equals(input) || product.getName().equalsIgnoreCase(input))
+                mainTableView.getItems().add(product);
+        });
+    }
+
+    public void clearSearch(ActionEvent event) {
+        searchInput.setText(null);
+        mainTableView.getItems().clear();
+        showOnTable();
+    }
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
@@ -31,58 +62,19 @@ public class ProductsController extends MainController implements Initializable 
         factoryColumn.setCellValueFactory(new PropertyValueFactory<>("Factory"));
         valueColumn.setCellValueFactory(new PropertyValueFactory<>("Value"));
 
-
-        List<Product> list = null;
         try {
-            list = new ProductService().getAllProducts();
+            productService = new ProductService();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        try {
+            this.productList = productService.getAllProducts();
         } catch (Exception e) {
             showMsg(e.getMessage());
             e.printStackTrace();
         }
 
-        list.stream()
-                .sorted(Product::compareTo)
-                .forEach(product -> mainTableView.getItems().add(product));
-    }
-
-    public void goToRegisterProduct(ActionEvent event) {
-        clearMainArea();
-        loadCenterUI("RegisterProducts.fxml");
-    }
-
-    public void filterSearch(ActionEvent event) {
-
-        mainTableView.getItems().clear();
-
-        String input = searchInput.getText();
-
-        List<Product> list = null;
-        try {
-            list = new ProductService().getAllProducts();
-        } catch (Exception e) {
-            showMsg(e.getMessage());
-            e.printStackTrace();
-        }
-
-        list.stream()
-                .filter(product -> product.getId() == Integer.parseInt(input))
-                .forEach(product -> mainTableView.getItems().add(product));
-    }
-
-    public void clearSearch(ActionEvent event) {
-
-        searchInput.setText(null);
-        mainTableView.getItems().clear();
-        List<Product> list = null;
-        try {
-            list = new ProductService().getAllProducts();
-        } catch (Exception e) {
-            showMsg(e.getMessage());
-            e.printStackTrace();
-        }
-
-        list.stream()
-                .sorted(Product::compareTo)
-                .forEach(product -> mainTableView.getItems().add(product));
+        showOnTable();
     }
 }

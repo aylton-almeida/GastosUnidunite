@@ -69,11 +69,20 @@ public class Products implements Dao<Product> {
 
     @Override
     public void updateObject(Product o) throws Exception {
-
+        PreparedStatement preparedStatement = connection.prepareStatement("UPDATE tbl_product (id, name, value, size, factory) VALUES (?, ?, ?, ?, ?);");
+        preparedStatement.setInt(1, o.getId());
+        preparedStatement.setString(2, o.getName());
+        preparedStatement.setDouble(3, o.getValue());
+        preparedStatement.setString(4, o.getSize());
+        preparedStatement.setString(5, o.getFactory());
+        preparedStatement.executeUpdate();
     }
 
     @Override
     public void deleteObject(Product o) throws Exception {
+        PreparedStatement preparedStatement = connection.prepareStatement("DELETE tbl_product WHERE id = ?;");
+        preparedStatement.setInt(1, o.getId());
+        preparedStatement.executeUpdate();
 
     }
 }
