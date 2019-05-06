@@ -33,6 +33,7 @@ public class Products implements Dao<Product> {
         if (connection == null)
             throw new Exception("Failed to create connection to database.");
     }
+
     @Override
     public List<Product> getAllObjects() throws Exception {
         List<Product> list = new ArrayList<>();
