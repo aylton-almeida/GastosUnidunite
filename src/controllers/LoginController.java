@@ -62,6 +62,9 @@ public class LoginController extends MainController implements Initializable {
         } catch (Exception e) {
             e.printStackTrace();
         }
+
+        //Definir click do enter como click do botao
+        inputPass.onActionProperty().set(e -> makeLogin(new ActionEvent()));
     }
 
 }

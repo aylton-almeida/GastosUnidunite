@@ -6,10 +6,11 @@ import com.jfoenix.validation.RequiredFieldValidator;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
-import javafx.scene.control.ComboBox;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.StackPane;
 import javafx.scene.text.Text;
+import logic.Client;
+import logic.Product;
 import logic.User;
 
 import java.net.URL;
@@ -20,6 +21,8 @@ public class MainController implements Initializable{
     public StackPane mainStackPane;
     public BorderPane mainBorderPane;
     public static User loggedUser = null;
+    public static Product actualProduct = null;
+    public static Client actualClient = null;
 
     public MainController(StackPane stackPane, BorderPane borderPane){
         this.mainStackPane = stackPane;
@@ -83,6 +86,7 @@ public class MainController implements Initializable{
     public void clearMainArea(){
         this.mainBorderPane.setCenter(null);
         this.mainBorderPane.setTop(null);
+        this.mainBorderPane.setBottom(null);
     }
 
     public void showLoader(){

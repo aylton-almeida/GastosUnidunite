@@ -1,11 +1,17 @@
 package controllers;
 
+import dao.Sales;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.image.Image;
 import javafx.stage.Stage;
+import logic.Sale;
+
+import java.time.LocalDate;
+import java.util.ArrayList;
+import java.util.List;
 
 public class Main extends Application {
 
@@ -19,6 +25,11 @@ public class Main extends Application {
         primaryStage.setResizable(false);
         primaryStage.getIcons().add(new Image(Main.class.getResourceAsStream("/img/icon.png")));
         primaryStage.show();
+
+        List<Integer> list = new ArrayList<>();
+        list.add(2);
+        list.add(1);
+        new Sales().addObject(new Sale(52.90, LocalDate.now(), 1, 1, 1, list));
     }
 
 

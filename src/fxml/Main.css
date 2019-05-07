@@ -72,3 +72,7 @@
 	-fx-background-radius: 2em;
 
 }
+
+.table-row-cell:selected .text {
+  -fx-fill: #6cb235 ;
+}

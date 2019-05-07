@@ -5,7 +5,7 @@ import javafx.event.ActionEvent;
 import javafx.fxml.Initializable;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
-import logic.Sale;
+import services.SaleService;
 
 import java.net.URL;
 import java.time.format.DateTimeFormatter;
@@ -20,6 +20,7 @@ public class SalesController extends MainController implements Initializable {
     public TableColumn sellerColumn;
     public TableColumn clientColumn;
     public TableColumn valueColumn;
+    public SaleService saleService;
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {

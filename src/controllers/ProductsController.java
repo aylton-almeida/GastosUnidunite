@@ -25,37 +25,9 @@ public class ProductsController extends MainController implements Initializable 
     private List<Product> productList;
     private ProductService productService;
 
-    private void showOnTable() {
-        this.productList.stream()
-                .sorted(Product::compareTo)
-                .forEach(product -> mainTableView.getItems().add(product));
-    }
-
-    public void goToRegisterProduct(ActionEvent event) {
-        clearMainArea();
-        loadCenterUI("/fxml/RegisterProducts.fxml");
-    }
-
-    public void filterSearch(ActionEvent event) {
-
-        mainTableView.getItems().clear();
-
-        String input = searchInput.getText();
-
-        productList.forEach(product -> {
-            if (("" + product.getId()).equals(input) || product.getName().equalsIgnoreCase(input))
-                mainTableView.getItems().add(product);
-        });
-    }
-
-    public void clearSearch(ActionEvent event) {
-        searchInput.setText(null);
-        mainTableView.getItems().clear();
-        showOnTable();
-    }
-
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
+        //Recuperar dados do banco e mostra-los na tabela
         idColumn.setCellValueFactory(new PropertyValueFactory<>("Id"));
         nameColumn.setCellValueFactory(new PropertyValueFactory<>("Name"));
         sizeColumn.setCellValueFactory(new PropertyValueFactory<>("Size"));
@@ -76,5 +48,53 @@ public class ProductsController extends MainController implements Initializable 
         }
 
         showOnTable();
+
+        //Definir que quando o enter for pressionado o filtro ocorra
+        searchInput.setOnAction(this::filterSearch);
+        //Definir mudanca do filtro a medida que os dados sao digitados
+        searchInput.onKeyReleasedProperty().set(e -> this.filterSearch(new ActionEvent()));
+    }
+
+    private void showOnTable() {
+        this.productList.stream()
+                .sorted(Product::compareTo)
+                .forEach(product -> mainTableView.getItems().add(product));
+    }
+
+    public void goToRegisterProduct(ActionEvent event) {
+        clearMainArea();
+        loadCenterUI("/fxml/RegisterProducts.fxml");
+    }
+
+    //Filtra a pesquisa
+    public void filterSearch(ActionEvent event) {
+
+        mainTableView.getItems().clear();
+
+        String input = searchInput.getText();
+
+        productList.forEach(product -> {
+            if (("" + product.getId()).equals(input) || product.getName().toLowerCase().startsWith(input.toLowerCase()))
+                mainTableView.getItems().add(product);
+        });
+    }
+
+    //Deleta o produto selecionado na tabela
+    public void deleteProduct(ActionEvent actionEvent) {
+        try {
+            Product p = mainTableView.getSelectionModel().getSelectedItem();
+            mainTableView.getItems().removeAll(p);
+            productService.deleteProduct(p);
+        } catch (Exception e) {
+            showMsg(e.getMessage());
+            e.printStackTrace();
+        }
+    }
+
+    //Abre uma pagina para edicao do produto selecionado da tabela
+    public void editProduct(ActionEvent actionEvent) {
+        actualProduct = mainTableView.getSelectionModel().getSelectedItem();
+        clearMainArea();
+        loadCenterUI("/fxml/RegisterProducts.fxml");
     }
 }

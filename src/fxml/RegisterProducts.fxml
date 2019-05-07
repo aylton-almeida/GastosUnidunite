@@ -8,7 +8,7 @@
     <BorderPane fx:id="mainBorderPane">
         <top>
             <Pane prefHeight="98.0" prefWidth="1018.0" style="-fx-background-color: #3A7CF3;" styleClass="nav-bar-panel" stylesheets="@Main.css" BorderPane.alignment="CENTER">
-                <Label layoutX="50.0" layoutY="32.0" text="Cadastrar Produto" textFill="WHITE">
+                <Label fx:id="tituloLabel" layoutX="50.0" layoutY="32.0" text="Cadastrar Produto" textFill="WHITE">
                     <font>
                         <Font size="24.0" />
                     </font>
@@ -42,7 +42,7 @@
                         <Font size="18.0" />
                     </font>
                 </JFXTextField>
-                <JFXButton buttonType="RAISED" cancelButton="true" layoutX="407.0" layoutY="527.0" onAction="#registerProduct" prefHeight="39.0" prefWidth="205.0" ripplerFill="WHITE" style="-fx-background-color: #3c8fdc;" text="Concluir" textFill="WHITE">
+                <JFXButton fx:id="doneButton" buttonType="RAISED" cancelButton="true" layoutX="407.0" layoutY="527.0" prefHeight="39.0" prefWidth="205.0" ripplerFill="WHITE" style="-fx-background-color: #3c8fdc;" text="Concluir" textFill="WHITE">
                     <font>
                         <Font size="18.0" />
                     </font>

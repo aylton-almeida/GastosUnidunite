@@ -13,7 +13,7 @@ public class Users implements Dao<User> {
     private String database = "unidunite";
     private String user = "AyltonJunior@bancounidunite";
     private String password = "Aylton123";
-    private Connection connection = null;
+    private Connection connection;
 
     public Users() throws Exception {
         Class.forName("com.mysql.jdbc.Driver");

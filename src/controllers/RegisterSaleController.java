@@ -19,6 +19,7 @@ import services.EmployeeService;
 import services.ProductService;
 
 import java.net.URL;
+import java.text.DecimalFormat;
 import java.util.List;
 import java.util.ResourceBundle;
 import java.util.stream.Collectors;
@@ -46,8 +47,9 @@ public class RegisterSaleController extends MainController implements Initializa
 
     private void changeTotalValue() {
         ProductsValueSumLabel.setText(("R$" + productSumValue).replaceAll("\\.", ","));
-        totalValue = productSumValue - Double.parseDouble(discountInput.getText().replaceAll(",", "\\."));
-        TotalLabel.setText(("R$" + totalValue).replaceAll("\\.", ","));
+        DecimalFormat df = new DecimalFormat("#.##");
+        totalValue = (productSumValue - Double.parseDouble(discountInput.getText().replaceAll(",", "\\.")));
+        TotalLabel.setText(("R$" + df.format(totalValue)).replaceAll("\\.", ","));
     }
 
     private void addRow() {
