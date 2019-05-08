@@ -74,7 +74,7 @@ public class ProductsController extends MainController implements Initializable 
         String input = searchInput.getText();
 
         productList.forEach(product -> {
-            if (("" + product.getId()).equals(input) || product.getName().toLowerCase().startsWith(input.toLowerCase()))
+            if (("" + product.getId()).startsWith(input) || product.getName().toLowerCase().startsWith(input.toLowerCase()))
                 mainTableView.getItems().add(product);
         });
     }

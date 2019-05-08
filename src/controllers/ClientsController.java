@@ -73,7 +73,7 @@ public class ClientsController extends MainController implements Initializable {
         mainTableView.getItems().clear();
 
         clientsList.forEach(client -> {
-            if (("" + client.getId()).equals(input) || client.getName().toLowerCase().startsWith(input.toLowerCase()))
+            if (("" + client.getId()).startsWith(input) || client.getName().toLowerCase().startsWith(input.toLowerCase()))
                 mainTableView.getItems().add(client);
         });
     }

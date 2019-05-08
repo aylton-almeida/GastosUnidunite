@@ -43,16 +43,9 @@ public class EmployeesController extends MainController implements Initializable
         String input = searchInput.getText();
 
         listEmployee.forEach((e) -> {
-            if (("" + e.getId()).equals(input) || e.getName().toLowerCase().contains(input.toLowerCase()))
+            if (("" + e.getId()).startsWith(input) || e.getName().toLowerCase().startsWith(input.toLowerCase()))
                 mainTableView.getItems().add(e);
         });
-    }
-
-    public void clearSearch(ActionEvent event) {
-        searchInput.setText(null);
-        mainTableView.getItems().clear();
-
-        setOnTable();
     }
 
     @Override
@@ -70,5 +63,11 @@ public class EmployeesController extends MainController implements Initializable
         }
 
         setOnTable();
+    }
+
+    public void editEmployee(ActionEvent actionEvent) {
+    }
+
+    public void deleteEmployee(ActionEvent actionEvent) {
     }
 }

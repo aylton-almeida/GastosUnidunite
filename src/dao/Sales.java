@@ -71,8 +71,6 @@ public class Sales implements Dao<Sale> {
 
     @Override
     public void addObject(Sale o) throws Exception {
-//        PreparedStatement ps = connection.prepareStatement("SELECT id FROM tbl_sale ORDER BY id DESC LIMIT 1;");
-//        ResultSet result = ps.executeQuery();
         PreparedStatement preparedStatement = connection.prepareStatement("INSERT INTO tbl_sale(employee_id, client_id, pay_type, value, date) VALUES(?, ? ,? ,?, ?);", Statement.RETURN_GENERATED_KEYS);
         preparedStatement.setInt(1, o.getEmployeeId());
         preparedStatement.setInt(2, o.getClientId());
