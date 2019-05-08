@@ -20,7 +20,7 @@ public class RegisterProductsController extends MainController implements Initia
     public JFXTextField factoryInput;
     public JFXTextField sizeInput;
     public JFXButton doneButton;
-    public Label tituloLabel;
+    public Label titleLabel;
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
@@ -53,7 +53,7 @@ public class RegisterProductsController extends MainController implements Initia
             });
 
             actualProduct = null;
-            tituloLabel.setText("Editar Produto");
+            titleLabel.setText("Editar Produto");
         } else {
             doneButton.onActionProperty().set(ignored -> {
                 if (nameInput.validate() && codeInput.validate() && valueInput.validate()) {

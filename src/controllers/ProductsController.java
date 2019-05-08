@@ -85,16 +85,18 @@ public class ProductsController extends MainController implements Initializable 
             Product p = mainTableView.getSelectionModel().getSelectedItem();
             mainTableView.getItems().removeAll(p);
             productService.deleteProduct(p);
-        } catch (Exception e) {
-            showMsg(e.getMessage());
-            e.printStackTrace();
+            productList.remove(p);
+        } catch (Exception ignored) {
         }
     }
 
     //Abre uma pagina para edicao do produto selecionado da tabela
     public void editProduct(ActionEvent actionEvent) {
-        actualProduct = mainTableView.getSelectionModel().getSelectedItem();
-        clearMainArea();
-        loadCenterUI("/fxml/RegisterProducts.fxml");
+        try {
+            actualProduct = mainTableView.getSelectionModel().getSelectedItem();
+            clearMainArea();
+            loadCenterUI("/fxml/RegisterProducts.fxml");
+        } catch (Exception ignored) {
+        }
     }
 }

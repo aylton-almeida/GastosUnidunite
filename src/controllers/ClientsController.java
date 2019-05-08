@@ -73,25 +73,29 @@ public class ClientsController extends MainController implements Initializable {
         mainTableView.getItems().clear();
 
         clientsList.forEach(client -> {
-            if (("" + client.getId()).equals(input) || client.getName().toLowerCase().equalsIgnoreCase(input.toLowerCase()))
+            if (("" + client.getId()).equals(input) || client.getName().toLowerCase().startsWith(input.toLowerCase()))
                 mainTableView.getItems().add(client);
         });
     }
 
     public void deleteClients(ActionEvent actionEvent) {
-//        try {
-//            Client c = mainTableView.getSelectionModel().getSelectedItem();
-//            mainTableView.getItems().removeAll(c);
-//            clientService.deleteProduct(c);
-//        } catch (Exception e) {
-//            showMsg(e.getMessage());
-//            e.printStackTrace();
-//        }
+        try {
+            Client c = mainTableView.getSelectionModel().getSelectedItem();
+            mainTableView.getItems().removeAll(c);
+            clientService.deleteClient(c);
+            clientsList.remove(c);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 
     public void editClients(ActionEvent actionEvent) {
-//        actualProduct = mainTableView.getSelectionModel().getSelectedItem();
-//        clearMainArea();
-//        loadCenterUI("/fxml/RegisterProducts.fxml");
+        try {
+            actualClient = mainTableView.getSelectionModel().getSelectedItem();
+            clearMainArea();
+            loadCenterUI("/fxml/RegisterClients.fxml");
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 }

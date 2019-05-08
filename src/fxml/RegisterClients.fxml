@@ -8,7 +8,7 @@
     <BorderPane fx:id="mainBorderPane">
         <top>
             <Pane prefHeight="98.0" prefWidth="1018.0" style="-fx-background-color: #3A7CF3;" styleClass="nav-bar-panel" stylesheets="@Main.css" BorderPane.alignment="CENTER">
-                <Label layoutX="50.0" layoutY="32.0" text="Cadastrar Cliente" textFill="WHITE">
+                <Label fx:id="titleLabel" layoutX="50.0" layoutY="32.0" text="Cadastrar Cliente" textFill="WHITE">
                     <font>
                         <Font size="24.0" />
                     </font>
@@ -37,12 +37,12 @@
                         <Font size="18.0" />
                     </font>
                 </JFXTextField>
-                <JFXTextField fx:id="adressInput" focusColor="#3c8fdc" labelFloat="true" layoutX="233.0" layoutY="387.0" prefHeight="39.0" prefWidth="350.0" promptText="Endereço">
+                <JFXTextField fx:id="addressInput" focusColor="#3c8fdc" labelFloat="true" layoutX="233.0" layoutY="387.0" prefHeight="39.0" prefWidth="350.0" promptText="Endereço">
                     <font>
                         <Font size="18.0" />
                     </font>
                 </JFXTextField>
-                <JFXButton buttonType="RAISED" cancelButton="true" layoutX="407.0" layoutY="527.0" onAction="#registerClient" prefHeight="39.0" prefWidth="205.0" ripplerFill="WHITE" style="-fx-background-color: #3c8fdc;" text="Concluir" textFill="WHITE">
+                <JFXButton fx:id="doneButton" buttonType="RAISED" cancelButton="true" layoutX="407.0" layoutY="527.0" prefHeight="39.0" prefWidth="205.0" ripplerFill="WHITE" style="-fx-background-color: #3c8fdc;" text="Concluir" textFill="WHITE">
                     <font>
                         <Font size="18.0" />
                     </font>

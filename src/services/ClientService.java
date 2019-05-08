@@ -2,6 +2,7 @@ package services;
 
 import dao.Clients;
 import logic.Client;
+import logic.Product;
 
 import java.util.List;
 
@@ -18,5 +19,13 @@ public class ClientService {
 
     public void addClient(Client c) throws Exception{
         clients.addObject(c);
+    }
+
+    public void deleteClient(Client client) throws Exception{
+        clients.deleteObject(client);
+    }
+
+    public void updateClient(Client client) throws Exception{
+        clients.updateObject(client);
     }
 }
