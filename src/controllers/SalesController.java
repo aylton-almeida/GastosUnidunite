@@ -113,7 +113,7 @@ public class SalesController extends MainController implements Initializable {
                 @Override
                 protected void failed() {
                     getException().printStackTrace();
-                    showMsg("Ocorreu um problema ao recuperar os dados");
+                    showMsg("Ocorreu um problema ao deletar os dados");
                     hideLoader();
                 }
             };

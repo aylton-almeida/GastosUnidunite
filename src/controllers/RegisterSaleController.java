@@ -3,6 +3,7 @@ package controllers;
 import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXComboBox;
 import com.jfoenix.controls.JFXTextField;
+import javafx.concurrent.Task;
 import javafx.fxml.Initializable;
 import javafx.geometry.Insets;
 import javafx.scene.control.Label;
@@ -13,6 +14,7 @@ import javafx.scene.text.Font;
 import logic.Client;
 import logic.Employee;
 import logic.Product;
+import logic.Sale;
 import services.ClientService;
 import services.EmployeeService;
 import services.ProductService;
@@ -26,7 +28,6 @@ import java.util.ResourceBundle;
 import java.util.stream.Collectors;
 
 public class RegisterSaleController extends MainController implements Initializable {
-
     public JFXComboBox<String> employeeInput;
     public JFXComboBox<String> clientInput;
     public JFXComboBox<String> payTypeInput;
@@ -58,69 +59,108 @@ public class RegisterSaleController extends MainController implements Initializa
                 "Crediário"
         );
 
-        try {
-            //Get employee list
-            listEmployee = new EmployeeService().getAllEmployee();
-            //Get clients list
-            listClient = new ClientService().getAllClients();
-            //Get product list
-            listProduct = new ProductService().getAllProducts();
-            //Add values to comboBoxes
-            listEmployee.forEach(e -> employeeInput.getItems().add(e.getName()));
-            listClient.forEach(c -> clientInput.getItems().add(c.getName()));
-        } catch (Exception e) {
-            showMsg("Ocorreu um erro" + e.getMessage());
-            e.printStackTrace();
-        }
+        showLoader();
+        Task retriveClientsTask = new Task() {
+            @Override
+            protected Integer call() throws Exception {
+                //Get employee list
+                listEmployee = new EmployeeService().getAllEmployee();
+                //Get clients list
+                listClient = new ClientService().getAllClients();
+                //Get product list
+                listProduct = new ProductService().getAllProducts();
+                return 1;
+            }
+
+            @Override
+            protected void succeeded() {
+                //Add values to comboBoxes
+                listEmployee.forEach(e -> employeeInput.getItems().add(e.getName()));
+                listClient.forEach(c -> clientInput.getItems().add(c.getName()));
+                if (actualSale != null) {
+
+                } else {
+                    doneButton.onActionProperty().set(ignored -> {
+                        int payType;
+                        switch (payTypeInput.getValue()) {
+                            case "Cartão de Crédito":
+                                payType = 1;
+                                break;
+                            case "Cartão de Débito":
+                                payType = 2;
+                                break;
+                            case "Cheque":
+                                payType = 3;
+                                break;
+                            case "Crediário":
+                                payType = 4;
+                                break;
+                            default:
+                                payType = 5;
+                                break;
+                        }
+                        try {
+                            showLoader();
+                            Task retriveClientsTask = new Task() {
+                                @Override
+                                protected Integer call() throws Exception {
+                                    DecimalFormat df = new DecimalFormat("#.##");
+                                    SaleService.addSale(Double.parseDouble(df.format(totalValue).replaceAll(",", ".")),
+                                            listClient.stream().filter(c -> c.getName().equals(clientInput.getValue())).findFirst().get().getId(),
+                                            listEmployee.stream().filter(e -> e.getName().equals(employeeInput.getValue())).findFirst().get().getId(),
+                                            payType,
+                                            productIdList);
+                                    return 1;
+                                }
+
+                                @Override
+                                protected void succeeded() {
+                                    showMsg("Venda efetuada com sucesso");
+                                    clearMainArea();
+                                    loadCenterUI("/fxml/Sales.fxml");
+                                    hideLoader();
+                                }
+
+                                @Override
+                                protected void failed() {
+                                    getException().printStackTrace();
+                                    showMsg("Ocorreu um problema ao deletar os dados");
+                                    hideLoader();
+                                }
+                            };
+                            Thread t = new Thread(retriveClientsTask);
+                            t.setDaemon(true);
+                            t.start();
+                        } catch (Exception e) {
+                            showMsg("Ocorreu um erro: " + e.getMessage());
+                            e.printStackTrace();
+                        }
+                    });
+                }
+                addRow();
+                hideLoader();
+            }
+
+            @Override
+            protected void failed() {
+                getException().printStackTrace();
+                showMsg("Ocorreu um problema ao recuperar os dados");
+                hideLoader();
+                clearMainArea();
+                loadCenterUI("/fxml/Sales.fxml");
+            }
+        };
+        Thread t = new Thread(retriveClientsTask);
+        t.setDaemon(true);
+        t.start();
 
         gridPane.setPadding(new Insets(10, 10, 10, 10));
         gridPane.setVgap(8);
         gridPane.setHgap(10);
 
-        this.addRow();
-
         scrollPane.setContent(gridPane);
 
         discountInput.textProperty().addListener((observable) -> changeTotalValue());
-
-        if (actualSale != null) {
-
-        } else {
-            doneButton.onActionProperty().set(ignored -> {
-                int payType;
-                switch (payTypeInput.getValue()) {
-                    case "Cartão de Crédito":
-                        payType = 1;
-                        break;
-                    case "Cartão de Débito":
-                        payType = 2;
-                        break;
-                    case "Cheque":
-                        payType = 3;
-                        break;
-                    case "Crediário":
-                        payType = 4;
-                        break;
-                    default:
-                        payType = 5;
-                        break;
-                }
-                try {
-                    DecimalFormat df = new DecimalFormat("#.##");
-                    SaleService.addSale(Double.parseDouble(df.format(totalValue).replaceAll(",", ".")),
-                            listClient.stream().filter(c -> c.getName().equals(clientInput.getValue())).findFirst().get().getId(),
-                            listEmployee.stream().filter(e -> e.getName().equals(employeeInput.getValue())).findFirst().get().getId(),
-                            payType,
-                            productIdList);
-                    showMsg("Venda efetuada com sucesso");
-                    clearMainArea();
-                    loadCenterUI("/fxml/Sales.fxml");
-                } catch (Exception e) {
-                    showMsg("Ocorreu um erro: " + e.getMessage());
-                    e.printStackTrace();
-                }
-            });
-        }
     }
 
     private void changeTotalValue() {
