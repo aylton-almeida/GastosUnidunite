@@ -70,11 +70,17 @@ public class Employees implements Dao<Employee> {
 
     @Override
     public void updateObject(Employee o) throws Exception {
-
+        PreparedStatement preparedStatement = this.connection.prepareStatement("UPDATE tbl_employee SET name = ?, phone = ? WHERE id = ?;");
+        preparedStatement.setString(1, o.getName());
+        preparedStatement.setString(2, o.getPhone());
+        preparedStatement.setInt(3, o.getId());
+        preparedStatement.executeUpdate();
     }
 
     @Override
     public void deleteObject(Employee o) throws Exception {
-
+        PreparedStatement preparedStatement = this.connection.prepareStatement("DELETE FROM tbl_employee WHERE id = ?;");
+        preparedStatement.setInt(1, o.getId());
+        preparedStatement.executeUpdate();
     }
 }

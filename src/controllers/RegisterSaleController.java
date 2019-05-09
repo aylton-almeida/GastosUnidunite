@@ -3,7 +3,6 @@ package controllers;
 import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXComboBox;
 import com.jfoenix.controls.JFXTextField;
-import javafx.event.ActionEvent;
 import javafx.fxml.Initializable;
 import javafx.geometry.Insets;
 import javafx.scene.control.Label;
@@ -17,9 +16,11 @@ import logic.Product;
 import services.ClientService;
 import services.EmployeeService;
 import services.ProductService;
+import services.SaleService;
 
 import java.net.URL;
 import java.text.DecimalFormat;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.ResourceBundle;
 import java.util.stream.Collectors;
@@ -35,19 +36,96 @@ public class RegisterSaleController extends MainController implements Initializa
     private static List<Product> listProduct;
     private static List<Employee> listEmployee;
     private static List<Client> listClient;
+    private List<Integer> productIdList = new ArrayList<>();
     public ScrollPane scrollPane;
+    public JFXButton doneButton;
     private GridPane gridPane = new GridPane();
     private static int row = 1;
     private double productSumValue = 0;
     private double totalValue;
 
-    public void RegisterSale(ActionEvent actionEvent) {
+    @Override
+    public void initialize(URL url, ResourceBundle resourceBundle) {
+        addRequiredValidator(payTypeInput);
+        addNumberValidator(discountInput);
+        addRequiredValidator(discountInput);
 
+        payTypeInput.getItems().addAll(
+                "A vista",
+                "Cartão de Crédito",
+                "Cartão de Débito",
+                "Cheque",
+                "Crediário"
+        );
+
+        try {
+            //Get employee list
+            listEmployee = new EmployeeService().getAllEmployee();
+            //Get clients list
+            listClient = new ClientService().getAllClients();
+            //Get product list
+            listProduct = new ProductService().getAllProducts();
+            //Add values to comboBoxes
+            listEmployee.forEach(e -> employeeInput.getItems().add(e.getName()));
+            listClient.forEach(c -> clientInput.getItems().add(c.getName()));
+        } catch (Exception e) {
+            showMsg("Ocorreu um erro" + e.getMessage());
+            e.printStackTrace();
+        }
+
+        gridPane.setPadding(new Insets(10, 10, 10, 10));
+        gridPane.setVgap(8);
+        gridPane.setHgap(10);
+
+        this.addRow();
+
+        scrollPane.setContent(gridPane);
+
+        discountInput.textProperty().addListener((observable) -> changeTotalValue());
+
+        if (actualSale != null) {
+
+        } else {
+            doneButton.onActionProperty().set(ignored -> {
+                int payType;
+                switch (payTypeInput.getValue()) {
+                    case "Cartão de Crédito":
+                        payType = 1;
+                        break;
+                    case "Cartão de Débito":
+                        payType = 2;
+                        break;
+                    case "Cheque":
+                        payType = 3;
+                        break;
+                    case "Crediário":
+                        payType = 4;
+                        break;
+                    default:
+                        payType = 5;
+                        break;
+                }
+                try {
+                    DecimalFormat df = new DecimalFormat("#.##");
+                    SaleService.addSale(Double.parseDouble(df.format(totalValue).replaceAll(",", ".")),
+                            listClient.stream().filter(c -> c.getName().equals(clientInput.getValue())).findFirst().get().getId(),
+                            listEmployee.stream().filter(e -> e.getName().equals(employeeInput.getValue())).findFirst().get().getId(),
+                            payType,
+                            productIdList);
+                    showMsg("Venda efetuada com sucesso");
+                    clearMainArea();
+                    loadCenterUI("/fxml/Sales.fxml");
+                } catch (Exception e) {
+                    showMsg("Ocorreu um erro: " + e.getMessage());
+                    e.printStackTrace();
+                }
+            });
+        }
     }
 
     private void changeTotalValue() {
-        ProductsValueSumLabel.setText(("R$" + productSumValue).replaceAll("\\.", ","));
         DecimalFormat df = new DecimalFormat("#.##");
+        ProductsValueSumLabel.setText(("R$" + df.format(productSumValue)).replaceAll("\\.", ","));
         totalValue = (productSumValue - Double.parseDouble(discountInput.getText().replaceAll(",", "\\.")));
         TotalLabel.setText(("R$" + df.format(totalValue)).replaceAll("\\.", ","));
     }
@@ -85,6 +163,7 @@ public class RegisterSaleController extends MainController implements Initializa
             }
             productSumValue += value;
             changeTotalValue();
+            productIdList.add(listProduct.stream().filter(p -> p.getName().equals(newValue)).findFirst().get().getId());
         });
 
         //Create plus button
@@ -112,6 +191,7 @@ public class RegisterSaleController extends MainController implements Initializa
                             .get(0)
                             .getValue();
                     changeTotalValue();
+                    productIdList.remove(listProduct.stream().filter(p -> p.getName().equals(comboBox.getValue())).findFirst().get().getId());
                 } catch (Exception ignored) {
                 }
             }
@@ -128,44 +208,5 @@ public class RegisterSaleController extends MainController implements Initializa
 
         //Increment row number
         row++;
-    }
-
-    @Override
-    public void initialize(URL url, ResourceBundle resourceBundle) {
-        addRequiredValidator(payTypeInput);
-        addNumberValidator(discountInput);
-        addRequiredValidator(discountInput);
-
-        payTypeInput.getItems().addAll(
-                "A vista",
-                "Cartão de Crédito",
-                "Cartão de Débito",
-                "Cheque",
-                "Crediário"
-        );
-
-        try {
-            //Get employee list
-            listEmployee = new EmployeeService().getAllEmployee();
-            //Get clients list
-            listClient = new ClientService().getAllClients();
-            //Get product list
-            listProduct = new ProductService().getAllProducts();
-            //Add values to comboBoxes
-            listEmployee.forEach(e -> employeeInput.getItems().add(e.getName()));
-            listClient.forEach(c -> clientInput.getItems().add(c.getName()));
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-
-        gridPane.setPadding(new Insets(10, 10, 10, 10));
-        gridPane.setVgap(8);
-        gridPane.setHgap(10);
-
-        this.addRow();
-
-        scrollPane.setContent(gridPane);
-
-        discountInput.textProperty().addListener((observable) -> changeTotalValue());
     }
 }

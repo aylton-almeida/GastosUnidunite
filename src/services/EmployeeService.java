@@ -19,4 +19,12 @@ public class EmployeeService {
     public void addEmployee(Employee e) throws Exception{
         employees.addObject(e);
     }
+
+    public void deleteEmployee (Employee e) throws Exception {
+        employees.deleteObject(e);
+    }
+
+    public void updateEmployee (Employee e) throws Exception {
+        employees.updateObject(e);
+    }
 }

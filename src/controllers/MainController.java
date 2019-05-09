@@ -9,9 +9,7 @@ import javafx.scene.Parent;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.StackPane;
 import javafx.scene.text.Text;
-import logic.Client;
-import logic.Product;
-import logic.User;
+import logic.*;
 
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -23,6 +21,8 @@ public class MainController implements Initializable{
     public static User loggedUser = null;
     public static Product actualProduct = null;
     public static Client actualClient = null;
+    public static Employee actualEmployee = null;
+    public static Sale actualSale = null;
 
     public MainController(StackPane stackPane, BorderPane borderPane){
         this.mainStackPane = stackPane;
@@ -54,7 +54,7 @@ public class MainController implements Initializable{
         try{
             root = FXMLLoader.load(getClass().getResource(ui));
         }catch (Exception e){
-            showMsg(e.getMessage());
+            showMsg("Ocorreu um erro" + e.getMessage());
             e.printStackTrace();
         }
         this.mainBorderPane.setCenter(root);
@@ -65,7 +65,7 @@ public class MainController implements Initializable{
         try{
             root = FXMLLoader.load(getClass().getResource(ui));
         }catch (Exception e){
-            showMsg(e.getMessage());
+            showMsg("Ocorreu um erro" + e.getMessage());
             e.printStackTrace();
         }
         this.mainBorderPane.setLeft(root);
@@ -93,10 +93,12 @@ public class MainController implements Initializable{
         JFXSpinner spinner = new JFXSpinner();
         spinner.setRadius(30);
         mainStackPane.getChildren().add(spinner);
+        mainStackPane.setStyle("-fx-background-color: Gainsboro;");
     }
 
     public void hideLoader(){
         mainStackPane.getChildren().remove(1);
+        mainStackPane.setStyle("-fx-background-color: transparent;");
     }
 
     public boolean isEmailValid(JFXTextField field){

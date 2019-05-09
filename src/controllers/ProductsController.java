@@ -1,11 +1,13 @@
 package controllers;
 
 import com.jfoenix.controls.JFXTextField;
+import javafx.concurrent.Task;
 import javafx.event.ActionEvent;
 import javafx.fxml.Initializable;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
+import logic.Client;
 import logic.Product;
 import services.ProductService;
 
@@ -33,21 +35,27 @@ public class ProductsController extends MainController implements Initializable 
         sizeColumn.setCellValueFactory(new PropertyValueFactory<>("Size"));
         factoryColumn.setCellValueFactory(new PropertyValueFactory<>("Factory"));
         valueColumn.setCellValueFactory(new PropertyValueFactory<>("Value"));
+        mainTableView.getItems().add(null);
 
-        try {
-            productService = new ProductService();
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
+        showLoader();
+        Task retriveClientsTask = new Task() {
 
-        try {
-            this.productList = productService.getAllProducts();
-        } catch (Exception e) {
-            showMsg(e.getMessage());
-            e.printStackTrace();
-        }
+            @Override
+            protected List<Product> call() throws Exception {
+                productService = new ProductService();
+                return productService.getAllProducts();
+            }
 
-        showOnTable();
+            @Override
+            protected void succeeded() {
+                productList = (List<Product>) getValue();
+                hideLoader();
+                showOnTable();
+            }
+        };
+        Thread t = new Thread(retriveClientsTask);
+        t.setDaemon(true);
+        t.start();
 
         //Definir que quando o enter for pressionado o filtro ocorra
         searchInput.setOnAction(this::filterSearch);
@@ -56,6 +64,7 @@ public class ProductsController extends MainController implements Initializable 
     }
 
     private void showOnTable() {
+        mainTableView.getItems().clear();
         this.productList.stream()
                 .sorted(Product::compareTo)
                 .forEach(product -> mainTableView.getItems().add(product));
@@ -81,22 +90,30 @@ public class ProductsController extends MainController implements Initializable 
 
     //Deleta o produto selecionado na tabela
     public void deleteProduct(ActionEvent actionEvent) {
-        try {
-            Product p = mainTableView.getSelectionModel().getSelectedItem();
-            mainTableView.getItems().removeAll(p);
-            productService.deleteProduct(p);
-            productList.remove(p);
-        } catch (Exception ignored) {
-        }
+        if (mainTableView.getSelectionModel().getSelectedItem() != null) {
+            try {
+                Product p = mainTableView.getSelectionModel().getSelectedItem();
+                mainTableView.getItems().removeAll(p);
+                productService.deleteProduct(p);
+                productList.remove(p);
+            } catch (Exception e) {
+                showMsg("Ocorreu um erro" + e.getMessage());
+                e.printStackTrace();
+            }
+        } else showMsg("Selecione alguma linha para continuar");
     }
 
     //Abre uma pagina para edicao do produto selecionado da tabela
     public void editProduct(ActionEvent actionEvent) {
-        try {
-            actualProduct = mainTableView.getSelectionModel().getSelectedItem();
-            clearMainArea();
-            loadCenterUI("/fxml/RegisterProducts.fxml");
-        } catch (Exception ignored) {
-        }
+        if (mainTableView.getSelectionModel().getSelectedItem() != null) {
+            try {
+                actualProduct = mainTableView.getSelectionModel().getSelectedItem();
+                clearMainArea();
+                loadCenterUI("/fxml/RegisterProducts.fxml");
+            } catch (Exception e) {
+                showMsg("Ocorreu um erro" + e.getMessage());
+                e.printStackTrace();
+            }
+        } else showMsg("Selecione alguma linha para continuar");
     }
 }

@@ -12,7 +12,7 @@ public class UserService {
 
     public User login(String email, String password) throws Exception {
         User user = users.getObjectByEmail(email);
-        if (user != null)
+        if (user != null && email.equals(user.getEmail()))
             if (user.getPassword().equals(password))
                 return user;
         return new User();

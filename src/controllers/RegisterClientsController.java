@@ -2,7 +2,6 @@ package controllers;
 
 import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXTextField;
-import javafx.event.ActionEvent;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Label;
 import logic.Client;
@@ -50,6 +49,9 @@ public class RegisterClientsController extends MainController implements Initial
                     }
                 } else showMsg("Preencha todos os campos corretamente");
             });
+
+            actualClient = null;
+            titleLabel.setText("Editar Cliente");
         } else {
             doneButton.onActionProperty().set(ignored -> {
                 if (nameInput.validate() && phoneInput.validate() && codeInput.validate()) {
@@ -74,7 +76,7 @@ public class RegisterClientsController extends MainController implements Initial
             clearMainArea();
             loadCenterUI("/fxml/Clients.fxml");
         } catch (Exception e) {
-            showMsg(e.getMessage());
+            showMsg("Ocorreu um erro" + e.getMessage());
             e.printStackTrace();
         }
     }
@@ -86,7 +88,7 @@ public class RegisterClientsController extends MainController implements Initial
             clearMainArea();
             loadCenterUI("/fxml/Clients.fxml");
         } catch (Exception e) {
-            showMsg(e.getMessage());
+            showMsg("Ocorreu um erro" + e.getMessage());
             e.printStackTrace();
         }
     }

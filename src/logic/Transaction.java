@@ -1,6 +1,5 @@
 package logic;
 
-import java.sql.Date;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 
@@ -11,6 +10,16 @@ public class Transaction {
     public Transaction(double value, LocalDate date){
         setValue(value);
         setDate(date);
+    }
+
+    public Transaction(double value, String date) {
+        setValue(value);
+        this.date = date;
+    }
+
+    public Transaction(double value){
+        setValue(value);
+        setDate(LocalDate.now());
     }
 
     public Transaction(){

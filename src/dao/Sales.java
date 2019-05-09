@@ -1,7 +1,6 @@
 package dao;
 
 import interfaces.Dao;
-import logic.Product;
 import logic.Sale;
 
 import java.sql.*;
@@ -41,7 +40,8 @@ public class Sales implements Dao<Sale> {
         ResultSet results = statement.executeQuery("SELECT * from tbl_sale_item;");
         while (results.next()) {
             Sale sale = this.getObject(results.getInt(2));
-            list.add(sale);
+            if (!list.stream().anyMatch(s -> s.getId() == sale.getId()))
+                list.add(sale);
         }
         return list;
     }
@@ -54,7 +54,7 @@ public class Sales implements Dao<Sale> {
         ResultSet saleResult = ps.executeQuery();
         Sale sale = null;
         if (saleResult.next()) {
-            sale = new Sale((int) key, saleResult.getDouble(5), saleResult.getDate(6).toLocalDate(), saleResult.getInt(3), saleResult.getInt(2), saleResult.getInt(4));
+            sale = new Sale((int) key, saleResult.getDouble(5), saleResult.getString(6), saleResult.getInt(3), saleResult.getInt(2), saleResult.getInt(4));
         }
         if (sale != null) {
             //Pegar items da venda
@@ -99,6 +99,11 @@ public class Sales implements Dao<Sale> {
 
     @Override
     public void deleteObject(Sale o) throws Exception {
-
+        PreparedStatement preparedStatement = connection.prepareStatement("DELETE FROM tbl_sale_item WHERE id_sale = ?;");
+        preparedStatement.setInt(1, o.getId());
+        preparedStatement.executeUpdate();
+        PreparedStatement ps2 = connection.prepareStatement("DELETE FROM tbl_sale WHERE id = ?;");
+        ps2.setInt(1, o.getId());
+        ps2.executeUpdate();
     }
 }

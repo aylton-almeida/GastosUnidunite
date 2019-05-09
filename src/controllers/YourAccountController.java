@@ -42,7 +42,7 @@ public class YourAccountController extends MainController implements Initializab
             } else
                 showMsg("Digite um e-mail valido");
         } catch (Exception e) {
-            showMsg(e.getMessage());
+            showMsg("Ocorreu um erro" + e.getMessage());
             e.printStackTrace();
         }
     }
@@ -63,7 +63,7 @@ public class YourAccountController extends MainController implements Initializab
                     showMsg("Digite um email valido");
                 }
             } catch (Exception e) {
-                showMsg(e.getMessage());
+                showMsg("Ocorreu um erro" + e.getMessage());
                 e.printStackTrace();
             }
         }
@@ -87,6 +87,7 @@ public class YourAccountController extends MainController implements Initializab
         try {
             userService = new UserService();
         } catch (Exception e) {
+            showMsg("Ocorreu um erro" + e.getMessage());
             e.printStackTrace();
         }
     }

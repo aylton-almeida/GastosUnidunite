@@ -2,7 +2,6 @@ package services;
 
 import dao.Clients;
 import logic.Client;
-import logic.Product;
 
 import java.util.List;
 

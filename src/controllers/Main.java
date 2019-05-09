@@ -1,17 +1,12 @@
 package controllers;
 
-import dao.Sales;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.image.Image;
 import javafx.stage.Stage;
-import logic.Sale;
-
-import java.time.LocalDate;
-import java.util.ArrayList;
-import java.util.List;
+import services.SaleService;
 
 public class Main extends Application {
 

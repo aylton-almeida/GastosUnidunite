@@ -3,7 +3,7 @@ package logic;
 import javafx.beans.property.SimpleIntegerProperty;
 import javafx.beans.property.SimpleStringProperty;
 
-public class  Client implements Comparable {
+public class  Client implements Comparable<Client> {
 
     private SimpleStringProperty name;
     private SimpleStringProperty address;
@@ -69,7 +69,7 @@ public class  Client implements Comparable {
     }
 
     @Override
-    public int compareTo(Object o) {
-        return this.getId() - ((Client) o).getId();
+    public int compareTo(Client o) {
+        return this.getId() - o.getId();
     }
 }

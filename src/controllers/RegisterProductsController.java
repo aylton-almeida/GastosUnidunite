@@ -46,7 +46,7 @@ public class RegisterProductsController extends MainController implements Initia
                         clearMainArea();
                         loadCenterUI("/fxml/Products.fxml");
                     } catch (Exception e) {
-                        showMsg(e.getMessage());
+                        showMsg("Ocorreu um erro" + e.getMessage());
                         e.printStackTrace();
                     }
                 } else showMsg("Preencha todos os campos corretamente");
@@ -63,7 +63,7 @@ public class RegisterProductsController extends MainController implements Initia
                         clearMainArea();
                         loadCenterUI("/fxml/Products.fxml");
                     } catch (Exception e) {
-                        showMsg(e.getMessage());
+                        showMsg("Ocorreu um erro" + e.getMessage());
                         e.printStackTrace();
                     }
                 } else showMsg("Preencha todos os campos corretamente");
