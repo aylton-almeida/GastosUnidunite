@@ -106,8 +106,8 @@ public class RegisterSaleController extends MainController implements Initializa
                                 protected Integer call() throws Exception {
                                     DecimalFormat df = new DecimalFormat("#.##");
                                     SaleService.addSale(Double.parseDouble(df.format(totalValue).replaceAll(",", ".")),
-                                            listClient.stream().filter(c -> c.getName().equals(clientInput.getValue())).findFirst().get().getId(),
-                                            listEmployee.stream().filter(e -> e.getName().equals(employeeInput.getValue())).findFirst().get().getId(),
+                                            listClient.stream().filter(c -> c.getName().equals(clientInput.getValue())).findFirst().get().getName(),
+                                            listEmployee.stream().filter(e -> e.getName().equals(employeeInput.getValue())).findFirst().get().getName(),
                                             payType,
                                             productIdList);
                                     return 1;
@@ -124,7 +124,7 @@ public class RegisterSaleController extends MainController implements Initializa
                                 @Override
                                 protected void failed() {
                                     getException().printStackTrace();
-                                    showMsg("Ocorreu um problema ao deletar os dados");
+                                    showMsg("Ocorreu um problema ao cadastrar os dados");
                                     hideLoader();
                                 }
                             };

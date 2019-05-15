@@ -1,7 +1,7 @@
 package logic;
 
 import javafx.beans.property.SimpleIntegerProperty;
-import javafx.beans.property.SimpleListProperty;
+import javafx.beans.property.SimpleStringProperty;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -9,23 +9,23 @@ import java.util.List;
 public class Sale extends Transaction implements Comparable<Sale> {
     private SimpleIntegerProperty id;
     private List<Integer> productList;
-    private SimpleIntegerProperty clientId;
-    private SimpleIntegerProperty employeeId;
+    private SimpleStringProperty clientName;
+    private SimpleStringProperty employeeName;
     private SimpleIntegerProperty payType; //[1] - Crédito [2] - Débito [3] - Cheque [4] - Crediário [5] - A vista
 
-    public Sale(int id, double value, String date, int clientId, int employeeId, int payType) {
+    public Sale(int id, double value, String date, String clientName, String employeeName, int payType) {
         super(value, date);
         setId(id);
-        setClientId(clientId);
-        setEmployeeId(employeeId);
+        setClientName(clientName);
+        setEmployeeName(employeeName);
         setPayType(payType);
         setProductList(new ArrayList<>());
     }
 
-    public Sale(double value, int clientId, int employeeId, int payType, List<Integer> list) {
+    public Sale(double value, String clientName, String employeeName, int payType, List<Integer> list) {
         super(value);
-        setClientId(clientId);
-        setEmployeeId(employeeId);
+        setClientName(clientName);
+        setEmployeeName(employeeName);
         setId(-1);
         setPayType(payType);
         setProductList(list);
@@ -33,8 +33,8 @@ public class Sale extends Transaction implements Comparable<Sale> {
 
     public Sale() {
         super();
-        setClientId(-1);
-        setEmployeeId(-1);
+        setClientName("");
+        setEmployeeName("");
         setId(-1);
         setPayType(-1);
         this.productList = null;
@@ -56,20 +56,20 @@ public class Sale extends Transaction implements Comparable<Sale> {
         return this.productList.size();
     }
 
-    public int getClientId() {
-        return clientId.get();
+    public String getClientName() {
+        return clientName.get();
     }
 
-    public void setClientId(int clientId) {
-        this.clientId = new SimpleIntegerProperty(clientId);
+    public void setClientName(String clientName) {
+        this.clientName = new SimpleStringProperty(clientName);
     }
 
-    public int getEmployeeId() {
-        return employeeId.get();
+    public String getEmployeeName() {
+        return employeeName.get();
     }
 
-    public void setEmployeeId(int employeeId) {
-        this.employeeId = new SimpleIntegerProperty(employeeId);
+    public void setEmployeeName(String employeeName) {
+        this.employeeName = new SimpleStringProperty(employeeName);
     }
 
     public int getId() {
@@ -88,10 +88,25 @@ public class Sale extends Transaction implements Comparable<Sale> {
         this.payType = new SimpleIntegerProperty(payType);
     }
 
+    public String getPayTypeString(){
+        switch (this.getPayType()) {
+            case 1:
+                return "Cartão de Crédito";
+            case 2:
+                return "Cartão de Débito";
+            case 3:
+                return "Cheque";
+            case 4:
+                return "Crediário";
+            default:
+                return "Á vista";
+        }
+    }
+
     @Override
     public String toString() {
-        return this.getId() + "\n" + this.getClientId() +
-                "\n" + this.getEmployeeId() +
+        return this.getId() + "\n" + this.getClientName() +
+                "\n" + this.getEmployeeName() +
                 "\n" + this.getPayType() +
                 "\n" + this.getValue() +
                 "\n" + this.getDate();

@@ -29,18 +29,17 @@ public class RegisterEmployeesController extends MainController implements Initi
             doneButton.onActionProperty().set(ignored -> {
                 if (nameInput.validate() && phoneInput.validate()) {
                     try {
-                        new EmployeeService().updateEmployee(new Employee(nameInput.getText(), phoneInput.getText()));
+                        new EmployeeService().updateEmployee(new Employee(nameInput.getText(), phoneInput.getText(), actualEmployee.getId()));
                         showMsg("Funcionario atualizado com sucesso");
                         clearMainArea();
                         loadCenterUI("/fxml/Employees.fxml");
+                        actualEmployee = null;
                     } catch (Exception e) {
                         showMsg(e.getMessage());
                         e.printStackTrace();
                     }
                 } else showMsg("Preencha todos os campos corretamente");
             });
-
-            actualEmployee = null;
             titleLabel.setText("Editar Funcionário");
         } else {
             doneButton.onActionProperty().set(ignored -> {

@@ -54,7 +54,19 @@ public class Sales implements Dao<Sale> {
         ResultSet saleResult = ps.executeQuery();
         Sale sale = null;
         if (saleResult.next()) {
-            sale = new Sale((int) key, saleResult.getDouble(5), saleResult.getString(6), saleResult.getInt(3), saleResult.getInt(2), saleResult.getInt(4));
+            PreparedStatement ps2 = connection.prepareStatement("SELECT NAME FROM tbl_client WHERE id = ?;");
+            ps2.setInt(1, saleResult.getInt(3));
+            ResultSet clientResult = ps2.executeQuery();
+            if (clientResult.next()) {
+                String clientName = clientResult.getString(1);
+                PreparedStatement ps3 = connection.prepareStatement("SELECT NAME FROM tbl_employee WHERE id = ?;");
+                ps3.setInt(1, saleResult.getInt(2));
+                ResultSet employeeResult = ps3.executeQuery();
+                if (employeeResult.next()) {
+                    String employeeName = employeeResult.getString(1);
+                    sale = new Sale((int) key, saleResult.getDouble(5), saleResult.getString(6), clientName, employeeName, saleResult.getInt(4));
+                }
+            }
         }
         if (sale != null) {
             //Pegar items da venda
@@ -71,25 +83,36 @@ public class Sales implements Dao<Sale> {
 
     @Override
     public void addObject(Sale o) throws Exception {
-        PreparedStatement preparedStatement = connection.prepareStatement("INSERT INTO tbl_sale(employee_id, client_id, pay_type, value, date) VALUES(?, ? ,? ,?, ?);", Statement.RETURN_GENERATED_KEYS);
-        preparedStatement.setInt(1, o.getEmployeeId());
-        preparedStatement.setInt(2, o.getClientId());
-        preparedStatement.setInt(3, o.getPayType());
-        preparedStatement.setDouble(4, o.getValue());
-        preparedStatement.setString(5, o.getDate());
-        preparedStatement.executeUpdate();
-        ResultSet result = preparedStatement.getGeneratedKeys();
-        int newSaleId = 0;
-        if (result.next()){
-            newSaleId = result.getInt(1);
+        PreparedStatement ps = connection.prepareStatement("SELECT id FROM tbl_employee WHERE name = ?;");
+        ps.setString(1, o.getEmployeeName());
+        ResultSet employeeResult = ps.executeQuery();
+        if (employeeResult.next()){
+            int employeeId = employeeResult.getInt(1);
+            PreparedStatement ps2 = connection.prepareStatement("SELECT id FROM tbl_client where name = ?");
+            ps2.setString(1, o.getClientName());
+            ResultSet clientResult = ps.executeQuery();
+            if (clientResult.next()){
+                int clientId = clientResult.getInt(1);
+                PreparedStatement preparedStatement = connection.prepareStatement("INSERT INTO tbl_sale(employee_id, client_id, pay_type, value, date) VALUES(?, ? ,? ,?, ?);", Statement.RETURN_GENERATED_KEYS);
+                preparedStatement.setInt(1, employeeId);
+                preparedStatement.setInt(2, clientId);
+                preparedStatement.setInt(3, o.getPayType());
+                preparedStatement.setDouble(4, o.getValue());
+                preparedStatement.setString(5, o.getDate());
+                preparedStatement.executeUpdate();
+                ResultSet result = preparedStatement.getGeneratedKeys();
+                int newSaleId = 0;
+                if (result.next()) {
+                    newSaleId = result.getInt(1);
+                }
+                for (int i = 0; i < o.getProductsQtt(); i++) {
+                    PreparedStatement ps3 = connection.prepareStatement("INSERT INTO tbl_sale_item (id_sale, id_product) VALUES (?, ?)");
+                    ps3.setInt(1, newSaleId);
+                    ps3.setInt(2, o.getProductList().get(i));
+                    ps3.executeUpdate();
+                }
+            }
         }
-        for (int i = 0; i < o.getProductsQtt(); i++){
-            PreparedStatement ps2 = connection.prepareStatement("INSERT INTO tbl_sale_item (id_sale, id_product) VALUES (?, ?)");
-            ps2.setInt(1, newSaleId);
-            ps2.setInt(2, o.getProductList().get(i));
-            ps2.executeUpdate();
-        }
-
     }
 
     @Override

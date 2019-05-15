@@ -37,6 +37,7 @@ public class RegisterProductsController extends MainController implements Initia
             valueInput.setText(actualProduct.getValue() + "");
             factoryInput.setText(actualProduct.getFactory());
             sizeInput.setText(actualProduct.getSize());
+            codeInput.setDisable(true);
 
             doneButton.onActionProperty().set(ignored -> {
                 if (nameInput.validate() && codeInput.validate() && valueInput.validate()) {

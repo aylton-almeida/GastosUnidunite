@@ -27,6 +27,7 @@ public class SalesController extends MainController implements Initializable {
     public TableColumn<Object, Object> sellerColumn;
     public TableColumn<Object, Object> clientColumn;
     public TableColumn<Object, Object> valueColumn;
+    public TableColumn<Object, Object> paymentColumn;
     private List<Client> clientList;
     private List<Product> productList;
     private List<Employee> employeeList;
@@ -35,9 +36,9 @@ public class SalesController extends MainController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         dateColumn.setCellValueFactory(new PropertyValueFactory<>("Date"));
-
-        sellerColumn.setCellValueFactory(new PropertyValueFactory<>("EmployeeId"));
-        clientColumn.setCellValueFactory(new PropertyValueFactory<>("ClientId"));
+        sellerColumn.setCellValueFactory(new PropertyValueFactory<>("EmployeeName"));
+        clientColumn.setCellValueFactory(new PropertyValueFactory<>("ClientName"));
+        paymentColumn.setCellValueFactory(new PropertyValueFactory<>("PayTypeString"));
         valueColumn.setCellValueFactory(new PropertyValueFactory<>("Value"));
         mainTableView.getItems().add(null);
 

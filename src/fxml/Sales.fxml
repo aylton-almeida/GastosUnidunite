@@ -35,10 +35,11 @@
             <TableView fx:id="mainTableView" prefHeight="698.0" prefWidth="1018.0" stylesheets="@Main.css" BorderPane.alignment="CENTER">
                 <columns>
                     <TableColumn fx:id="dateColumn" prefWidth="100.0" text="Data" />
-                    <TableColumn fx:id="productsColumn" prefWidth="294.0" text="Produtos" />
-                    <TableColumn fx:id="sellerColumn" prefWidth="200.0" text="Vendedor" />
-                    <TableColumn fx:id="clientColumn" prefWidth="200.0" text="Cliente" />
-                    <TableColumn fx:id="valueColumn" prefWidth="216.0" text="Valor (R$)" />
+                    <TableColumn fx:id="productsColumn" prefWidth="159.19995880126953" text="Produtos" />
+                    <TableColumn fx:id="sellerColumn" prefWidth="188.0" text="Vendedor" />
+                    <TableColumn fx:id="clientColumn" prefWidth="158.39993286132812" text="Cliente" />
+               <TableColumn fx:id="paymentColumn" prefWidth="229.60003662109375" text="Tipo de Pagamento" />
+                    <TableColumn fx:id="valueColumn" prefWidth="177.60009765625" text="Valor (R$)" />
                 </columns>
             </TableView>
         </center>
