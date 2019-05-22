@@ -43,4 +43,12 @@ public class Expense extends Transaction {
     public int getId(){
         return this.id;
     }
+
+    public int compareTo(Object o){
+        return this.getId() - ((Expense) o).getId();
+    }
+
+
+
 }
+

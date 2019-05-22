@@ -79,7 +79,7 @@ public class Employees implements Dao<Employee> {
 
     @Override
     public void deleteObject(Employee o) throws Exception {
-        PreparedStatement preparedStatement = connection.prepareStatement("DELETE tbl_employee WHERE id = ?;");
+        PreparedStatement preparedStatement = connection.prepareStatement("DELETE FROM tbl_employee WHERE id = ?;");
         preparedStatement.setInt(1, o.getId());
         preparedStatement.executeUpdate();
 
