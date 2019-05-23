@@ -26,9 +26,7 @@ public class ExpensesController extends MainController implements Initializable 
     public JFXTextField searchInput;
 
     public void showOnTable(){
-        this.expenseList.stream()
-                .sorted(Expense::compareTo)
-                .forEach(expense -> mainTableView.getItems().add(expense));
+        this.expenseList.forEach(expense -> mainTableView.getItems().add(expense));
     }
 
     public void gotToRegisterExpense(ActionEvent event) {
@@ -62,14 +60,14 @@ public class ExpensesController extends MainController implements Initializable 
         //Definir mudanca do filtro a medida que os dados sao digitados
         searchInput.onKeyReleasedProperty().set(e -> this.filterSearch(new ActionEvent()));
 
-        showOnTable();
+       // showOnTable();
 
     }
 
     public void clearSearch(ActionEvent event) {
         searchInput.setText(null);
         mainTableView.getItems().clear();
-        showOnTable();
+        //showOnTable();
     }
 
 
@@ -81,7 +79,7 @@ public class ExpensesController extends MainController implements Initializable 
         mainTableView.getItems().clear();
 
         expenseList.forEach(expense -> {
-            if (("" + expense.getId()).startsWith(input) || expense.getDate().toLowerCase().startsWith(input.toLowerCase()))
+            if (("" + )
                 mainTableView.getItems().add(expense);
         });
     }

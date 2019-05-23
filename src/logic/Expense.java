@@ -1,5 +1,9 @@
 package logic;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
 public class Expense extends Transaction {
     private int id;
     private String description;
@@ -44,11 +48,11 @@ public class Expense extends Transaction {
         return this.id;
     }
 
-    public int compareTo(Object o){
-        return this.getId() - ((Expense) o).getId();
+    public Date dateComparable() throws ParseException {
+        SimpleDateFormat format = new SimpleDateFormat("dd/mm/yyyy");
+        Date date = format.parse(this.getDate());
+        return date;
     }
-
-
 
 }
 
