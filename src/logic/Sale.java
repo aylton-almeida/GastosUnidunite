@@ -8,7 +8,7 @@ import java.util.List;
 
 public class Sale extends Transaction implements Comparable<Sale> {
     private SimpleIntegerProperty id;
-    private List<Integer> productList;
+    private List<Product> productList;
     private SimpleStringProperty clientName;
     private SimpleStringProperty employeeName;
     private SimpleIntegerProperty payType; //[1] - Crédito [2] - Débito [3] - Cheque [4] - Crediário [5] - A vista
@@ -22,7 +22,7 @@ public class Sale extends Transaction implements Comparable<Sale> {
         setProductList(new ArrayList<>());
     }
 
-    public Sale(double value, String clientName, String employeeName, int payType, List<Integer> list) {
+    public Sale(double value, String clientName, String employeeName, int payType, List<Product> list) {
         super(value);
         setClientName(clientName);
         setEmployeeName(employeeName);
@@ -40,20 +40,28 @@ public class Sale extends Transaction implements Comparable<Sale> {
         this.productList = null;
     }
 
-    public List<Integer> getProductList() {
+    public List<Product> getProductList() {
         return productList;
     }
 
-    public void setProductList(List<Integer> list) {
-        this.productList = list.isEmpty() ? new ArrayList<>() : list;
+    public void setProductList(List<Product> list) {
+        this.productList = list.isEmpty() ? new ArrayList<Product>() : list;
     }
 
-    public void addProductToList(Integer product) {
+    public void addProductToList(Product product) {
         this.productList.add(product);
     }
 
     public int getProductsQtt() {
         return this.productList.size();
+    }
+
+    public String getProductString() {
+        StringBuilder str = new StringBuilder();
+        for (Product p : this.productList){
+            str.append(p.getName()).append("\n");
+        }
+        return str.toString();
     }
 
     public String getClientName() {

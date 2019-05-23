@@ -37,7 +37,7 @@ public class RegisterSaleController extends MainController implements Initializa
     private static List<Product> listProduct;
     private static List<Employee> listEmployee;
     private static List<Client> listClient;
-    private List<Integer> productIdList = new ArrayList<>();
+    private List<Product> productIdList = new ArrayList<Product>();
     public ScrollPane scrollPane;
     public JFXButton doneButton;
     private GridPane gridPane = new GridPane();
@@ -203,7 +203,7 @@ public class RegisterSaleController extends MainController implements Initializa
             }
             productSumValue += value;
             changeTotalValue();
-            productIdList.add(listProduct.stream().filter(p -> p.getName().equals(newValue)).findFirst().get().getId());
+            productIdList.add(listProduct.stream().filter(p -> p.getName().equals(newValue)).findFirst().get());
         });
 
         //Create plus button

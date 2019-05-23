@@ -1,13 +1,14 @@
 package services;
 
 import dao.Sales;
+import logic.Product;
 import logic.Sale;
 
 import java.util.List;
 
 public abstract class SaleService {
 
-    public static void addSale(double value, String clientId, String employeeId, int payType, List<Integer> list) throws Exception {
+    public static void addSale(double value, String clientId, String employeeId, int payType, List<Product> list) throws Exception {
         new Sales().addObject(new Sale(value, clientId, employeeId, payType, list));
     }
 

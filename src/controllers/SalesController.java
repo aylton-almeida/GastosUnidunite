@@ -36,6 +36,7 @@ public class SalesController extends MainController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         dateColumn.setCellValueFactory(new PropertyValueFactory<>("Date"));
+        productsColumn.setCellValueFactory(new PropertyValueFactory<>("ProductString"));
         sellerColumn.setCellValueFactory(new PropertyValueFactory<>("EmployeeName"));
         clientColumn.setCellValueFactory(new PropertyValueFactory<>("ClientName"));
         paymentColumn.setCellValueFactory(new PropertyValueFactory<>("PayTypeString"));
@@ -43,7 +44,7 @@ public class SalesController extends MainController implements Initializable {
         mainTableView.getItems().add(null);
 
         showLoader();
-        Task retriveClientsTask = new Task() {
+        Task retrieveSalesTask = new Task() {
             @Override
             protected List<Sale> call() throws Exception {
                 return SaleService.getAllSales();
@@ -63,7 +64,7 @@ public class SalesController extends MainController implements Initializable {
                 hideLoader();
             }
         };
-        Thread t = new Thread(retriveClientsTask);
+        Thread t = new Thread(retrieveSalesTask);
         t.setDaemon(true);
         t.start();
     }

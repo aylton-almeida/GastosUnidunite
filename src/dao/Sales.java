@@ -1,6 +1,7 @@
 package dao;
 
 import interfaces.Dao;
+import logic.Product;
 import logic.Sale;
 
 import java.sql.*;
@@ -74,7 +75,11 @@ public class Sales implements Dao<Sale> {
             preparedStatement.setInt(1, (int) key);
             ResultSet results = preparedStatement.executeQuery();
             while (results.next()) {
-                sale.addProductToList(results.getInt(3));
+                PreparedStatement ps4 = connection.prepareStatement("SELECT * FROM tbl_product WHERE id = ?");
+                ps4.setInt(1, results.getInt(3));
+                ResultSet productResult = ps4.executeQuery();
+                if (productResult.next())
+                    sale.addProductToList(new Product(productResult.getInt(1), productResult.getString(2), productResult.getString(5), productResult.getString(4), productResult.getDouble(3)));
             }
             return sale;
         }
@@ -86,12 +91,12 @@ public class Sales implements Dao<Sale> {
         PreparedStatement ps = connection.prepareStatement("SELECT id FROM tbl_employee WHERE name = ?;");
         ps.setString(1, o.getEmployeeName());
         ResultSet employeeResult = ps.executeQuery();
-        if (employeeResult.next()){
+        if (employeeResult.next()) {
             int employeeId = employeeResult.getInt(1);
             PreparedStatement ps2 = connection.prepareStatement("SELECT id FROM tbl_client where name = ?");
             ps2.setString(1, o.getClientName());
             ResultSet clientResult = ps.executeQuery();
-            if (clientResult.next()){
+            if (clientResult.next()) {
                 int clientId = clientResult.getInt(1);
                 PreparedStatement preparedStatement = connection.prepareStatement("INSERT INTO tbl_sale(employee_id, client_id, pay_type, value, date) VALUES(?, ? ,? ,?, ?);", Statement.RETURN_GENERATED_KEYS);
                 preparedStatement.setInt(1, employeeId);
@@ -108,7 +113,7 @@ public class Sales implements Dao<Sale> {
                 for (int i = 0; i < o.getProductsQtt(); i++) {
                     PreparedStatement ps3 = connection.prepareStatement("INSERT INTO tbl_sale_item (id_sale, id_product) VALUES (?, ?)");
                     ps3.setInt(1, newSaleId);
-                    ps3.setInt(2, o.getProductList().get(i));
+                    ps3.setInt(2, o.getProductList().get(i).getId());
                     ps3.executeUpdate();
                 }
             }
