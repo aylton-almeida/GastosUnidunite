@@ -9,7 +9,6 @@ import logic.User;
 import services.UserService;
 
 import java.net.URL;
-import java.util.List;
 import java.util.ResourceBundle;
 
 public class LoginController extends MainController implements Initializable {

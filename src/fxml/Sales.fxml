@@ -1,16 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import com.jfoenix.controls.JFXButton?>
-<?import com.jfoenix.controls.JFXDatePicker?>
-<?import javafx.scene.control.Label?>
-<?import javafx.scene.control.TableColumn?>
-<?import javafx.scene.control.TableView?>
-<?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.layout.BorderPane?>
-<?import javafx.scene.layout.Pane?>
-<?import javafx.scene.layout.StackPane?>
-<?import javafx.scene.text.Font?>
-
+<?import com.jfoenix.controls.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
 <StackPane fx:id="mainStackPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="790.0" prefWidth="1018.0" BorderPane.alignment="CENTER" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.SalesController">
     <BorderPane fx:id="mainBorderPane">
         <top>
@@ -23,11 +16,8 @@
                     </Label>
                     <JFXDatePicker fx:id="toDateInput" defaultColor="#6cb235" layoutX="258.0" layoutY="50.0" promptText="Ate...." styleClass="jfx-date-picker" stylesheets="@Main.css" />
                     <JFXDatePicker fx:id="fromDateInput" defaultColor="#6cb235" layoutX="50.0" layoutY="50.0" promptText="De...." styleClass="jfx-date-picker" stylesheets="@Main.css" />
-                    <JFXButton buttonType="RAISED" layoutX="463.0" layoutY="50.0" onAction="#applyFilter" style="-fx-background-color: #6cb235;" text="Buscar" textFill="WHITE">
-                        <font>
-                            <Font size="13.0" />
-                        </font>
-                    </JFXButton>
+               <JFXComboBox fx:id="payTypeComboBox" focusColor="#6cb235" labelFloat="true" layoutX="453.0" layoutY="52.0" prefHeight="25.0" prefWidth="151.0" promptText="Tipo de pagamento" style="-fx-prompt-text-fill: #fff; -fx-text-inner-color: #fff; -fx-text-fill: #fff;" stylesheets="@Main.css" unFocusColor="WHITE" />
+               <JFXComboBox fx:id="sellerComboBox" focusColor="#6cb235" labelFloat="true" layoutX="648.0" layoutY="52.0" prefHeight="25.0" prefWidth="151.0" promptText="Vendedor" style="-fx-prompt-text-fill: #fff; -fx-text-inner-color: #fff; -fx-text-fill: #fff;" unFocusColor="WHITE" />
                 </children>
             </Pane>
         </top>
@@ -61,6 +51,16 @@
                             <Font size="19.0" />
                         </font>
                     </JFXButton>
+               <Label layoutX="31.0" layoutY="22.0" text="Total:" textFill="WHITE">
+                  <font>
+                     <Font size="24.0" />
+                  </font>
+               </Label>
+               <Label fx:id="totalLabel" layoutX="96.0" layoutY="22.0" prefHeight="35.0" prefWidth="165.0" text="R$0,00" textFill="WHITE">
+                  <font>
+                     <Font size="24.0" />
+                  </font>
+               </Label>
                 </children>
             </AnchorPane>
         </bottom>

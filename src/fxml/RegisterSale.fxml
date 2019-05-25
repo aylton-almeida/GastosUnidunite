@@ -1,77 +1,70 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import com.jfoenix.controls.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
-<?import javafx.scene.text.*?>
-<StackPane fx:id="mainStackPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity"
-           prefHeight="790.0" prefWidth="1018.0" BorderPane.alignment="CENTER" xmlns="http://javafx.com/javafx/11.0.1"
-           xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.RegisterSaleController">
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXComboBox?>
+<?import com.jfoenix.controls.JFXTextField?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<StackPane fx:id="mainStackPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="790.0" prefWidth="1018.0" BorderPane.alignment="CENTER" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.RegisterSaleController">
     <BorderPane fx:id="mainBorderPane">
         <top>
-            <Pane prefHeight="98.0" prefWidth="1018.0" style="-fx-background-color: #3A7CF3;" styleClass="nav-bar-panel"
-                  stylesheets="@Main.css" BorderPane.alignment="CENTER">
+            <Pane prefHeight="98.0" prefWidth="1018.0" style="-fx-background-color: #3A7CF3;" styleClass="nav-bar-panel" stylesheets="@Main.css" BorderPane.alignment="CENTER">
                 <Label layoutX="50.0" layoutY="32.0" text="Cadastrar Venda" textFill="WHITE">
                     <font>
-                        <Font size="24.0"/>
+                        <Font size="24.0" />
                     </font>
                 </Label>
             </Pane>
         </top>
         <center>
             <AnchorPane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
-                <JFXComboBox fx:id="employeeInput" focusColor="#3a7cf3" labelFloat="true" layoutX="166.0" layoutY="89.0"
-                             prefHeight="40.0" prefWidth="200.0" promptText="Funcionário "/>
-                <JFXComboBox fx:id="clientInput" focusColor="#3a7cf3" labelFloat="true" layoutX="409.0" layoutY="89.0"
-                             prefHeight="40.0" prefWidth="200.0" promptText="Cliente"/>
-                <JFXComboBox fx:id="payTypeInput" focusColor="#3a7cf3" labelFloat="true" layoutX="653.0" layoutY="89.0"
-                             prefHeight="40.0" prefWidth="200.0" promptText="Tipo de Pagamento *"/>
-                <Pane layoutX="163.0" layoutY="182.0" prefHeight="80.0" prefWidth="694.0"
-                      style="-fx-background-color: #3a7cf3; -fx-background-radius: 10;" stylesheets="@Main.css">
+                <JFXComboBox fx:id="employeeInput" focusColor="#3a7cf3" labelFloat="true" layoutX="166.0" layoutY="89.0" prefHeight="40.0" prefWidth="200.0" promptText="Funcionário " />
+                <JFXComboBox fx:id="clientInput" focusColor="#3a7cf3" labelFloat="true" layoutX="409.0" layoutY="89.0" prefHeight="40.0" prefWidth="200.0" promptText="Cliente" />
+                <JFXComboBox fx:id="payTypeInput" focusColor="#3a7cf3" labelFloat="true" layoutX="653.0" layoutY="89.0" prefHeight="40.0" prefWidth="200.0" promptText="Tipo de Pagamento *" />
+                <Pane layoutX="163.0" layoutY="182.0" prefHeight="80.0" prefWidth="694.0" style="-fx-background-color: #3a7cf3; -fx-background-radius: 10;" stylesheets="@Main.css">
                     <children>
-                        <JFXTextField fx:id="discountInput" focusColor="WHITE" labelFloat="true" layoutX="245.0"
-                                      layoutY="27.0" prefHeight="39.0" prefWidth="203.0" promptText="Desconto"
-                                      text="0,00">
+                        <JFXTextField fx:id="discountInput" focusColor="WHITE" labelFloat="true" layoutX="245.0" layoutY="27.0" prefHeight="39.0" prefWidth="203.0" promptText="Desconto">
                             <font>
-                                <Font size="18.0"/>
+                                <Font size="18.0" />
                             </font>
                         </JFXTextField>
-                        <Label layoutX="190.0" layoutY="20.0" prefHeight="27.0" prefWidth="6.0" text="-"
-                               textFill="WHITE">
+                        <Label layoutX="190.0" layoutY="20.0" prefHeight="27.0" prefWidth="6.0" text="-" textFill="WHITE">
                             <font>
-                                <Font size="36.0"/>
+                                <Font size="36.0" />
                             </font>
                         </Label>
-                        <Label fx:id="ProductsValueSumLabel" layoutX="45.0" layoutY="29.0" prefHeight="35.0"
-                               prefWidth="152.0" text="R$00,00" textFill="WHITE">
+                        <Label fx:id="ProductsValueSumLabel" layoutX="45.0" layoutY="29.0" prefHeight="35.0" prefWidth="152.0" text="R$00,00" textFill="WHITE">
                             <font>
-                                <Font size="24.0"/>
+                                <Font size="24.0" />
                             </font>
                         </Label>
                         <Label layoutX="479.0" layoutY="20.0" text="=" textFill="WHITE">
                             <font>
-                                <Font size="36.0"/>
+                                <Font size="36.0" />
                             </font>
                         </Label>
                         <Label fx:id="TotalLabel" layoutX="538.0" layoutY="29.0" text="R$00,00" textFill="WHITE">
                             <font>
-                                <Font size="24.0"/>
+                                <Font size="24.0" />
                             </font>
                         </Label>
                     </children>
                 </Pane>
-                <ScrollPane fx:id="scrollPane" layoutX="173.0" layoutY="262.0" prefHeight="248.0" prefWidth="675.0"
-                            style="-fx-border-width: 0;">
+                <ScrollPane fx:id="scrollPane" layoutX="173.0" layoutY="262.0" prefHeight="248.0" prefWidth="675.0" style="-fx-border-width: 0; -fx-background-color: #fff; -fx-border-color: #fff;">
                 </ScrollPane>
-                <JFXButton fx:id="doneButton" buttonType="RAISED" cancelButton="true" layoutX="407.0" layoutY="554.0"
-                           prefHeight="39.0" prefWidth="205.0" ripplerFill="WHITE"
-                           style="-fx-background-color: #3c8fdc;" text="Concluir" textFill="WHITE">
+                <JFXButton fx:id="doneButton" buttonType="RAISED" cancelButton="true" layoutX="407.0" layoutY="554.0" prefHeight="39.0" prefWidth="205.0" ripplerFill="WHITE" style="-fx-background-color: #3c8fdc;" text="Concluir" textFill="WHITE">
                     <font>
-                        <Font size="18.0"/>
+                        <Font size="18.0" />
                     </font>
                 </JFXButton>
-                <Text layoutX="414.0" layoutY="619.0" strokeType="OUTSIDE" strokeWidth="0.0"
-                      text="Campos com um * são obrigatórios" wrappingWidth="190.388671875"/>
+                <Text layoutX="414.0" layoutY="619.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Campos com um * são obrigatórios" wrappingWidth="190.388671875" />
             </AnchorPane>
         </center>
     </BorderPane>

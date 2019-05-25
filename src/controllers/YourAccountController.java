@@ -36,13 +36,13 @@ public class YourAccountController extends MainController implements Initializab
                     this.userService.updateUser(loggedUser);
                     showMsg("Usuario atualizado com sucesso");
                     clearMainArea();
-                    loadCenterUI("/fxml/Home.fxml");
+                    loadCenterUI("/fxml/Sales.fxml");
                 } else
                     showMsg("As senhas não coincidem");
             } else
                 showMsg("Digite um e-mail valido");
         } catch (Exception e) {
-            showMsg("Ocorreu um erro" + e.getMessage());
+            showMsg("Ocorreu um erro: " + e.getMessage());
             e.printStackTrace();
         }
     }
@@ -55,7 +55,7 @@ public class YourAccountController extends MainController implements Initializab
                         this.userService.addUser(emailInput.getText(), passInput.getText(), isAdminInput.selectedProperty().get());
                         showMsg("Usuário cadastrado com sucesso");
                         clearMainArea();
-                        loadCenterUI("/fxml/Home.fxml");
+                        loadCenterUI("/fxml/Sales.fxml");
                     } else {
                         showMsg("As senhas não batem");
                     }
@@ -63,7 +63,7 @@ public class YourAccountController extends MainController implements Initializab
                     showMsg("Digite um email valido");
                 }
             } catch (Exception e) {
-                showMsg("Ocorreu um erro" + e.getMessage());
+                showMsg("Ocorreu um erro: " + e.getMessage());
                 e.printStackTrace();
             }
         }
@@ -87,7 +87,7 @@ public class YourAccountController extends MainController implements Initializab
         try {
             userService = new UserService();
         } catch (Exception e) {
-            showMsg("Ocorreu um erro" + e.getMessage());
+            showMsg("Ocorreu um erro: " + e.getMessage());
             e.printStackTrace();
         }
     }

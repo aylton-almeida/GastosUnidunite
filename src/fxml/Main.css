@@ -76,3 +76,7 @@
 .table-row-cell:selected .text {
   -fx-fill: #6cb235 ;
 }
+
+.combo-box .arrow{
+	-fx-background-color: #fff
+}

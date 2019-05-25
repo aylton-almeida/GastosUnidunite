@@ -14,7 +14,6 @@ import javafx.scene.text.Font;
 import logic.Client;
 import logic.Employee;
 import logic.Product;
-import logic.Sale;
 import services.ClientService;
 import services.EmployeeService;
 import services.ProductService;
@@ -37,12 +36,10 @@ public class RegisterSaleController extends MainController implements Initializa
     private static List<Product> listProduct;
     private static List<Employee> listEmployee;
     private static List<Client> listClient;
-    private List<Product> productIdList = new ArrayList<Product>();
     public ScrollPane scrollPane;
     public JFXButton doneButton;
     private GridPane gridPane = new GridPane();
-    private static int row = 1;
-    private double productSumValue = 0;
+    private List<Product> selectedProduct;
     private double totalValue;
 
     @Override
@@ -50,6 +47,7 @@ public class RegisterSaleController extends MainController implements Initializa
         addRequiredValidator(payTypeInput);
         addNumberValidator(discountInput);
         addRequiredValidator(discountInput);
+        selectedProduct = new ArrayList<>();
 
         payTypeInput.getItems().addAll(
                 "A vista",
@@ -109,7 +107,7 @@ public class RegisterSaleController extends MainController implements Initializa
                                             listClient.stream().filter(c -> c.getName().equals(clientInput.getValue())).findFirst().get().getName(),
                                             listEmployee.stream().filter(e -> e.getName().equals(employeeInput.getValue())).findFirst().get().getName(),
                                             payType,
-                                            productIdList);
+                                            selectedProduct);
                                     return 1;
                                 }
 
@@ -165,8 +163,15 @@ public class RegisterSaleController extends MainController implements Initializa
 
     private void changeTotalValue() {
         DecimalFormat df = new DecimalFormat("#.##");
-        ProductsValueSumLabel.setText(("R$" + df.format(productSumValue)).replaceAll("\\.", ","));
-        totalValue = (productSumValue - Double.parseDouble(discountInput.getText().replaceAll(",", "\\.")));
+        double sumValue = 0;
+        for (Product product : selectedProduct) {
+            sumValue += product.getValue();
+        }
+        ProductsValueSumLabel.setText(df.format(sumValue));
+        if (!discountInput.getText().isEmpty())
+            totalValue = (sumValue - Double.parseDouble(discountInput.getText().replaceAll(",", "\\.")));
+        else
+            totalValue = sumValue;
         TotalLabel.setText(("R$" + df.format(totalValue)).replaceAll("\\.", ","));
     }
 
@@ -186,24 +191,18 @@ public class RegisterSaleController extends MainController implements Initializa
         comboBox.setPromptText("Produto *");
         listProduct.forEach(p -> comboBox.getItems().add(p.getName()));
         comboBox.valueProperty().addListener((observableValue, oldValue, newValue) -> {
-            double value = listProduct.stream()
+            Product product = listProduct.stream()
                     .filter(p -> p.getName().equals(newValue))
-                    .collect(Collectors.toList())
-                    .get(0)
-                    .getValue();
-
-            label.setText(("R$" + value).replaceAll("\\.", ","));
-            try {
-                productSumValue -= listProduct.stream()
-                        .filter(p -> p.getName().equals(oldValue))
-                        .collect(Collectors.toList())
-                        .get(0)
-                        .getValue();
-            } catch (Exception ignored) {
+                    .findFirst()
+                    .get();
+            if (oldValue == null)
+                selectedProduct.add(product);
+            else {
+                selectedProduct.remove(listProduct.stream().filter(p -> p.getName().equals(oldValue)).findFirst().get());
+                selectedProduct.add(product);
             }
-            productSumValue += value;
+            label.setText(("R$" + product.getValue()).replaceAll("\\.", ","));
             changeTotalValue();
-            productIdList.add(listProduct.stream().filter(p -> p.getName().equals(newValue)).findFirst().get());
         });
 
         //Create plus button
@@ -212,7 +211,10 @@ public class RegisterSaleController extends MainController implements Initializa
         plusBtn.setPrefWidth(25);
         plusBtn.setStyle("-fx-background-color: #3a7cf3; -fx-background-radius: 50;");
         plusBtn.setTextFill(Paint.valueOf("WHITE"));
-        plusBtn.setOnMouseClicked((observable) -> this.addRow());
+        plusBtn.setOnMouseClicked((observable) -> {
+            if (comboBox.getValue() != null)
+                this.addRow();
+        });
 
         //Create minus button
         JFXButton minusBtn = new JFXButton("-");
@@ -221,32 +223,23 @@ public class RegisterSaleController extends MainController implements Initializa
         minusBtn.setStyle("-fx-background-color: #3a7cf3; -fx-background-radius: 50;");
         minusBtn.setTextFill(Paint.valueOf("WHITE"));
         minusBtn.setOnMouseClicked((observable) -> {
-            if (row > 2) {
-                row--;
-                gridPane.getChildren().removeIf(node -> GridPane.getRowIndex(node) == row);
+            if (selectedProduct.size() > 1) {
+                gridPane.getChildren().removeIf(node -> GridPane.getRowIndex(node) == gridPane.getRowCount() - 1);
                 try {
-                    productSumValue -= listProduct.stream()
-                            .filter(p -> p.getName().equals(comboBox.getValue()))
-                            .collect(Collectors.toList())
-                            .get(0)
-                            .getValue();
+                    selectedProduct.remove(selectedProduct.size() - 1);
                     changeTotalValue();
-                    productIdList.remove(listProduct.stream().filter(p -> p.getName().equals(comboBox.getValue())).findFirst().get().getId());
                 } catch (Exception ignored) {
                 }
             }
         });
 
         //Set nodes on gridPane
-        GridPane.setConstraints(comboBox, 0, row);
-        GridPane.setConstraints(labelValue, 1, row);
-        GridPane.setConstraints(label, 2, row);
-        GridPane.setConstraints(plusBtn, 3, row);
-        GridPane.setConstraints(minusBtn, 4, row);
+        GridPane.setConstraints(comboBox, 0, selectedProduct.size());
+        GridPane.setConstraints(labelValue, 1, selectedProduct.size());
+        GridPane.setConstraints(label, 2, selectedProduct.size());
+        GridPane.setConstraints(plusBtn, 3, selectedProduct.size());
+        GridPane.setConstraints(minusBtn, 4, selectedProduct.size());
 
         gridPane.getChildren().addAll(comboBox, labelValue, label, plusBtn, minusBtn);
-
-        //Increment row number
-        row++;
     }
 }

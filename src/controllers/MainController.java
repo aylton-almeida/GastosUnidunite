@@ -18,11 +18,11 @@ public class MainController implements Initializable{
 
     public StackPane mainStackPane;
     public BorderPane mainBorderPane;
-    public static User loggedUser = null;
-    public static Product actualProduct = null;
-    public static Client actualClient = null;
-    public static Employee actualEmployee = null;
-    public static Sale actualSale = null;
+    static User loggedUser = null;
+    static Product actualProduct = null;
+    static Client actualClient = null;
+    static Employee actualEmployee = null;
+    static Sale actualSale = null;
 
     public MainController(StackPane stackPane, BorderPane borderPane){
         this.mainStackPane = stackPane;
@@ -34,12 +34,12 @@ public class MainController implements Initializable{
         this.mainStackPane = null;
     }
 
-    public User getLoggedUser(){
+    User getLoggedUser(){
         return loggedUser;
     }
 
-    public void setLoggedUser(User user){
-        this.loggedUser = user;
+    void setLoggedUser(User user){
+        loggedUser = user;
     }
 
     public void showMsg(String text){
@@ -60,7 +60,7 @@ public class MainController implements Initializable{
         this.mainBorderPane.setCenter(root);
     }
 
-    public void loadLeftUI(String ui){
+    void loadLeftUI(String ui){
         Parent root = null;
         try{
             root = FXMLLoader.load(getClass().getResource(ui));
@@ -71,7 +71,7 @@ public class MainController implements Initializable{
         this.mainBorderPane.setLeft(root);
     }
 
-    public void clearScreen(){
+    void clearScreen(){
         this.mainBorderPane.setLeft(null);
         this.mainBorderPane.setCenter(null);
         this.mainBorderPane.setTop(null);
@@ -79,7 +79,7 @@ public class MainController implements Initializable{
         this.mainBorderPane.setBottom(null);
     }
 
-    public void clearNavBar(){
+    void clearNavBar(){
         this.mainBorderPane.setCenter(null);
     }
 
@@ -89,26 +89,23 @@ public class MainController implements Initializable{
         this.mainBorderPane.setBottom(null);
     }
 
-    public void showLoader(){
+    void showLoader(){
         JFXSpinner spinner = new JFXSpinner();
         spinner.setRadius(30);
         mainStackPane.getChildren().add(spinner);
         mainStackPane.setStyle("-fx-background-color: Gainsboro;");
     }
 
-    public void hideLoader(){
+    void hideLoader(){
         mainStackPane.getChildren().remove(1);
         mainStackPane.setStyle("-fx-background-color: transparent;");
     }
 
-    public boolean isEmailValid(JFXTextField field){
-        if (!field.getText().contains("@") || !field.getText().contains(".")){
-            return false;
-        }
-        return true;
+    boolean isEmailValid(JFXTextField field){
+        return field.getText().contains("@") && field.getText().contains(".");
     }
 
-    public void addRequiredValidator(JFXTextField field){
+    void addRequiredValidator(JFXTextField field){
         RequiredFieldValidator requiredFieldValidator = new RequiredFieldValidator();
         requiredFieldValidator.setMessage("Esse campo é obrigatório");
         field.getValidators().add(requiredFieldValidator);
@@ -118,7 +115,7 @@ public class MainController implements Initializable{
         }));
     }
 
-    public void addRequiredValidator(JFXPasswordField field){
+    void addRequiredValidator(JFXPasswordField field){
         RequiredFieldValidator requiredFieldValidator = new RequiredFieldValidator();
         requiredFieldValidator.setMessage("Esse campo é obrigatório");
         field.getValidators().add(requiredFieldValidator);
@@ -128,7 +125,7 @@ public class MainController implements Initializable{
         }));
     }
 
-    public void addRequiredValidator(JFXComboBox field){
+    void addRequiredValidator(JFXComboBox field){
         RequiredFieldValidator requiredFieldValidator = new RequiredFieldValidator();
         requiredFieldValidator.setMessage("Esse campo é obrigatório");
         field.getValidators().add(requiredFieldValidator);
@@ -138,7 +135,7 @@ public class MainController implements Initializable{
         }));
     }
 
-    public void addNumberValidator(JFXTextField field){
+    void addNumberValidator(JFXTextField field){
         NumberValidator numberValidator = new NumberValidator();
         numberValidator.setMessage("Digite apenas números");
         field.getValidators().add(numberValidator);

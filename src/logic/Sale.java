@@ -3,6 +3,7 @@ package logic;
 import javafx.beans.property.SimpleIntegerProperty;
 import javafx.beans.property.SimpleStringProperty;
 
+import java.text.ParseException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -121,7 +122,12 @@ public class Sale extends Transaction implements Comparable<Sale> {
     }
 
     @Override
-    public int compareTo(Sale o) {
-        return this.getId() - o.getId();
+    public int compareTo(Sale o){
+        try {
+            return this.getDateComparable().compareTo(o.getDateComparable());
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
+        return 0;
     }
 }

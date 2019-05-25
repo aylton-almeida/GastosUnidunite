@@ -1,7 +1,10 @@
 package logic;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
+import java.util.Date;
 
 public class Transaction {
     private double value;
@@ -42,5 +45,10 @@ public class Transaction {
     public void setDate(LocalDate date) {
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/YYYY");
         this.date = formatter.format(date);
+    }
+
+    public Date getDateComparable() throws ParseException {
+        SimpleDateFormat format = new SimpleDateFormat("dd/MM/yyyy");
+        return format.parse(this.getDate());
     }
 }
