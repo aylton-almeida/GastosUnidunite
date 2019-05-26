@@ -96,3 +96,5 @@ fabric.properties
 *.xml
 
 .idea/
+
+META-INF/
