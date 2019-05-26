@@ -2,6 +2,7 @@ package controllers;
 
 import com.jfoenix.controls.JFXPasswordField;
 import com.jfoenix.controls.JFXTextField;
+import javafx.concurrent.Task;
 import javafx.event.ActionEvent;
 import javafx.fxml.Initializable;
 import logic.User;
@@ -13,6 +14,7 @@ import java.util.ResourceBundle;
 public class LoginController extends MainController implements Initializable {
     public JFXPasswordField inputPass;
     public JFXTextField inputEmail;
+    private static UserService userService;
 
     public void makeLogin(ActionEvent event) {
         showLoader();
@@ -20,19 +22,33 @@ public class LoginController extends MainController implements Initializable {
         String passInput = inputPass.getText();
         if (!userInput.isEmpty() && passInput.length() >= 8 && isEmailValid(inputEmail)) {
             try {
-                User user = new UserService().login(userInput, passInput);
-                if (user.getId() != -1) {
-                    setLoggedUser(user);
-                    clearScreen();
-                    loadLeftUI("NavBar.fxml");
-                    hideLoader();
-                } else {
-                    hideLoader();
-                    showMsg("Email ou senha incorretos");
-                }
+                Task retriveClientsTask = new Task() {
+                    @Override
+                    protected User call() throws Exception {
+                        userService = new UserService();
+                        return userService.login(userInput, passInput);
+                    }
+
+                    @Override
+                    protected void succeeded() {
+                        User user = (User) getValue();
+                        if (user.getId() != -1) {
+                            setLoggedUser(user);
+                            clearScreen();
+                            hideLoader();
+                            loadLeftUI("/fxml/NavBar.fxml");
+                        } else {
+                            hideLoader();
+                            showMsg("Email ou senha incorretos");
+                        }
+                    }
+                };
+                Thread t = new Thread(retriveClientsTask);
+                t.setDaemon(true);
+                t.start();
             } catch (Exception e) {
                 hideLoader();
-                showMsg(e.getMessage());
+                showMsg("Ocorreu um erro" + e.getMessage());
                 e.printStackTrace();
             }
         } else {
@@ -41,11 +57,24 @@ public class LoginController extends MainController implements Initializable {
         }
     }
 
+//    private User requestUser() throws Exception {
+//        User[] users = new User[1];
+//        try {
+//            users[0] = userService.login(inputEmail.getText(), inputPass.getText());
+//        } catch (Exception e) {
+//            e.printStackTrace();
+//        }
+//        return users[0];
+//    }
+
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         addRequiredValidator(inputEmail);
         addRequiredValidator(inputPass);
-        loadLeftUI("LogoLeftBar.fxml");
+        loadLeftUI("/fxml/LogoLeftBar.fxml");
+
+        //Definir click do enter como click do botao
+        inputPass.onActionProperty().set(e -> makeLogin(new ActionEvent()));
     }
 
 }

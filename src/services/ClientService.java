@@ -19,4 +19,12 @@ public class ClientService {
     public void addClient(Client c) throws Exception{
         clients.addObject(c);
     }
+
+    public void deleteClient(Client client) throws Exception{
+        clients.deleteObject(client);
+    }
+
+    public void updateClient(Client client) throws Exception{
+        clients.updateObject(client);
+    }
 }

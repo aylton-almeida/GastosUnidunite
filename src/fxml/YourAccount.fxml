@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.*?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+<StackPane fx:id="mainStackPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="790.0" prefWidth="1018.0" BorderPane.alignment="CENTER" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.YourAccountController">
+    <BorderPane fx:id="mainBorderPane">
+        <top>
+            <Pane prefHeight="98.0" prefWidth="1018.0" style="-fx-background-color: #3A7CF3;" styleClass="nav-bar-panel" stylesheets="@Main.css" BorderPane.alignment="CENTER">
+                <Label fx:id="labelBemVindo" layoutX="50.0" layoutY="32.0" text="Cadastrar Produto" textFill="WHITE">
+                    <font>
+                        <Font size="24.0" />
+                    </font>
+                </Label>
+            </Pane>
+        </top>
+        <center>
+            <AnchorPane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+                <JFXTextField fx:id="emailInput" focusColor="#3c8fdc" labelFloat="true" layoutX="233.0" layoutY="127.0" prefHeight="39.0" prefWidth="350.0" promptText="E-mail * ">
+                    <font>
+                        <Font size="18.0" />
+                    </font>
+                </JFXTextField>
+                <JFXPasswordField fx:id="passInput" focusColor="#3c8fdc" labelFloat="true" layoutX="233.0" layoutY="257.0" promptText="Senha *">
+                    <font>
+                        <Font size="18.0" />
+                    </font>
+                </JFXPasswordField>
+                <JFXPasswordField fx:id="confPassInput" focusColor="#3c8fdc" labelFloat="true" layoutX="583.0" layoutY="257.0" promptText="Confirmar Senha *">
+                    <font>
+                        <Font size="18.0" />
+                    </font>
+                </JFXPasswordField>
+                <JFXButton fx:id="updateDataBtn" buttonType="RAISED" cancelButton="true" layoutX="250.0" layoutY="481.0" onAction="#updateData" prefHeight="39.0" prefWidth="205.0" ripplerFill="WHITE" style="-fx-background-color: #3c8fdc;" text="Alterar dados" textFill="WHITE">
+                    <font>
+                        <Font size="18.0" />
+                    </font>
+                </JFXButton>
+                <JFXButton fx:id="createUserBtn" buttonType="RAISED" cancelButton="true" layoutX="571.0" layoutY="481.0" onAction="#createUser" prefHeight="39.0" prefWidth="205.0" ripplerFill="WHITE" style="-fx-background-color: #3c8fdc;" text="Cadastrar usuário" textFill="WHITE">
+                    <font>
+                        <Font size="18.0" />
+                    </font>
+                </JFXButton>
+                <Text layoutX="395.0" layoutY="577.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Campos com um * são obrigatorios" wrappingWidth="238.388671875" />
+            <JFXCheckBox fx:id="isAdminInput" checkedColor="#3c8fdc" layoutX="233.0" layoutY="387.0" text="Permissão de administrador">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </JFXCheckBox>
+            </AnchorPane>
+        </center>
+    </BorderPane>
+</StackPane>

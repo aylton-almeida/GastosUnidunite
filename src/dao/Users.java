@@ -1,5 +1,6 @@
 package dao;
 
+import exceptions.UserException;
 import interfaces.Dao;
 import logic.User;
 
@@ -13,7 +14,7 @@ public class Users implements Dao<User> {
     private String database = "unidunite";
     private String user = "AyltonJunior@bancounidunite";
     private String password = "Aylton123";
-    private Connection connection = null;
+    private Connection connection;
 
     public Users() throws Exception {
         Class.forName("com.mysql.jdbc.Driver");
@@ -50,18 +51,16 @@ public class Users implements Dao<User> {
     public User getObject(Object key) throws Exception {
         PreparedStatement preparedStatement = connection.prepareStatement("SELECT * from tbl_user WHERE id = ?;");
         preparedStatement.setInt(1, (int) key);
-        ResultSet results = preparedStatement.executeQuery();
-        if (results.next()) {
-            User user = new User(results.getString(2), results.getString(3), results.getBoolean(4));
-            user.setId(results.getInt(1));
-            return user;
-        }
-        return null;
+        return getUser(preparedStatement);
     }
 
     public User getObjectByEmail(String email) throws Exception {
         PreparedStatement preparedStatement = connection.prepareStatement("SELECT * from tbl_user WHERE email = ?;");
         preparedStatement.setString(1, email);
+        return getUser(preparedStatement);
+    }
+
+    private User getUser(PreparedStatement preparedStatement) throws SQLException, UserException {
         ResultSet results = preparedStatement.executeQuery();
         if (results.next()) {
             User user = new User(results.getString(2), results.getString(3), results.getBoolean(4));
@@ -87,8 +86,7 @@ public class Users implements Dao<User> {
         preparedStatement.setString(2, o.getPassword());
         preparedStatement.setBoolean(3, o.isAdmin());
         preparedStatement.setInt(4, o.getId());
-        int n = preparedStatement.executeUpdate();
-        System.out.println(String.format("Updated %d row(s) of data.", n));
+        preparedStatement.executeUpdate();
     }
 
     @Override

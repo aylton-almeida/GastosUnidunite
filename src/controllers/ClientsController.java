@@ -1,6 +1,7 @@
 package controllers;
 
 import com.jfoenix.controls.JFXTextField;
+import javafx.concurrent.Task;
 import javafx.event.ActionEvent;
 import javafx.fxml.Initializable;
 import javafx.scene.control.TableColumn;
@@ -15,73 +16,126 @@ import java.util.ResourceBundle;
 
 public class ClientsController extends MainController implements Initializable {
     public JFXTextField searchInput;
-    public TableView mainTableView;
-    public TableColumn idColumn;
-    public TableColumn nameColumn;
-    public TableColumn adressColumn;
-    public TableColumn emailColumn;
-    public TableColumn phoneColumn;
+    public TableView<Client> mainTableView;
+    public TableColumn<Object, Object> idColumn;
+    public TableColumn<Object, Object> nameColumn;
+    public TableColumn<Object, Object> adressColumn;
+    public TableColumn<Object, Object> emailColumn;
+    public TableColumn<Object, Object> phoneColumn;
+    private List<Client> clientsList;
+    private ClientService clientService;
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         idColumn.setCellValueFactory(new PropertyValueFactory<>("Id"));
         nameColumn.setCellValueFactory(new PropertyValueFactory<>("Name"));
-        adressColumn.setCellValueFactory(new PropertyValueFactory<>("Adress"));
+        adressColumn.setCellValueFactory(new PropertyValueFactory<>("Address"));
         emailColumn.setCellValueFactory(new PropertyValueFactory<>("Email"));
         phoneColumn.setCellValueFactory(new PropertyValueFactory<>("Phone"));
+        mainTableView.getItems().add(null);
+
+        showLoader();
+        Task retriveClientsTask = new Task() {
+
+            @Override
+            protected List<Client> call() throws Exception {
+                clientService = new ClientService();
+                return clientService.getAllClients();
+            }
+
+            @Override
+            protected void succeeded() {
+                clientsList = (List<Client>) getValue();
+                hideLoader();
+                showOnTable();
+            }
+        };
+        Thread t = new Thread(retriveClientsTask);
+        t.setDaemon(true);
+        t.start();
+
+        //Definir que quando o enter for pressionado o filtro ocorra
+        searchInput.setOnAction(this::filterSearch);
+        //Definir mudanca do filtro a medida que os dados sao digitados
+        searchInput.onKeyReleasedProperty().set(e -> this.filterSearch(new ActionEvent()));
+    }
 
 
-        List<Client> list = null;
-        try {
-            list = new ClientService().getAllClients();
-        } catch (Exception e) {
-            showMsg(e.getMessage());
-            e.printStackTrace();
-        }
-
-        list.stream()
+    private void showOnTable() {
+        mainTableView.getItems().clear();
+        this.clientsList.stream()
                 .sorted(Client::compareTo)
                 .forEach(client -> mainTableView.getItems().add(client));
     }
 
     public void goToRegisterClients(ActionEvent event) {
         clearMainArea();
-        loadCenterUI("RegisterClients.fxml");
+        loadCenterUI("/fxml/RegisterClients.fxml");
     }
 
     public void filterSearch(ActionEvent event) {
 
-        mainTableView.getItems().clear();
-
         String input = searchInput.getText();
 
-        List<Client> list = null;
-        try {
-            list = new ClientService().getAllClients();
-        } catch (Exception e) {
-            showMsg(e.getMessage());
-            e.printStackTrace();
-        }
+        mainTableView.getItems().clear();
 
-        list.stream()
-                .filter(client -> client.getId() == Integer.parseInt(input))
-                .forEach(client -> mainTableView.getItems().add(client));
+        clientsList.forEach(client -> {
+            if (("" + client.getId()).startsWith(input) || client.getName().toLowerCase().startsWith(input.toLowerCase()))
+                mainTableView.getItems().add(client);
+        });
     }
 
-    public void clearSearch(ActionEvent event) {
+    public void deleteClients(ActionEvent actionEvent) {
+        showLoader();
+        if (mainTableView.getSelectionModel().getSelectedItem() != null) {
+            try {
+                Client c = mainTableView.getSelectionModel().getSelectedItem();
+                mainTableView.getItems().removeAll(c);
+                Task task = new Task() {
 
-        searchInput.setText(null);
-        mainTableView.getItems().clear();
-        List<Client> list = null;
-        try {
-            list = new ClientService().getAllClients();
-        } catch (Exception e) {
-            showMsg(e.getMessage());
-            e.printStackTrace();
+                    @Override
+                    protected Integer call() throws Exception {
+                        clientService.deleteClient(c);
+                        return 1;
+                    }
+
+                    @Override
+                    protected void succeeded() {
+                        showMsg("Cliente apagado com sucesso");
+                        hideLoader();
+                    }
+
+                    @Override
+                    protected void failed() {
+                        showMsg("Ocorreu um erro ao apagar o cliente");
+                        hideLoader();
+                    }
+                };
+                Thread t = new Thread(task);
+                t.setDaemon(true);
+                t.start();
+                clientsList.remove(c);
+            } catch (Exception e) {
+                showMsg("Ocorreu um erro: " + e.getMessage());
+                e.printStackTrace();
+                hideLoader();
+            }
+        } else {
+            showMsg("Selecione alguma linha para continuar");
+            hideLoader();
         }
+    }
 
-        list.stream()
-                .sorted(Client::compareTo)
-                .forEach(client -> mainTableView.getItems().add(client));
+    public void editClients(ActionEvent actionEvent) {
+        if (mainTableView.getSelectionModel().getSelectedItem() != null) {
+            try {
+                actualClient = mainTableView.getSelectionModel().getSelectedItem();
+                clearMainArea();
+                loadCenterUI("/fxml/RegisterClients.fxml");
+            } catch (Exception e) {
+                showMsg("Ocorreu um erro" + e.getMessage());
+                e.printStackTrace();
+            }
+        } else showMsg("Selecione alguma linha para continuar");
     }
 }

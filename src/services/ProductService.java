@@ -9,7 +9,7 @@ public class ProductService {
     private static Products products;
 
     public ProductService() throws Exception {
-        this.products = new Products();
+        products = new Products();
     }
 
     public void addProduct(Product product) throws Exception {
@@ -18,5 +18,13 @@ public class ProductService {
 
     public List<Product> getAllProducts() throws Exception {
         return products.getAllObjects();
+    }
+
+    public void deleteProduct(Product product) throws Exception{
+        products.deleteObject(product);
+    }
+
+    public void updateProduct(Product product) throws Exception{
+        products.updateObject(product);
     }
 }

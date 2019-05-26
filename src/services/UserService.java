@@ -3,8 +3,6 @@ package services;
 import dao.Users;
 import logic.User;
 
-import java.util.List;
-
 public class UserService {
     private static Users users;
 
@@ -14,13 +12,10 @@ public class UserService {
 
     public User login(String email, String password) throws Exception {
         User user = users.getObjectByEmail(email);
-        if (user != null)
+        if (user != null && email.equals(user.getEmail()))
             if (user.getPassword().equals(password))
                 return user;
         return new User();
-    }
-
-    public void loggout() {
     }
 
     public void addUser(String email, String pass, boolean isAdmin) throws Exception {
@@ -29,9 +24,5 @@ public class UserService {
 
     public void updateUser(User user) throws Exception {
         users.updateObject(user);
-    }
-
-    public boolean changePassword(String oldPass, String newPass) {
-        return true;
     }
 }

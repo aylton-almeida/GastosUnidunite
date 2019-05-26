@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+<StackPane fx:id="mainStackPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity"
+           prefHeight="790.0" prefWidth="1018.0" BorderPane.alignment="CENTER" xmlns="http://javafx.com/javafx/11.0.1"
+           xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.ProductsController">
+    <BorderPane fx:id="mainBorderPane">
+        <top>
+            <Pane prefHeight="98.0" prefWidth="1018.0" style="-fx-background-color: #3A7CF3;" styleClass="nav-bar-panel"
+                  stylesheets="@Main.css" BorderPane.alignment="CENTER">
+                <children>
+                    <Label layoutX="50.0" layoutY="20.0" text="Pesquisa:" textFill="WHITE">
+                        <font>
+                            <Font size="18.0"/>
+                        </font>
+                    </Label>
+                    <JFXButton buttonType="RAISED" layoutX="291.0" layoutY="54.0" onAction="#filterSearch"
+                               style="-fx-background-color: #6cb235;" text="Buscar" textFill="WHITE">
+                        <font>
+                            <Font size="13.0"/>
+                        </font>
+                    </JFXButton>
+                    <JFXTextField fx:id="searchInput" focusColor="#6cb235" layoutX="50.0" layoutY="50.0"
+                                  prefHeight="25.0"
+                                  prefWidth="217.0" promptText="Pesquisar...">
+                        <font>
+                            <Font size="14.0"/>
+                        </font>
+                    </JFXTextField>
+                </children>
+            </Pane>
+        </top>
+        <center>
+            <TableView fx:id="mainTableView" prefHeight="698.0" prefWidth="1018.0" stylesheets="@Main.css"
+                       BorderPane.alignment="CENTER">
+                <columns>
+                    <TableColumn fx:id="idColumn" prefWidth="100.0" text="ID"/>
+                    <TableColumn fx:id="nameColumn" prefWidth="250.0" text="Nome"/>
+                    <TableColumn fx:id="sizeColumn" prefWidth="150.0" text="Tamanho"/>
+                    <TableColumn fx:id="factoryColumn" prefWidth="300.0" text="Fábrica"/>
+                    <TableColumn fx:id="valueColumn" prefWidth="216.0" text="Valor (R$)"/>
+                </columns>
+            </TableView>
+        </center>
+        <bottom>
+            <AnchorPane prefHeight="79.0" prefWidth="1018.0" style="-fx-background-color: #3A7CF3;"
+                        BorderPane.alignment="CENTER">
+                <children>
+                    <JFXButton buttonType="RAISED" layoutX="278.0" layoutY="18.0" onAction="#deleteProduct"
+                               prefHeight="43.0" prefWidth="223.0" style="-fx-background-color: #F44336;"
+                               text="Remover Produto" textFill="WHITE">
+                        <font>
+                            <Font size="19.0"/>
+                        </font>
+                    </JFXButton>
+                    <JFXButton buttonType="RAISED" layoutX="522.0" layoutY="18.0" onAction="#editProduct"
+                               prefHeight="43.0"
+                               prefWidth="223.0" style="-fx-background-color: #f8bc03;" text="Editar Produto"
+                               textFill="WHITE">
+                        <font>
+                            <Font size="19.0"/>
+                        </font>
+                    </JFXButton>
+                    <JFXButton buttonType="RAISED" layoutX="766.0" layoutY="18.0" onAction="#goToRegisterProduct"
+                               prefHeight="43.0" prefWidth="223.0" style="-fx-background-color: #6cb235;"
+                               text="Cadastrar Produto" textFill="WHITE">
+                        <font>
+                            <Font size="19.0"/>
+                        </font>
+                    </JFXButton>
+                </children>
+            </AnchorPane>
+        </bottom>
+    </BorderPane>
+</StackPane>

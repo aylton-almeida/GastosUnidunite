@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXComboBox?>
+<?import com.jfoenix.controls.JFXDatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.text.Font?>
+
+<StackPane fx:id="mainStackPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity"
+           prefHeight="790.0" prefWidth="1018.0" BorderPane.alignment="CENTER" xmlns="http://javafx.com/javafx/11.0.1"
+           xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.SalesController">
+    <BorderPane fx:id="mainBorderPane">
+        <top>
+            <Pane prefHeight="98.0" prefWidth="1018.0" style="-fx-background-color: #3A7CF3;" styleClass="nav-bar-panel"
+                  stylesheets="@Main.css" BorderPane.alignment="CENTER">
+                <children>
+                    <Label layoutX="50.0" layoutY="20.0" text="Escolha o periodo:" textFill="WHITE">
+                        <font>
+                            <Font size="18.0"/>
+                        </font>
+                    </Label>
+                    <JFXDatePicker fx:id="toDateInput" defaultColor="#6cb235" layoutX="258.0" layoutY="50.0"
+                                   promptText="Ate...." styleClass="jfx-date-picker" stylesheets="@Main.css"/>
+                    <JFXDatePicker fx:id="fromDateInput" defaultColor="#6cb235" layoutX="50.0" layoutY="50.0"
+                                   promptText="De...." styleClass="jfx-date-picker" stylesheets="@Main.css"/>
+                    <JFXComboBox fx:id="payTypeComboBox" focusColor="#6cb235" labelFloat="true" layoutX="453.0"
+                                 layoutY="52.0" prefHeight="25.0" prefWidth="151.0" promptText="Tipo de pagamento"
+                                 style="-fx-prompt-text-fill: #fff; -fx-text-inner-color: #fff; -fx-text-fill: #fff;"
+                                 stylesheets="@Main.css" unFocusColor="WHITE"/>
+                    <JFXComboBox fx:id="sellerComboBox" focusColor="#6cb235" labelFloat="true" layoutX="648.0"
+                                 layoutY="52.0" prefHeight="25.0" prefWidth="151.0" promptText="Vendedor"
+                                 style="-fx-prompt-text-fill: #fff; -fx-text-inner-color: #fff; -fx-text-fill: #fff;"
+                                 unFocusColor="WHITE"/>
+                </children>
+            </Pane>
+        </top>
+        <center>
+            <TableView fx:id="mainTableView" prefHeight="698.0" prefWidth="1018.0" stylesheets="@Main.css"
+                       BorderPane.alignment="CENTER">
+                <columns>
+                    <TableColumn fx:id="dateColumn" prefWidth="100.0" text="Data"/>
+                    <TableColumn fx:id="productsColumn" prefWidth="159.19995880126953" text="Produtos"/>
+                    <TableColumn fx:id="sellerColumn" prefWidth="188.0" text="Vendedor"/>
+                    <TableColumn fx:id="clientColumn" prefWidth="158.39993286132812" text="Cliente"/>
+                    <TableColumn fx:id="paymentColumn" prefWidth="229.60003662109375" text="Tipo de Pagamento"/>
+                    <TableColumn fx:id="valueColumn" prefWidth="177.60009765625" text="Valor (R$)"/>
+                </columns>
+            </TableView>
+        </center>
+        <bottom>
+            <AnchorPane prefHeight="79.0" prefWidth="1018.0" style="-fx-background-color: #3A7CF3;"
+                        BorderPane.alignment="CENTER">
+                <children>
+                    <JFXButton buttonType="RAISED" layoutX="278.0" layoutY="18.0" onAction="#deleteSale"
+                               prefHeight="43.0" prefWidth="223.0" style="-fx-background-color: #F44336;"
+                               text="Remover Venda" textFill="WHITE">
+                        <font>
+                            <Font size="19.0"/>
+                        </font>
+                    </JFXButton>
+                    <JFXButton buttonType="RAISED" disable="true" layoutX="522.0" layoutY="18.0" onAction="#editSale"
+                               prefHeight="43.0" prefWidth="223.0" style="-fx-background-color: #f8bc03;"
+                               text="Editar Venda" textFill="WHITE">
+                        <font>
+                            <Font size="19.0"/>
+                        </font>
+                    </JFXButton>
+                    <JFXButton buttonType="RAISED" layoutX="766.0" layoutY="18.0" onAction="#goToRegisterSale"
+                               prefHeight="43.0" prefWidth="223.0" style="-fx-background-color: #6cb235;"
+                               text="Cadastrar Venda" textFill="WHITE">
+                        <font>
+                            <Font size="19.0"/>
+                        </font>
+                    </JFXButton>
+                    <Label layoutX="31.0" layoutY="22.0" text="Total:" textFill="WHITE">
+                        <font>
+                            <Font size="24.0"/>
+                        </font>
+                    </Label>
+                    <Label fx:id="totalLabel" layoutX="96.0" layoutY="22.0" prefHeight="35.0" prefWidth="165.0"
+                           text="R$0,00" textFill="WHITE">
+                        <font>
+                            <Font size="24.0"/>
+                        </font>
+                    </Label>
+                </children>
+            </AnchorPane>
+        </bottom>
+    </BorderPane>
+</StackPane>

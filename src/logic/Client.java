@@ -1,15 +1,9 @@
 package logic;
 
-import interfaces.Registrabel;
 import javafx.beans.property.SimpleIntegerProperty;
 import javafx.beans.property.SimpleStringProperty;
 
-import java.io.ByteArrayInputStream;
-import java.io.ByteArrayOutputStream;
-import java.io.DataInputStream;
-import java.io.DataOutputStream;
-
-public class  Client implements Registrabel, Comparable {
+public class  Client implements Comparable<Client> {
 
     private SimpleStringProperty name;
     private SimpleStringProperty address;
@@ -75,31 +69,7 @@ public class  Client implements Registrabel, Comparable {
     }
 
     @Override
-    public byte[] getByteArray() throws Exception {
-        ByteArrayOutputStream record = new ByteArrayOutputStream();
-        DataOutputStream output = new DataOutputStream(record);
-        output.writeUTF(getName());
-        output.writeUTF(getAddress());
-        output.writeUTF(getEmail());
-        output.writeUTF(getPhone());
-        output.writeInt(getId());
-        return record.toByteArray();
-    }
-
-    @Override
-    public Registrabel setByteArray(byte[] b) throws Exception {
-        ByteArrayInputStream record = new ByteArrayInputStream(b);
-        DataInputStream input = new DataInputStream(record);
-        setName(input.readUTF());
-        setAddress(input.readUTF());
-        setEmail(input.readUTF());
-        setPhone(input.readUTF());
-        setId(input.readInt());
-        return this;
-    }
-
-    @Override
-    public int compareTo(Object o) {
-        return this.getId() - ((Client) o).getId();
+    public int compareTo(Client o) {
+        return this.getId() - o.getId();
     }
 }

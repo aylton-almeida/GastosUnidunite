@@ -11,68 +11,66 @@ import java.util.ResourceBundle;
 
 public class NavBarController extends MainController implements Initializable {
 
-    public JFXButton homeButton;
     public JFXButton productsButton;
     public JFXButton clientsButton;
     public JFXButton employeesButton;
     public JFXButton salesButton;
     public JFXButton expensesButton;
-    public JFXButton totalsButton;
     public JFXButton accountButton;
 
     public void goToAccount(ActionEvent event) {
         clearNavBar();
         normalizeButton();
         highLightButton(accountButton);
-        loadCenterUI("YourAccount.fxml");
+        loadCenterUI("/fxml/YourAccount.fxml");
     }
 
     public void goToProducts(ActionEvent event) {
         clearNavBar();
         normalizeButton();
         highLightButton(productsButton);
-        loadCenterUI("Products.fxml");
+        loadCenterUI("/fxml/Products.fxml");
     }
 
     public void goToSales(ActionEvent event) {
-        loadCenterUI("Sales.fxml");
+        showLoader();
+        clearNavBar();
+        normalizeButton();
+        highLightButton(salesButton);
+        loadCenterUI("/fxml/Sales.fxml");
+        hideLoader();
     }
 
     public void goToExpenses(ActionEvent event) {
-        loadCenterUI("Expenses.fxml");
+        clearNavBar();
+        normalizeButton();
+        highLightButton(expensesButton);
+        loadCenterUI("/fxml/Expenses.fxml");
     }
 
     public void goToEmployees(ActionEvent event) {
-        loadCenterUI("Employees.fxml");
-    }
-
-    public void goToTotals(ActionEvent event) {
-        showMsg(super.getLoggedUser().getEmail());
+        clearNavBar();
+        normalizeButton();
+        highLightButton(employeesButton);
+        loadCenterUI("/fxml/Employees.fxml");
     }
 
     public void goToClients(ActionEvent event) {
+        showLoader();
         clearNavBar();
         normalizeButton();
         highLightButton(clientsButton);
-        loadCenterUI("Clients.fxml");
-    }
-
-    public void goToHome(ActionEvent event) {
-        clearNavBar();
-        normalizeButton();
-        highLightButton(homeButton);
-        loadCenterUI("Home.fxml");
+        loadCenterUI("/fxml/Clients.fxml");
+        hideLoader();
     }
 
     private void normalizeButton() {
         List<JFXButton> buttons = new ArrayList<>();
-        buttons.add(homeButton);
         buttons.add(productsButton);
         buttons.add(salesButton);
         buttons.add(employeesButton);
         buttons.add(expensesButton);
         buttons.add(clientsButton);
-        buttons.add(totalsButton);
         buttons.stream()
                 .filter(button -> button.buttonTypeProperty().get() == com.jfoenix.controls.JFXButton.ButtonType.RAISED)
                 .forEach(button -> {
@@ -89,6 +87,6 @@ public class NavBarController extends MainController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        loadCenterUI("Home.fxml");
+        loadCenterUI("/fxml/Sales.fxml");
     }
 }
