@@ -3,6 +3,7 @@ package controllers;
 
 import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXTextField;
+import javafx.concurrent.Task;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Label;
 import logic.Product;
@@ -40,33 +41,69 @@ public class RegisterProductsController extends MainController implements Initia
             codeInput.setDisable(true);
 
             doneButton.onActionProperty().set(ignored -> {
+                showLoader();
                 if (nameInput.validate() && codeInput.validate() && valueInput.validate()) {
-                    try {
-                        new ProductService().updateProduct(new Product(Integer.parseInt(codeInput.getText()), nameInput.getText(), factoryInput.getText(), sizeInput.getText(), Double.parseDouble(valueInput.getText().replaceAll(",", "."))));
-                        showMsg("Produto atualizado com sucesso");
-                        clearMainArea();
-                        loadCenterUI("/fxml/Products.fxml");
-                    } catch (Exception e) {
-                        showMsg("Ocorreu um erro" + e.getMessage());
-                        e.printStackTrace();
-                    }
+                    Task task = new Task() {
+
+                        @Override
+                        protected Integer call() throws Exception {
+                            new ProductService().updateProduct(new Product(Integer.parseInt(codeInput.getText()), nameInput.getText(), factoryInput.getText(), sizeInput.getText(), Double.parseDouble(valueInput.getText().replaceAll(",", "."))));
+                            return 1;
+                        }
+
+                        @Override
+                        protected void succeeded() {
+                            showMsg("Produto atualizado com sucesso");
+                            clearMainArea();
+                            loadCenterUI("/fxml/Products.fxml");
+                            hideLoader();
+                            actualProduct = null;
+                        }
+
+                        @Override
+                        protected void failed() {
+                            showMsg("Ocorreu um erro ao editar o produto");
+                            hideLoader();
+                            actualProduct = null;
+                        }
+                    };
+                    Thread t = new Thread(task);
+                    t.setDaemon(true);
+                    t.start();
                 } else showMsg("Preencha todos os campos corretamente");
             });
-
-            actualProduct = null;
             titleLabel.setText("Editar Produto");
         } else {
             doneButton.onActionProperty().set(ignored -> {
+                showLoader();
                 if (nameInput.validate() && codeInput.validate() && valueInput.validate()) {
-                    try {
-                        new ProductService().addProduct(new Product(Integer.parseInt(codeInput.getText()), nameInput.getText(), factoryInput.getText(), sizeInput.getText(), Double.parseDouble(valueInput.getText().replaceAll(",", "."))));
-                        showMsg("Produto cadastrado com sucesso");
-                        clearMainArea();
-                        loadCenterUI("/fxml/Products.fxml");
-                    } catch (Exception e) {
-                        showMsg("Ocorreu um erro" + e.getMessage());
-                        e.printStackTrace();
-                    }
+                    Task task = new Task() {
+
+                        @Override
+                        protected Integer call() throws Exception {
+                            new ProductService().addProduct(new Product(Integer.parseInt(codeInput.getText()), nameInput.getText(), factoryInput.getText(), sizeInput.getText(), Double.parseDouble(valueInput.getText().replaceAll(",", "."))));
+                            return 1;
+                        }
+
+                        @Override
+                        protected void succeeded() {
+                            showMsg("Produto cadastrado com sucesso");
+                            clearMainArea();
+                            loadCenterUI("/fxml/Products.fxml");
+                            hideLoader();
+                            actualProduct = null;
+                        }
+
+                        @Override
+                        protected void failed() {
+                            showMsg("Ocorreu um erro ao cadastrar o produto");
+                            hideLoader();
+                            actualProduct = null;
+                        }
+                    };
+                    Thread t = new Thread(task);
+                    t.setDaemon(true);
+                    t.start();
                 } else showMsg("Preencha todos os campos corretamente");
             });
         }

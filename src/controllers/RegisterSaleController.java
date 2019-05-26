@@ -24,7 +24,6 @@ import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.ResourceBundle;
-import java.util.stream.Collectors;
 
 public class RegisterSaleController extends MainController implements Initializable {
     public JFXComboBox<String> employeeInput;

@@ -2,6 +2,7 @@ package controllers;
 
 import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXTextField;
+import javafx.concurrent.Task;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Label;
 import logic.Client;
@@ -37,6 +38,7 @@ public class RegisterClientsController extends MainController implements Initial
             codeInput.setDisable(true);
 
             doneButton.onActionProperty().set(ignored -> {
+                showLoader();
                 if (nameInput.validate() && phoneInput.validate() && codeInput.validate()) {
                     if (!emailInput.getText().isEmpty()) {
                         if (isEmailValid(emailInput)) {
@@ -54,6 +56,7 @@ public class RegisterClientsController extends MainController implements Initial
             titleLabel.setText("Editar Cliente");
         } else {
             doneButton.onActionProperty().set(ignored -> {
+                showLoader();
                 if (nameInput.validate() && phoneInput.validate() && codeInput.validate()) {
                     if (!emailInput.getText().isEmpty()) {
                         if (isEmailValid(emailInput)) {
@@ -70,26 +73,58 @@ public class RegisterClientsController extends MainController implements Initial
     }
 
     private void update() {
-        try {
-            new ClientService().updateClient(new Client(nameInput.getText(), addressInput.getText(), emailInput.getText(), phoneInput.getText(), Integer.parseInt(codeInput.getText())));
-            showMsg("Cliente atualizado com sucesso");
-            clearMainArea();
-            loadCenterUI("/fxml/Clients.fxml");
-        } catch (Exception e) {
-            showMsg("Ocorreu um erro" + e.getMessage());
-            e.printStackTrace();
-        }
+        Task task = new Task() {
+
+            @Override
+            protected Integer call() throws Exception {
+                new ClientService().updateClient(new Client(nameInput.getText(), addressInput.getText(), emailInput.getText(), phoneInput.getText(), Integer.parseInt(codeInput.getText())));
+                return 1;
+            }
+
+            @Override
+            protected void succeeded() {
+                showMsg("Cliente atualizado com sucesso");
+                clearMainArea();
+                loadCenterUI("/fxml/Clients.fxml");
+                hideLoader();
+            }
+
+            @Override
+            protected void failed() {
+                showMsg("Ocorreu um erro ao atualizar o cliente");
+                hideLoader();
+            }
+        };
+        Thread t = new Thread(task);
+        t.setDaemon(true);
+        t.start();
     }
 
     private void register() {
-        try {
-            new ClientService().addClient(new Client(nameInput.getText(), addressInput.getText(), emailInput.getText(), phoneInput.getText(), Integer.parseInt(codeInput.getText())));
-            showMsg("Cliente cadastrado com sucesso");
-            clearMainArea();
-            loadCenterUI("/fxml/Clients.fxml");
-        } catch (Exception e) {
-            showMsg("Ocorreu um erro" + e.getMessage());
-            e.printStackTrace();
-        }
+        Task task = new Task() {
+
+            @Override
+            protected Integer call() throws Exception {
+                new ClientService().addClient(new Client(nameInput.getText(), addressInput.getText(), emailInput.getText(), phoneInput.getText(), Integer.parseInt(codeInput.getText())));
+                return 1;
+            }
+
+            @Override
+            protected void succeeded() {
+                showMsg("Cliente cadastrado com sucesso");
+                clearMainArea();
+                loadCenterUI("/fxml/Clients.fxml");
+                hideLoader();
+            }
+
+            @Override
+            protected void failed() {
+                showMsg("Ocorreu um erro ao atualizar o cliente");
+                hideLoader();
+            }
+        };
+        Thread t = new Thread(task);
+        t.setDaemon(true);
+        t.start();
     }
 }

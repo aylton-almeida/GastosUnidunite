@@ -89,11 +89,34 @@ public class ProductsController extends MainController implements Initializable 
 
     //Deleta o produto selecionado na tabela
     public void deleteProduct(ActionEvent actionEvent) {
+        showLoader();
         if (mainTableView.getSelectionModel().getSelectedItem() != null) {
             try {
                 Product p = mainTableView.getSelectionModel().getSelectedItem();
                 mainTableView.getItems().removeAll(p);
-                productService.deleteProduct(p);
+                Task task = new Task() {
+
+                    @Override
+                    protected Integer call() throws Exception {
+                        productService.deleteProduct(p);
+                        return 1;
+                    }
+
+                    @Override
+                    protected void succeeded() {
+                        showMsg("Produto apagado com sucesso");
+                        hideLoader();
+                    }
+
+                    @Override
+                    protected void failed() {
+                        showMsg("Ocorreu um erro ao apagar o produto");
+                        hideLoader();
+                    }
+                };
+                Thread t = new Thread(task);
+                t.setDaemon(true);
+                t.start();
                 productList.remove(p);
             } catch (Exception e) {
                 showMsg("Ocorreu um erro" + e.getMessage());

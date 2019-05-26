@@ -180,7 +180,6 @@ public class SalesController extends MainController implements Initializable {
                     else
                         return true;
                 })
-                .sorted(Sale::compareTo)
                 .collect(Collectors.toList());
         this.showOnTable(list);
     }

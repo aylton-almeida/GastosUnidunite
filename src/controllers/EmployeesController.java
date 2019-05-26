@@ -97,11 +97,34 @@ public class EmployeesController extends MainController implements Initializable
     }
 
     public void deleteEmployee(ActionEvent actionEvent) {
+        showLoader();
         if (mainTableView.getSelectionModel().getSelectedItem() != null) {
             try {
                 Employee e = mainTableView.getSelectionModel().getSelectedItem();
                 mainTableView.getItems().removeAll(e);
-                employeeService.deleteEmployee(e);
+                Task task = new Task() {
+
+                    @Override
+                    protected Integer call() throws Exception {
+                        employeeService.deleteEmployee(e);
+                        return 1;
+                    }
+
+                    @Override
+                    protected void succeeded() {
+                        showMsg("Funcionário apagado com sucesso");
+                        hideLoader();
+                    }
+
+                    @Override
+                    protected void failed() {
+                        showMsg("Ocorreu um erro ao apagar o funcionário");
+                        hideLoader();
+                    }
+                };
+                Thread t = new Thread(task);
+                t.setDaemon(true);
+                t.start();
                 listEmployee.remove(e);
             } catch (Exception e) {
                 showMsg("Ocorreu um erro" + e.getMessage());

@@ -23,6 +23,7 @@ public class MainController implements Initializable{
     static Client actualClient = null;
     static Employee actualEmployee = null;
     static Sale actualSale = null;
+    static Expense actualExpense = null;
 
     public MainController(StackPane stackPane, BorderPane borderPane){
         this.mainStackPane = stackPane;

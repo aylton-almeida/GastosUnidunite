@@ -4,6 +4,7 @@ import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXCheckBox;
 import com.jfoenix.controls.JFXPasswordField;
 import com.jfoenix.controls.JFXTextField;
+import javafx.concurrent.Task;
 import javafx.event.ActionEvent;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Label;
@@ -26,6 +27,7 @@ public class YourAccountController extends MainController implements Initializab
     private static UserService userService;
 
     public void updateData(ActionEvent event) {
+        showLoader();
         User user = loggedUser;
         try {
             if (isEmailValid(emailInput)) {
@@ -33,10 +35,31 @@ public class YourAccountController extends MainController implements Initializab
                 if (passInput.getText().equals(confPassInput.getText())) {
                     user.setPassword(passInput.getText());
                     user.setIsAdmin(isAdminInput.selectedProperty().get());
-                    this.userService.updateUser(loggedUser);
-                    showMsg("Usuario atualizado com sucesso");
-                    clearMainArea();
-                    loadCenterUI("/fxml/Sales.fxml");
+                    Task retrieveSalesTask = new Task() {
+                        @Override
+                        protected Integer call() throws Exception {
+                            userService.updateUser(loggedUser);
+                            return 1;
+                        }
+
+                        @Override
+                        protected void succeeded() {
+                            hideLoader();
+                            showMsg("Usuario atualizado com sucesso");
+                            clearMainArea();
+                            loadCenterUI("/fxml/Sales.fxml");
+                        }
+
+                        @Override
+                        protected void failed() {
+                            getException().printStackTrace();
+                            showMsg("Ocorreu um problema ao recuperar os dados");
+                            hideLoader();
+                        }
+                    };
+                    Thread t = new Thread(retrieveSalesTask);
+                    t.setDaemon(true);
+                    t.start();
                 } else
                     showMsg("As senhas não coincidem");
             } else
@@ -48,14 +71,36 @@ public class YourAccountController extends MainController implements Initializab
     }
 
     public void createUser(ActionEvent event) {
+        showLoader();
         if (emailInput.validate() && passInput.validate() && confPassInput.validate()) {
             try {
                 if (isEmailValid(emailInput)) {
                     if (passInput.validate() && passInput.getText().equals(confPassInput.getText())) {
-                        this.userService.addUser(emailInput.getText(), passInput.getText(), isAdminInput.selectedProperty().get());
-                        showMsg("Usuário cadastrado com sucesso");
-                        clearMainArea();
-                        loadCenterUI("/fxml/Sales.fxml");
+                        Task retrieveSalesTask = new Task() {
+                            @Override
+                            protected Integer call() throws Exception {
+                                userService.addUser(emailInput.getText(), passInput.getText(), isAdminInput.selectedProperty().get());
+                                return 1;
+                            }
+
+                            @Override
+                            protected void succeeded() {
+                                hideLoader();
+                                showMsg("Usuário cadastrado com sucesso");
+                                clearMainArea();
+                                loadCenterUI("/fxml/Sales.fxml");
+                            }
+
+                            @Override
+                            protected void failed() {
+                                getException().printStackTrace();
+                                showMsg("Ocorreu um problema ao recuperar os dados");
+                                hideLoader();
+                            }
+                        };
+                        Thread t = new Thread(retrieveSalesTask);
+                        t.setDaemon(true);
+                        t.start();
                     } else {
                         showMsg("As senhas não batem");
                     }
@@ -84,11 +129,28 @@ public class YourAccountController extends MainController implements Initializab
         addRequiredValidator(passInput);
         addRequiredValidator(confPassInput);
 
-        try {
-            userService = new UserService();
-        } catch (Exception e) {
-            showMsg("Ocorreu um erro: " + e.getMessage());
-            e.printStackTrace();
-        }
+        showLoader();
+        Task retrieveSalesTask = new Task() {
+            @Override
+            protected Integer call() throws Exception {
+                userService = new UserService();
+                return 1;
+            }
+
+            @Override
+            protected void succeeded() {
+                hideLoader();
+            }
+
+            @Override
+            protected void failed() {
+                getException().printStackTrace();
+                showMsg("Ocorreu um problema ao recuperar os dados");
+                hideLoader();
+            }
+        };
+        Thread t = new Thread(retrieveSalesTask);
+        t.setDaemon(true);
+        t.start();
     }
 }

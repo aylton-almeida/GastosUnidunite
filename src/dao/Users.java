@@ -86,8 +86,7 @@ public class Users implements Dao<User> {
         preparedStatement.setString(2, o.getPassword());
         preparedStatement.setBoolean(3, o.isAdmin());
         preparedStatement.setInt(4, o.getId());
-        int n = preparedStatement.executeUpdate();
-        System.out.println(String.format("Updated %d row(s) of data.", n));
+        preparedStatement.executeUpdate();
     }
 
     @Override

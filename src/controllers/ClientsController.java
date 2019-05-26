@@ -91,11 +91,32 @@ public class ClientsController extends MainController implements Initializable {
             try {
                 Client c = mainTableView.getSelectionModel().getSelectedItem();
                 mainTableView.getItems().removeAll(c);
-                clientService.deleteClient(c);
+                Task task = new Task() {
+
+                    @Override
+                    protected Integer call() throws Exception {
+                        clientService.deleteClient(c);
+                        return 1;
+                    }
+
+                    @Override
+                    protected void succeeded() {
+                        showMsg("Cliente apagado com sucesso");
+                        hideLoader();
+                    }
+
+                    @Override
+                    protected void failed() {
+                        showMsg("Ocorreu um erro ao apagar o cliente");
+                        hideLoader();
+                    }
+                };
+                Thread t = new Thread(task);
+                t.setDaemon(true);
+                t.start();
                 clientsList.remove(c);
-                hideLoader();
             } catch (Exception e) {
-                showMsg("Ocorreu um erro" + e.getMessage());
+                showMsg("Ocorreu um erro: " + e.getMessage());
                 e.printStackTrace();
                 hideLoader();
             }
