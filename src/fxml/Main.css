@@ -77,6 +77,10 @@
   -fx-fill: #6cb235 ;
 }
 
+.combo-box .cell:selected{
+    -fx-text-fill: white;
+}
+
 .combo-box .arrow{
 	-fx-background-color: #fff
 }
