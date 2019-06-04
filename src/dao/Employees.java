@@ -9,13 +9,11 @@ import java.util.List;
 import java.util.Properties;
 
 public class Employees implements Dao<Employee> {
-
-
-    private String host = "bancounidunite.mysql.database.azure.com";
-    private String database = "unidunite";
-    private String user = "AyltonJunior@bancounidunite";
-    private String password = "Aylton123";
-    private Connection connection = null;
+    private String host = "35.198.17.15";
+    private String database = "SqlUnidunite";
+    private String user = "appgerencial";
+    private String password = "unidunitegerencial";
+    private Connection connection;
 
 
     public Employees() throws Exception {
@@ -26,16 +24,14 @@ public class Employees implements Dao<Employee> {
         Properties properties = new Properties();
         properties.setProperty("user", user);
         properties.setProperty("password", password);
-        properties.setProperty("useSSL", "true");
-        properties.setProperty("verifyServerCertificate", "true");
-        properties.setProperty("requireSSL", "false");
+        properties.setProperty("socketFacotry", "com.google.cloud.sql.mysql.SocketFactory");
+        properties.setProperty("useSSL", "false");
 
         connection = DriverManager.getConnection(url, properties);
 
         if (connection == null)
             throw new Exception("Failed to create connection to database.");
     }
-
 
 
     @Override
@@ -60,6 +56,7 @@ public class Employees implements Dao<Employee> {
             return new Employee(results.getString(2), results.getString(3), results.getInt(1));
         return null;
     }
+
     public void addObject(Employee o) throws Exception {
         PreparedStatement preparedStatement = connection.prepareStatement("INSERT INTO tbl_employee (name, phone) VALUES (?, ?);");
         preparedStatement.setString(1, o.getName());

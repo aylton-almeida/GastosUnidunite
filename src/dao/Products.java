@@ -9,25 +9,27 @@ import java.util.List;
 import java.util.Properties;
 
 public class Products implements Dao<Product> {
-    private String host = "bancounidunite.mysql.database.azure.com";
-    private String database = "unidunite";
-    private String user = "AyltonJunior@bancounidunite";
-    private String password = "Aylton123";
-    private Connection connection = null;
+    private String host = "35.198.17.15";
+    private String database = "SqlUnidunite";
+    private String user = "appgerencial";
+    private String password = "unidunitegerencial";
+    private Connection connection;
 
     public Products() throws Exception {
         Class.forName("com.mysql.jdbc.Driver");
-        String url = String.format("jdbc:mysql://%s/%s", this.host, this.database);
+        String url = String.format("jdbc:mysql://%s/%s", host, database);
+
+        //Set connection properties
         Properties properties = new Properties();
-        properties.setProperty("user", this.user);
-        properties.setProperty("password", this.password);
-        properties.setProperty("useSSL", "true");
-        properties.setProperty("verifyServerCertificate", "true");
-        properties.setProperty("requireSSL", "false");
-        this.connection = DriverManager.getConnection(url, properties);
-        if (this.connection == null) {
+        properties.setProperty("user", user);
+        properties.setProperty("password", password);
+        properties.setProperty("socketFacotry", "com.google.cloud.sql.mysql.SocketFactory");
+        properties.setProperty("useSSL", "false");
+
+        connection = DriverManager.getConnection(url, properties);
+
+        if (connection == null)
             throw new Exception("Failed to create connection to database.");
-        }
     }
 
     public List<Product> getAllObjects() throws Exception {

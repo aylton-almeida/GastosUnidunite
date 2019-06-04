@@ -10,10 +10,10 @@ import java.util.List;
 import java.util.Properties;
 
 public class Users implements Dao<User> {
-    private String host = "bancounidunite.mysql.database.azure.com";
-    private String database = "unidunite";
-    private String user = "AyltonJunior@bancounidunite";
-    private String password = "Aylton123";
+    private String host = "35.198.17.15";
+    private String database = "SqlUnidunite";
+    private String user = "appgerencial";
+    private String password = "unidunitegerencial";
     private Connection connection;
 
     public Users() throws Exception {
@@ -24,9 +24,8 @@ public class Users implements Dao<User> {
         Properties properties = new Properties();
         properties.setProperty("user", user);
         properties.setProperty("password", password);
-        properties.setProperty("useSSL", "true");
-        properties.setProperty("verifyServerCertificate", "true");
-        properties.setProperty("requireSSL", "false");
+        properties.setProperty("socketFacotry", "com.google.cloud.sql.mysql.SocketFactory");
+        properties.setProperty("useSSL", "false");
 
         connection = DriverManager.getConnection(url, properties);
 

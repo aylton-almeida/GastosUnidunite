@@ -3,11 +3,10 @@ package logic;
 import javafx.beans.property.SimpleIntegerProperty;
 import javafx.beans.property.SimpleStringProperty;
 
-import java.text.ParseException;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Sale extends Transaction implements Comparable<Sale> {
+public class Sale extends Transaction {
     private SimpleIntegerProperty id;
     private List<Product> productList;
     private SimpleStringProperty clientName;
@@ -119,15 +118,5 @@ public class Sale extends Transaction implements Comparable<Sale> {
                 "\n" + this.getPayType() +
                 "\n" + this.getValue() +
                 "\n" + this.getDate();
-    }
-
-    @Override
-    public int compareTo(Sale o){
-        try {
-            return this.getDateComparable().compareTo(o.getDateComparable());
-        } catch (ParseException e) {
-            e.printStackTrace();
-        }
-        return 0;
     }
 }

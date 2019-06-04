@@ -111,6 +111,9 @@ public class YourAccountController extends MainController implements Initializab
                 showMsg("Ocorreu um erro: " + e.getMessage());
                 e.printStackTrace();
             }
+        }else{
+            showMsg("Preencha todos os campos");
+            hideLoader();
         }
     }
 

@@ -1,8 +1,6 @@
 package logic;
 
-import java.text.ParseException;
-
-public class Expense extends Transaction implements Comparable<Expense>{
+public class Expense extends Transaction{
     private int id;
     private String description;
     private boolean isPublic;
@@ -58,16 +56,6 @@ public class Expense extends Transaction implements Comparable<Expense>{
 
     public int getId(){
         return this.id;
-    }
-
-    @Override
-    public int compareTo(Expense o){
-        try {
-            return this.getDateComparable().compareTo(o.getDateComparable());
-        } catch (ParseException e) {
-            e.printStackTrace();
-        }
-        return 0;
     }
 }
 

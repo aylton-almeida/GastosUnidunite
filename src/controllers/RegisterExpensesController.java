@@ -10,7 +10,6 @@ import logic.Expense;
 import services.ExpenseService;
 
 import java.net.URL;
-import java.util.List;
 import java.util.ResourceBundle;
 
 public class RegisterExpensesController extends MainController implements Initializable {

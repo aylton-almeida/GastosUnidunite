@@ -1,12 +1,9 @@
 package logic;
 
 import exceptions.UserException;
-import interfaces.Registrabel;
-
-import java.io.*;
 
 
-public class User implements Registrabel {
+public class User {
 
     private String email;
     private String password;
@@ -62,24 +59,7 @@ public class User implements Registrabel {
     }
 
     @Override
-    public byte[] getByteArray() throws IOException {
-        ByteArrayOutputStream record = new ByteArrayOutputStream();
-        DataOutputStream output = new DataOutputStream(record);
-        output.writeUTF(getEmail());
-        output.writeUTF(getPassword());
-        output.writeBoolean(isAdmin());
-        output.writeInt(getId());
-        return record.toByteArray();
-    }
-
-    @Override
-    public Registrabel setByteArray(byte[] b) throws Exception {
-        ByteArrayInputStream record = new ByteArrayInputStream(b);
-        DataInputStream input = new DataInputStream(record);
-        setEmail(input.readUTF());
-        setPassword(input.readUTF());
-        setIsAdmin(input.readBoolean());
-        setId(input.readInt());
-        return this;
+    public String toString(){
+        return this.email + ", " + this.password;
     }
 }

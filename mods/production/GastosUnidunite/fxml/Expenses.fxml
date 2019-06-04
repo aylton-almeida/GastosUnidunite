@@ -6,7 +6,7 @@
 <?import javafx.scene.text.*?>
 <StackPane fx:id="mainStackPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity"
            prefHeight="790.0" prefWidth="1018.0" BorderPane.alignment="CENTER" xmlns="http://javafx.com/javafx/11.0.1"
-           xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.SalesController">
+           xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.ExpensesController">
     <BorderPane fx:id="mainBorderPane">
         <top>
             <Pane prefHeight="98.0" prefWidth="1018.0" style="-fx-background-color: #3A7CF3;" styleClass="nav-bar-panel"
@@ -21,14 +21,6 @@
                                    promptText="Ate...." styleClass="jfx-date-picker" stylesheets="@Main.css"/>
                     <JFXDatePicker fx:id="fromDateInput" defaultColor="#6cb235" layoutX="50.0" layoutY="50.0"
                                    promptText="De...." styleClass="jfx-date-picker" stylesheets="@Main.css"/>
-                    <JFXComboBox fx:id="payTypeComboBox" focusColor="#6cb235" labelFloat="true" layoutX="453.0"
-                                 layoutY="52.0" prefHeight="25.0" prefWidth="151.0" promptText="Tipo de pagamento"
-                                 style="-fx-prompt-text-fill: #fff; -fx-text-inner-color: #fff; -fx-text-fill: #fff;"
-                                 stylesheets="@Main.css" unFocusColor="WHITE"/>
-                    <JFXComboBox fx:id="sellerComboBox" focusColor="#6cb235" labelFloat="true" layoutX="648.0"
-                                 layoutY="52.0" prefHeight="25.0" prefWidth="151.0" promptText="Vendedor"
-                                 style="-fx-prompt-text-fill: #fff; -fx-text-inner-color: #fff; -fx-text-fill: #fff;"
-                                 unFocusColor="WHITE"/>
                 </children>
             </Pane>
         </top>
@@ -36,12 +28,9 @@
             <TableView fx:id="mainTableView" prefHeight="698.0" prefWidth="1018.0" stylesheets="@Main.css"
                        BorderPane.alignment="CENTER">
                 <columns>
-                    <TableColumn fx:id="dateColumn" prefWidth="100.0" text="Data"/>
-                    <TableColumn fx:id="productsColumn" prefWidth="159.19995880126953" text="Produtos"/>
-                    <TableColumn fx:id="sellerColumn" prefWidth="188.0" text="Vendedor"/>
-                    <TableColumn fx:id="clientColumn" prefWidth="158.39993286132812" text="Cliente"/>
-                    <TableColumn fx:id="paymentColumn" prefWidth="229.60003662109375" text="Tipo de Pagamento"/>
-                    <TableColumn fx:id="valueColumn" prefWidth="177.60009765625" text="Valor (R$)"/>
+                    <TableColumn fx:id="dateColumn" prefWidth="186.0" text="Data"/>
+                    <TableColumn fx:id="descriptionColumn" prefWidth="507.0" text="Descrição"/>
+                    <TableColumn fx:id="valueColumn" prefWidth="321.0" text="Valor"/>
                 </columns>
             </TableView>
         </center>
@@ -49,23 +38,23 @@
             <AnchorPane prefHeight="79.0" prefWidth="1018.0" style="-fx-background-color: #3A7CF3;"
                         BorderPane.alignment="CENTER">
                 <children>
-                    <JFXButton buttonType="RAISED" layoutX="278.0" layoutY="18.0" onAction="#deleteSale"
+                    <JFXButton buttonType="RAISED" layoutX="278.0" layoutY="18.0" onAction="#deleteExpense"
                                prefHeight="43.0" prefWidth="223.0" style="-fx-background-color: #F44336;"
-                               text="Remover Venda" textFill="WHITE">
+                               text="Remover Gasto" textFill="WHITE">
                         <font>
                             <Font size="19.0"/>
                         </font>
                     </JFXButton>
-                    <JFXButton buttonType="RAISED" disable="true" layoutX="522.0" layoutY="18.0" onAction="#editSale"
+                    <JFXButton buttonType="RAISED" layoutX="522.0" layoutY="18.0" onAction="#editExpense"
                                prefHeight="43.0" prefWidth="223.0" style="-fx-background-color: #f8bc03;"
-                               text="Editar Venda" textFill="WHITE">
+                               text="Editar Gasto" textFill="WHITE">
                         <font>
                             <Font size="19.0"/>
                         </font>
                     </JFXButton>
-                    <JFXButton buttonType="RAISED" layoutX="766.0" layoutY="18.0" onAction="#goToRegisterSale"
+                    <JFXButton buttonType="RAISED" layoutX="766.0" layoutY="18.0" onAction="#goToRegisterExpense"
                                prefHeight="43.0" prefWidth="223.0" style="-fx-background-color: #6cb235;"
-                               text="Cadastrar Venda" textFill="WHITE">
+                               text="Cadastrar Gasto" textFill="WHITE">
                         <font>
                             <Font size="19.0"/>
                         </font>

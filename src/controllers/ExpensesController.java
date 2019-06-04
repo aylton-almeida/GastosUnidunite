@@ -1,7 +1,6 @@
 package controllers;
 
 import com.jfoenix.controls.JFXDatePicker;
-import com.jfoenix.controls.JFXTextField;
 import javafx.concurrent.Task;
 import javafx.event.ActionEvent;
 import javafx.fxml.Initializable;
@@ -31,7 +30,6 @@ public class ExpensesController extends MainController implements Initializable 
     public Label totalLabel;
     private List<Expense> expenseList;
     private ExpenseService expenseService;
-    public JFXTextField searchInput;
     private double totalValue;
 
     @Override

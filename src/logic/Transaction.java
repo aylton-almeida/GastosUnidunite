@@ -6,7 +6,7 @@ import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.Date;
 
-public class Transaction {
+public class Transaction implements Comparable<Transaction>{
     private double value;
     private String date;
 
@@ -50,5 +50,15 @@ public class Transaction {
     public Date getDateComparable() throws ParseException {
         SimpleDateFormat format = new SimpleDateFormat("dd/MM/yyyy");
         return format.parse(this.getDate());
+    }
+
+    @Override
+    public int compareTo(Transaction o){
+        try {
+            return this.getDateComparable().compareTo(o.getDateComparable());
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
+        return 0;
     }
 }

@@ -17,12 +17,20 @@ public class NavBarController extends MainController implements Initializable {
     public JFXButton salesButton;
     public JFXButton expensesButton;
     public JFXButton accountButton;
+    public JFXButton generalButton;
 
     public void goToAccount(ActionEvent event) {
         clearNavBar();
         normalizeButton();
         highLightButton(accountButton);
         loadCenterUI("/fxml/YourAccount.fxml");
+    }
+
+    public void goToGeneral(ActionEvent event) {
+        clearNavBar();
+        normalizeButton();
+        highLightButton(generalButton);
+        loadCenterUI("/fxml/General.fxml");
     }
 
     public void goToProducts(ActionEvent event) {
@@ -71,6 +79,7 @@ public class NavBarController extends MainController implements Initializable {
         buttons.add(employeesButton);
         buttons.add(expensesButton);
         buttons.add(clientsButton);
+        buttons.add(generalButton);
         buttons.stream()
                 .filter(button -> button.buttonTypeProperty().get() == com.jfoenix.controls.JFXButton.ButtonType.RAISED)
                 .forEach(button -> {
@@ -87,6 +96,6 @@ public class NavBarController extends MainController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        loadCenterUI("/fxml/Sales.fxml");
+        loadCenterUI("/fxml/General.fxml");
     }
 }
