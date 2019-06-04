@@ -57,5 +57,17 @@ public class Expense extends Transaction{
     public int getId(){
         return this.id;
     }
+
+    public String getEmployeeName(){
+        return "";
+    }
+
+    public String getClientName(){
+        return "";
+    }
+
+    public String getPayTypeString(){
+        return "";
+    }
 }
 

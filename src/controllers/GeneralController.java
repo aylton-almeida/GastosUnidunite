@@ -44,7 +44,7 @@ public class GeneralController extends MainController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         dateColumn.setCellValueFactory(new PropertyValueFactory<>("Date"));
-        productsColumn.setCellValueFactory(new PropertyValueFactory<>("ProductString"));
+        productsColumn.setCellValueFactory(new PropertyValueFactory<>("Description"));
         sellerColumn.setCellValueFactory(new PropertyValueFactory<>("EmployeeName"));
         clientColumn.setCellValueFactory(new PropertyValueFactory<>("ClientName"));
         paymentColumn.setCellValueFactory(new PropertyValueFactory<>("PayTypeString"));
@@ -73,10 +73,6 @@ public class GeneralController extends MainController implements Initializable {
                 );
                 sellerComboBox.getItems().add("Todos");
                 employeeNames.forEach(name -> sellerComboBox.getItems().add(name));
-
-                dateColumn.setCellValueFactory(new PropertyValueFactory<>("Date"));
-                productsColumn.setCellValueFactory(new PropertyValueFactory<>("Description"));
-                valueColumn.setCellValueFactory(new PropertyValueFactory<>("Value"));
 
                 Task retrieveSalesTask = new Task() {
                     @Override
@@ -131,7 +127,10 @@ public class GeneralController extends MainController implements Initializable {
         list.stream()
                 .sorted(Transaction::compareTo)
                 .forEach(t -> {
-                    this.totalValue += t.getValue();
+                    if (t.getClass().equals(Sale.class))
+                        this.totalValue += t.getValue();
+                    else
+                        this.totalValue -= t.getValue();
                     mainTableView.getItems().add(t);
                 });
         DecimalFormat df = new DecimalFormat("##.##");

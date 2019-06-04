@@ -119,4 +119,12 @@ public class Sale extends Transaction {
                 "\n" + this.getValue() +
                 "\n" + this.getDate();
     }
+
+    public String getDescription(){
+        StringBuilder str = new StringBuilder();
+        for (Product p : this.productList){
+            str.append(p.getName()).append("\n");
+        }
+        return str.toString();
+    }
 }
