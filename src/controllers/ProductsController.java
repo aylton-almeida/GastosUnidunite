@@ -105,6 +105,7 @@ public class ProductsController extends MainController implements Initializable 
                     @Override
                     protected void succeeded() {
                         showMsg("Produto apagado com sucesso");
+                        productList.remove(p);
                         hideLoader();
                     }
 
@@ -117,7 +118,6 @@ public class ProductsController extends MainController implements Initializable 
                 Thread t = new Thread(task);
                 t.setDaemon(true);
                 t.start();
-                productList.remove(p);
             } catch (Exception e) {
                 showMsg("Ocorreu um erro" + e.getMessage());
                 e.printStackTrace();

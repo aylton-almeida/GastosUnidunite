@@ -113,6 +113,7 @@ public class EmployeesController extends MainController implements Initializable
                     @Override
                     protected void succeeded() {
                         showMsg("Funcionário apagado com sucesso");
+                        listEmployee.remove(e);
                         hideLoader();
                     }
 
@@ -125,7 +126,6 @@ public class EmployeesController extends MainController implements Initializable
                 Thread t = new Thread(task);
                 t.setDaemon(true);
                 t.start();
-                listEmployee.remove(e);
             } catch (Exception e) {
                 showMsg("Ocorreu um erro" + e.getMessage());
                 e.printStackTrace();

@@ -14,7 +14,7 @@ import logic.*;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-public class MainController implements Initializable{
+public class MainController implements Initializable {
 
     public StackPane mainStackPane;
     public BorderPane mainBorderPane;
@@ -25,54 +25,54 @@ public class MainController implements Initializable{
     static Sale actualSale = null;
     static Expense actualExpense = null;
 
-    public MainController(StackPane stackPane, BorderPane borderPane){
+    public MainController(StackPane stackPane, BorderPane borderPane) {
         this.mainStackPane = stackPane;
         this.mainBorderPane = borderPane;
     }
 
-    public MainController(){
+    public MainController() {
         this.mainBorderPane = null;
         this.mainStackPane = null;
     }
 
-    User getLoggedUser(){
+    User getLoggedUser() {
         return loggedUser;
     }
 
-    void setLoggedUser(User user){
+    void setLoggedUser(User user) {
         loggedUser = user;
     }
 
-    public void showMsg(String text){
+    public void showMsg(String text) {
         JFXDialogLayout dialogLayout = new JFXDialogLayout();
         dialogLayout.setBody(new Text(text));
         JFXDialog dialog = new JFXDialog(this.mainStackPane, dialogLayout, JFXDialog.DialogTransition.CENTER);
         dialog.show();
     }
 
-    public void loadCenterUI(String ui){
+    public void loadCenterUI(String ui) {
         Parent root = null;
-        try{
+        try {
             root = FXMLLoader.load(getClass().getResource(ui));
-        }catch (Exception e){
+        } catch (Exception e) {
             showMsg("Ocorreu um erro" + e.getMessage());
             e.printStackTrace();
         }
         this.mainBorderPane.setCenter(root);
     }
 
-    void loadLeftUI(String ui){
+    void loadLeftUI(String ui) {
         Parent root = null;
-        try{
+        try {
             root = FXMLLoader.load(getClass().getResource(ui));
-        }catch (Exception e){
+        } catch (Exception e) {
             showMsg("Ocorreu um erro" + e.getMessage());
             e.printStackTrace();
         }
         this.mainBorderPane.setLeft(root);
     }
 
-    void clearScreen(){
+    void clearScreen() {
         this.mainBorderPane.setLeft(null);
         this.mainBorderPane.setCenter(null);
         this.mainBorderPane.setTop(null);
@@ -80,33 +80,33 @@ public class MainController implements Initializable{
         this.mainBorderPane.setBottom(null);
     }
 
-    void clearNavBar(){
+    void clearNavBar() {
         this.mainBorderPane.setCenter(null);
     }
 
-    public void clearMainArea(){
+    public void clearMainArea() {
         this.mainBorderPane.setCenter(null);
         this.mainBorderPane.setTop(null);
         this.mainBorderPane.setBottom(null);
     }
 
-    void showLoader(){
+    void showLoader() {
         JFXSpinner spinner = new JFXSpinner();
         spinner.setRadius(30);
         mainStackPane.getChildren().add(spinner);
         mainStackPane.setStyle("-fx-background-color: Gainsboro;");
     }
 
-    void hideLoader(){
+    void hideLoader() {
         mainStackPane.getChildren().remove(1);
         mainStackPane.setStyle("-fx-background-color: transparent;");
     }
 
-    boolean isEmailValid(JFXTextField field){
+    boolean isEmailValid(JFXTextField field) {
         return field.getText().contains("@") && field.getText().contains(".");
     }
 
-    void addRequiredValidator(JFXTextField field){
+    void addRequiredValidator(JFXTextField field) {
         RequiredFieldValidator requiredFieldValidator = new RequiredFieldValidator();
         requiredFieldValidator.setMessage("Esse campo é obrigatório");
         field.getValidators().add(requiredFieldValidator);
@@ -116,7 +116,7 @@ public class MainController implements Initializable{
         }));
     }
 
-    void addRequiredValidator(JFXPasswordField field){
+    void addRequiredValidator(JFXPasswordField field) {
         RequiredFieldValidator requiredFieldValidator = new RequiredFieldValidator();
         requiredFieldValidator.setMessage("Esse campo é obrigatório");
         field.getValidators().add(requiredFieldValidator);
@@ -126,7 +126,7 @@ public class MainController implements Initializable{
         }));
     }
 
-    void addRequiredValidator(JFXComboBox field){
+    void addRequiredValidator(JFXComboBox field) {
         RequiredFieldValidator requiredFieldValidator = new RequiredFieldValidator();
         requiredFieldValidator.setMessage("Esse campo é obrigatório");
         field.getValidators().add(requiredFieldValidator);
@@ -136,13 +136,13 @@ public class MainController implements Initializable{
         }));
     }
 
-    void addNumberValidator(JFXTextField field){
+    void addNumberValidator(JFXTextField field) {
         NumberValidator numberValidator = new NumberValidator();
         numberValidator.setMessage("Digite apenas números");
         field.getValidators().add(numberValidator);
-        field.setOnKeyReleased(e ->{
+        field.setOnKeyReleased(e -> {
             String text = field.getText();
-            if (!field.getText().isEmpty() && !field.validate()){
+            if (!field.getText().isEmpty() && !field.validate()) {
                 field.setText(text.substring(0, text.length() - 1));
                 field.positionCaret(field.getText().length());
             }

@@ -223,7 +223,7 @@ public class RegisterSaleController extends MainController implements Initializa
         minusBtn.setTextFill(Paint.valueOf("WHITE"));
         minusBtn.setOnMouseClicked((observable) -> {
             if (selectedProduct.size() > 1) {
-                gridPane.getChildren().removeIf(node -> GridPane.getRowIndex(node) == gridPane.getRowCount() - 1);
+                gridPane.getChildren().removeIf(node -> GridPane.getRowIndex(node) == gridPane.impl_getRowCount() - 1);
                 try {
                     selectedProduct.remove(selectedProduct.size() - 1);
                     changeTotalValue();

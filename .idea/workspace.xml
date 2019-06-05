@@ -1,0 +1,960 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ArtifactsWorkspaceSettings">
+    <artifacts-to-build>
+      <artifact name="GastosUnidunite" />
+    </artifacts-to-build>
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="a70bbab8-0300-43f0-ab0e-40bd3791f15c" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/GastosUnidunite.eml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mods/production/GastosUnidunite/fxml/Clients.fxml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mods/production/GastosUnidunite/fxml/Employees.fxml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mods/production/GastosUnidunite/fxml/Expenses.fxml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mods/production/GastosUnidunite/fxml/General.fxml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mods/production/GastosUnidunite/fxml/Login.fxml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mods/production/GastosUnidunite/fxml/LogoLeftBar.fxml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mods/production/GastosUnidunite/fxml/Main.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mods/production/GastosUnidunite/fxml/Main.fxml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mods/production/GastosUnidunite/fxml/NavBar.fxml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mods/production/GastosUnidunite/fxml/Products.fxml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mods/production/GastosUnidunite/fxml/RegisterClients.fxml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mods/production/GastosUnidunite/fxml/RegisterEmployees.fxml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mods/production/GastosUnidunite/fxml/RegisterExpense.fxml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mods/production/GastosUnidunite/fxml/RegisterProducts.fxml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mods/production/GastosUnidunite/fxml/RegisterSale.fxml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mods/production/GastosUnidunite/fxml/Sales.fxml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mods/production/GastosUnidunite/fxml/YourAccount.fxml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mods/production/GastosUnidunite/img/icon.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mods/production/GastosUnidunite/img/logoDark.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mods/production/GastosUnidunite/img/logoWhite.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/controllers/ClientsController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/controllers/ClientsController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/controllers/EmployeesController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/controllers/EmployeesController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/controllers/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/controllers/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/controllers/MainController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/controllers/MainController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/controllers/ProductsController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/controllers/ProductsController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/controllers/RegisterSaleController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/controllers/RegisterSaleController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/fxml/Clients.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/fxml/Clients.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/fxml/Employees.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/fxml/Employees.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/fxml/Expenses.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/fxml/Expenses.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/fxml/General.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/fxml/General.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/fxml/Login.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/fxml/Login.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/fxml/LogoLeftBar.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/fxml/LogoLeftBar.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/fxml/Main.fxml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/fxml/NavBar.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/fxml/NavBar.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/fxml/Products.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/fxml/Products.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/fxml/RegisterClients.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/fxml/RegisterClients.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/fxml/RegisterEmployees.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/fxml/RegisterEmployees.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/fxml/RegisterExpense.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/fxml/RegisterExpense.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/fxml/RegisterProducts.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/fxml/RegisterProducts.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/fxml/RegisterSale.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/fxml/RegisterSale.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/fxml/Sales.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/fxml/Sales.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/fxml/YourAccount.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/fxml/YourAccount.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/module-info.java" beforeDir="false" />
+    </list>
+    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="DatabaseView">
+    <option name="SHOW_INTERMEDIATE" value="true" />
+    <option name="GROUP_DATA_SOURCES" value="true" />
+    <option name="GROUP_SCHEMA" value="true" />
+    <option name="GROUP_CONTENTS" value="false" />
+    <option name="SORT_POSITIONED" value="false" />
+    <option name="SHOW_EMPTY_GROUPS" value="false" />
+    <option name="AUTO_SCROLL_FROM_SOURCE" value="false" />
+    <option name="HIDDEN_KINDS">
+      <set />
+    </option>
+    <expand />
+    <select />
+  </component>
+  <component name="DefaultGradleProjectSettings">
+    <option name="isMigrated" value="true" />
+  </component>
+  <component name="FileEditorManager">
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/controllers/LoginController.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="544">
+              <caret line="41" column="57" selection-start-line="41" selection-start-column="57" selection-end-line="41" selection-end-column="57" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/controllers/NavBarController.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="1088">
+              <caret line="71" column="21" selection-start-line="71" selection-start-column="21" selection-end-line="71" selection-end-column="21" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/controllers/GeneralController.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="318">
+              <caret line="105" column="49" selection-end-line="220" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/controllers/RegisterSaleController.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="1411">
+              <caret line="106" column="152" selection-start-line="106" selection-start-column="152" selection-end-line="106" selection-end-column="152" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/dao/Clients.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="561">
+              <caret line="39" column="32" selection-start-line="39" selection-start-column="32" selection-end-line="39" selection-end-column="32" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/controllers/YourAccountController.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="1751">
+              <caret line="115" column="25" selection-start-line="115" selection-start-column="25" selection-end-line="115" selection-end-column="25" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/logic/Sale.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="408">
+              <caret line="28" column="18" selection-end-line="130" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/logic/Expense.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="156">
+              <caret line="24" column="36" selection-start-line="24" selection-start-column="36" selection-end-line="24" selection-end-column="36" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/dao/Employees.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="153">
+              <caret line="15" column="34" selection-start-line="15" selection-start-column="34" selection-end-line="15" selection-end-column="34" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/dao/Expenses.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="748">
+              <caret line="50" column="59" selection-start-line="50" selection-start-column="59" selection-end-line="50" selection-end-column="59" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="FxmlFile" />
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="FindInProjectRecents">
+    <findStrings>
+      <find>showLoader()</find>
+      <find>new EmployeeService</find>
+      <find>new EmployeeService()</find>
+      <find>client</find>
+      <find>Client</find>
+      <find>payTy</find>
+      <find>isEmpty</find>
+      <find>getBackground</find>
+      <find>products</find>
+      <find>TotalLab</find>
+      <find>sellerId</find>
+      <find>itemList</find>
+      <find>catch</find>
+      <find>ProductList</find>
+      <find>showOnTable</find>
+      <find>getDat</find>
+      <find>totalValue</find>
+      <find>changeTotalValue</find>
+      <find>actual</find>
+      <find>productSumValue</find>
+      <find>productIdList</find>
+      <find>System</find>
+      <find>System.out</find>
+      <find>expense</find>
+      <find>sale</find>
+    </findStrings>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="development" />
+      </map>
+    </option>
+  </component>
+  <component name="IdeDocumentHistory">
+    <option name="CHANGED_PATHS">
+      <list>
+        <option value="$PROJECT_DIR$/src/logic/Employee.java" />
+        <option value="$PROJECT_DIR$/src/logic/Item.java" />
+        <option value="$PROJECT_DIR$/src/dao/Dao.java" />
+        <option value="$PROJECT_DIR$/src/services/ProductService.java" />
+        <option value="$PROJECT_DIR$/src/fxml/RegisterProducts.fxml" />
+        <option value="$PROJECT_DIR$/src/services/EmployeeService.java" />
+        <option value="$PROJECT_DIR$/src/fxml/RegisterEmployees.fxml" />
+        <option value="$PROJECT_DIR$/src/fxml/Clients.fxml" />
+        <option value="$PROJECT_DIR$/src/fxml/Home.fxml" />
+        <option value="$PROJECT_DIR$/src/fxml/RegisterSale.fxml" />
+        <option value="$PROJECT_DIR$/src/logic/Client.java" />
+        <option value="$PROJECT_DIR$/src/module-info.java" />
+        <option value="$PROJECT_DIR$/src/services/UserService.java" />
+        <option value="$PROJECT_DIR$/src/controllers/LoginController.java" />
+        <option value="$PROJECT_DIR$/src/fxml/Login.fxml" />
+        <option value="$PROJECT_DIR$/src/fxml/Employees.fxml" />
+        <option value="$PROJECT_DIR$/src/services/SaleService.java" />
+        <option value="$PROJECT_DIR$/src/controllers/RegisterSaleController.java" />
+        <option value="$PROJECT_DIR$/src/controllers/SalesController.java" />
+        <option value="$PROJECT_DIR$/src/fxml/Expenses.fxml" />
+        <option value="$PROJECT_DIR$/src/controllers/MainController.java" />
+        <option value="$PROJECT_DIR$/src/services/ExpenseService.java" />
+        <option value="$PROJECT_DIR$/src/fxml/RegisterExpense.fxml" />
+        <option value="$PROJECT_DIR$/src/controllers/RegisterExpensesController.java" />
+        <option value="$PROJECT_DIR$/src/fxml/Sales.fxml" />
+        <option value="$PROJECT_DIR$/src/fxml/Products.fxml" />
+        <option value="$PROJECT_DIR$/src/controllers/ClientsController.java" />
+        <option value="$PROJECT_DIR$/src/controllers/RegisterClientsController.java" />
+        <option value="$PROJECT_DIR$/src/controllers/RegisterEmployeesController.java" />
+        <option value="$PROJECT_DIR$/src/controllers/EmployeesController.java" />
+        <option value="$PROJECT_DIR$/src/controllers/ProductsController.java" />
+        <option value="$PROJECT_DIR$/src/controllers/RegisterProductsController.java" />
+        <option value="$PROJECT_DIR$/src/fxml/Main.css" />
+        <option value="$PROJECT_DIR$/src/fxml/General.fxml" />
+        <option value="$PROJECT_DIR$/src/controllers/ExpensesController.java" />
+        <option value="$PROJECT_DIR$/src/logic/Transaction.java" />
+        <option value="$PROJECT_DIR$/src/logic/Sale.java" />
+        <option value="$PROJECT_DIR$/src/logic/Expense.java" />
+        <option value="$PROJECT_DIR$/src/controllers/GeneralController.java" />
+        <option value="$PROJECT_DIR$/src/dao/Clients.java" />
+        <option value="$PROJECT_DIR$/src/dao/Employees.java" />
+        <option value="$PROJECT_DIR$/src/dao/Products.java" />
+        <option value="$PROJECT_DIR$/src/dao/Expenses.java" />
+        <option value="$PROJECT_DIR$/src/dao/Users.java" />
+        <option value="$PROJECT_DIR$/src/logic/User.java" />
+        <option value="$PROJECT_DIR$/src/controllers/YourAccountController.java" />
+        <option value="$PROJECT_DIR$/src/controllers/Main.java" />
+        <option value="$PROJECT_DIR$/src/dao/Sales.java" />
+        <option value="$PROJECT_DIR$/src/fxml/NavBar.fxml" />
+        <option value="$PROJECT_DIR$/src/controllers/NavBarController.java" />
+      </list>
+    </option>
+  </component>
+  <component name="MavenProjectNavigator">
+    <treeState>
+      <expand />
+      <select />
+    </treeState>
+  </component>
+  <component name="ProjectFrameBounds" extendedState="6">
+    <option name="x" value="272" />
+    <option name="y" value="15" />
+    <option name="width" value="1612" />
+    <option name="height" value="876" />
+  </component>
+  <component name="ProjectView">
+    <navigator proportions="" version="1">
+      <foldersAlwaysOnTop value="true" />
+    </navigator>
+    <panes>
+      <pane id="Scope" />
+      <pane id="ProjectPane">
+        <subPane>
+          <expand>
+            <path>
+              <item name="GastosUnidunite" type="b2602c69:ProjectViewProjectNode" />
+              <item name="GastosUnidunite" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="GastosUnidunite" type="b2602c69:ProjectViewProjectNode" />
+              <item name="GastosUnidunite" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="GastosUnidunite" type="b2602c69:ProjectViewProjectNode" />
+              <item name="GastosUnidunite" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="controllers" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="GastosUnidunite" type="b2602c69:ProjectViewProjectNode" />
+              <item name="GastosUnidunite" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="logic" type="462c0819:PsiDirectoryNode" />
+            </path>
+          </expand>
+          <select />
+        </subPane>
+      </pane>
+      <pane id="PackagesPane" />
+    </panes>
+  </component>
+  <component name="PropertiesComponent">
+    <property name="ASKED_SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="aspect.path.notification.shown" value="true" />
+    <property name="extract.method.default.visibility" value="private" />
+    <property name="last_opened_file_path" value="$USER_HOME$/Development/Libraries/mysql-connector-java-8.0.16/mysql-connector-java-8.0.16.jar!/" />
+    <property name="node.js.detected.package.eslint" value="true" />
+    <property name="node.js.path.for.package.eslint" value="project" />
+    <property name="node.js.selected.package.eslint" value="(autodetect)" />
+    <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
+    <property name="nodejs_npm_path_reset_for_default_project" value="true" />
+    <property name="nodejs_package_manager_path" value="npm" />
+    <property name="project.structure.last.edited" value="Modules" />
+    <property name="project.structure.proportion" value="0.15" />
+    <property name="project.structure.side.proportion" value="0.2" />
+    <property name="settings.editor.selected.configurable" value="preferences.lookFeel" />
+  </component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\aylto\IdeaProjects\GastosUnidunite\src" />
+      <recent name="C:\Users\aylto\IdeaProjects\GastosUnidunite\src\fxml" />
+      <recent name="C:\Users\aylto\IdeaProjects\GastosUnidunite\src\controllers" />
+      <recent name="C:\Users\aylto\IdeaProjects\GastosUnidunite\src\dao" />
+      <recent name="C:\Users\aylto\IdeaProjects\GastosUnidunite\src\logic" />
+    </key>
+  </component>
+  <component name="RunDashboard">
+    <option name="ruleStates">
+      <list>
+        <RuleState>
+          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
+        </RuleState>
+        <RuleState>
+          <option name="name" value="StatusDashboardGroupingRule" />
+        </RuleState>
+      </list>
+    </option>
+  </component>
+  <component name="RunManager">
+    <configuration name="Main" type="Application" factoryName="Application" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="controllers.Main" />
+      <module name="GastosUnidunite" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration default="true" type="Application" factoryName="Application">
+      <option name="MAIN_CLASS_NAME" value="controllers.Main" />
+      <module name="GastosUnidunite" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Application.Main" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="a70bbab8-0300-43f0-ab0e-40bd3791f15c" name="Default Changelist" comment="" />
+      <created>1555277878026</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1555277878026</updated>
+      <workItem from="1555277879335" duration="21725000" />
+      <workItem from="1555425069855" duration="17194000" />
+      <workItem from="1555530690009" duration="239000" />
+      <workItem from="1556053598679" duration="190000" />
+      <workItem from="1556078292119" duration="3000" />
+      <workItem from="1556078539187" duration="192000" />
+      <workItem from="1556135900695" duration="112000" />
+      <workItem from="1556739843013" duration="1699000" />
+      <workItem from="1556828256033" duration="13000" />
+      <workItem from="1557000022042" duration="3121000" />
+      <workItem from="1557166081424" duration="4256000" />
+      <workItem from="1557170589664" duration="15211000" />
+      <workItem from="1557269810954" duration="548000" />
+      <workItem from="1557338189585" duration="23894000" />
+      <workItem from="1557373305799" duration="127000" />
+      <workItem from="1557789679535" duration="58000" />
+      <workItem from="1557875605686" duration="646000" />
+      <workItem from="1558393803418" duration="72000" />
+      <workItem from="1558649145294" duration="3299000" />
+      <workItem from="1558710160297" duration="4116000" />
+      <workItem from="1558726274453" duration="2731000" />
+      <workItem from="1558750865603" duration="1403000" />
+      <workItem from="1558787822998" duration="11269000" />
+      <workItem from="1558817721817" duration="5586000" />
+      <workItem from="1558873824799" duration="53000" />
+      <workItem from="1558874066415" duration="7542000" />
+      <workItem from="1558881883504" duration="3568000" />
+      <workItem from="1558894408564" duration="782000" />
+      <workItem from="1558903811279" duration="430000" />
+      <workItem from="1558916813991" duration="173000" />
+      <workItem from="1558973108745" duration="209000" />
+      <workItem from="1558984949437" duration="1230000" />
+      <workItem from="1559001879364" duration="32000" />
+      <workItem from="1559076767907" duration="12000" />
+      <workItem from="1559081893086" duration="1452000" />
+      <workItem from="1559356331579" duration="2058000" />
+      <workItem from="1559512161235" duration="4345000" />
+      <workItem from="1559521806645" duration="1882000" />
+      <workItem from="1559586319049" duration="131000" />
+      <workItem from="1559607639271" duration="151000" />
+      <workItem from="1559613662690" duration="7600000" />
+      <workItem from="1559621293458" duration="2153000" />
+      <workItem from="1559682879154" duration="928000" />
+      <workItem from="1559694354904" duration="871000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TimeTrackingManager">
+    <option name="totallyTimeSpent" value="153306000" />
+  </component>
+  <component name="TodoView">
+    <todo-panel id="selected-file">
+      <is-autoscroll-to-source value="true" />
+    </todo-panel>
+    <todo-panel id="all">
+      <are-packages-shown value="true" />
+      <is-autoscroll-to-source value="true" />
+    </todo-panel>
+  </component>
+  <component name="ToolWindowManager">
+    <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
+    <editor active="true" />
+    <layout>
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.1444563" />
+      <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
+      <window_info id="Image Layers" order="2" />
+      <window_info id="Designer" order="3" />
+      <window_info id="UI Designer" order="4" />
+      <window_info id="Capture Tool" order="5" />
+      <window_info id="Favorites" order="6" side_tool="true" />
+      <window_info anchor="bottom" id="Message" order="0" />
+      <window_info anchor="bottom" id="Find" order="1" weight="0.32936078" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.19393283" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.4084507" />
+      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
+      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
+      <window_info anchor="bottom" id="TODO" order="6" weight="0.32998565" />
+      <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Version Control" order="8" />
+      <window_info anchor="bottom" id="Database Changes" order="9" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Terminal" order="10" visible="true" weight="0.32502708" />
+      <window_info anchor="bottom" id="Event Log" order="11" side_tool="true" />
+      <window_info anchor="bottom" id="Messages" order="12" weight="0.32394367" />
+      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
+      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
+      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
+      <window_info anchor="right" id="Palette" order="3" />
+      <window_info anchor="right" id="Database" order="4" />
+      <window_info anchor="right" id="Theme Preview" order="5" />
+      <window_info anchor="right" id="Maven" order="6" weight="0.32976446" />
+      <window_info anchor="right" id="Capture Analysis" order="7" />
+      <window_info anchor="right" id="Palette&#9;" order="8" />
+    </layout>
+    <layout-to-restore>
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.20202559" />
+      <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
+      <window_info id="Image Layers" order="2" />
+      <window_info id="Designer" order="3" />
+      <window_info id="UI Designer" order="4" />
+      <window_info id="Capture Tool" order="5" />
+      <window_info id="Favorites" order="6" side_tool="true" />
+      <window_info anchor="bottom" id="Message" order="0" />
+      <window_info anchor="bottom" id="Find" order="1" weight="0.32936078" />
+      <window_info anchor="bottom" id="Run" order="2" visible="true" weight="0.20910075" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.40889525" />
+      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
+      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
+      <window_info anchor="bottom" id="TODO" order="6" weight="0.32998565" />
+      <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Version Control" order="8" />
+      <window_info anchor="bottom" id="Database Changes" order="9" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Terminal" order="10" weight="0.4318508" />
+      <window_info anchor="bottom" id="Event Log" order="11" side_tool="true" />
+      <window_info anchor="bottom" id="Messages" order="12" weight="0.32394367" />
+      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
+      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
+      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
+      <window_info anchor="right" id="Palette" order="3" />
+      <window_info anchor="right" id="Database" order="4" />
+      <window_info anchor="right" id="Theme Preview" order="5" />
+      <window_info anchor="right" id="Maven" order="6" weight="0.32976446" />
+      <window_info anchor="right" id="Capture Analysis" order="7" />
+      <window_info anchor="right" id="Palette&#9;" order="8" />
+    </layout-to-restore>
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="1" />
+  </component>
+  <component name="XDebuggerManager">
+    <watches-manager>
+      <configuration name="Application">
+        <watch expression="((byte[][])((ByteArrayRow)((JDBC42ResultSet)results).thisRow).internalRowData)[0]" custom="com.mysql.jdbc.ByteArrayRow,byte[][],com.mysql.jdbc.JDBC42ResultSet" />
+      </configuration>
+    </watches-manager>
+  </component>
+  <component name="editorHistoryManager">
+    <entry file="jar://$USER_HOME$/Documents/libraries/javafx-sdk-11.0.2/lib/javafx.fxml.jar!/javafx/fxml/FXMLLoader.class" />
+    <entry file="jar://$USER_HOME$/Documents/libraries/javafx-sdk-11.0.2/lib/javafx.base.jar!/javafx/event/Event.class" />
+    <entry file="jar://$USER_HOME$/Documents/libraries/javafx-sdk-11.0.2/lib/javafx.graphics.jar!/javafx/scene/Node.class" />
+    <entry file="jar://C:/Program Files/Java/jdk-11.0.2/lib/src.zip!/java.base/java/util/Date.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="15266">
+          <caret line="976" column="15" selection-start-line="976" selection-start-column="15" selection-end-line="976" selection-end-column="15" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/controllers/HomeController.java" />
+    <entry file="file://$PROJECT_DIR$/src/fxml/Clients.fxml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="901">
+          <caret line="53" column="32" selection-start-line="53" selection-start-column="32" selection-end-line="53" selection-end-column="32" />
+        </state>
+      </provider>
+      <provider editor-type-id="JavaFX-Scene-Builder" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/fxml/Home.fxml" />
+    <entry file="file://$PROJECT_DIR$/src/fxml/Expenses.fxml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="204">
+          <caret line="16" column="47" lean-forward="true" selection-start-line="16" selection-start-column="47" selection-end-line="16" selection-end-column="47" />
+        </state>
+      </provider>
+      <provider editor-type-id="JavaFX-Scene-Builder" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/fxml/RegisterSale.fxml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="493">
+          <caret line="29" column="42" lean-forward="true" selection-start-line="29" selection-start-column="42" selection-end-line="29" selection-end-column="42" />
+        </state>
+      </provider>
+      <provider editor-type-id="JavaFX-Scene-Builder" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/fxml/RegisterProducts.fxml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="524">
+          <caret line="53" column="12" lean-forward="true" selection-start-line="6" selection-end-line="53" selection-end-column="12" />
+        </state>
+      </provider>
+      <provider editor-type-id="JavaFX-Scene-Builder" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/services/ExpenseService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="408">
+          <caret line="27" column="33" selection-start-line="27" selection-start-column="33" selection-end-line="27" selection-end-column="33" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$USER_HOME$/Documents/libraries/javafx-sdk-11.0.2/lib/javafx.graphics.jar!/javafx/scene/layout/Region.class" />
+    <entry file="file://$PROJECT_DIR$/src/fxml/RegisterExpense.fxml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="340">
+          <caret line="23" column="14" lean-forward="true" selection-start-line="23" selection-start-column="14" selection-end-line="23" selection-end-column="14" />
+        </state>
+      </provider>
+      <provider editor-type-id="JavaFX-Scene-Builder" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/fxml/Products.fxml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="238">
+          <caret line="14" column="71" selection-start-line="14" selection-start-column="71" selection-end-line="14" selection-end-column="71" />
+        </state>
+      </provider>
+      <provider editor-type-id="JavaFX-Scene-Builder" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/controllers/RegisterExpensesController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="278">
+          <caret line="46" column="32" lean-forward="true" selection-start-line="46" selection-start-column="32" selection-end-line="46" selection-end-column="32" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://C:/Program Files/Java/jdk-11.0.2/lib/src.zip!/java.base/java/lang/Thread.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="337">
+          <caret line="1406" column="22" selection-start-line="1406" selection-start-column="22" selection-end-line="1406" selection-end-column="22" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/controllers/RegisterClientsController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="544">
+          <caret line="125" column="34" selection-start-line="125" selection-start-column="34" selection-end-line="125" selection-end-column="34" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/controllers/RegisterEmployeesController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="138">
+          <caret line="50" column="47" lean-forward="true" selection-start-line="50" selection-start-column="47" selection-end-line="50" selection-end-column="47" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/controllers/EmployeesController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="580">
+          <caret line="126" column="26" lean-forward="true" selection-start-line="104" selection-start-column="16" selection-end-line="126" selection-end-column="26" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/controllers/RegisterProductsController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="243">
+          <caret line="92" column="25" lean-forward="true" selection-start-line="92" selection-start-column="25" selection-end-line="92" selection-end-column="25" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/controllers/ProductsController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="240">
+          <caret line="94" column="22" selection-start-line="94" selection-start-column="22" selection-end-line="94" selection-end-column="22" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/fxml/Main.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="375">
+          <caret line="85" column="1" lean-forward="true" selection-start-line="85" selection-start-column="1" selection-end-line="85" selection-end-column="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/controllers/MainController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="663">
+          <caret line="55" column="17" selection-start-line="55" selection-start-column="17" selection-end-line="55" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/controllers/ClientsController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="901">
+          <caret line="65" column="21" selection-start-line="65" selection-start-column="21" selection-end-line="65" selection-end-column="21" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/fxml/Sales.fxml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="51">
+          <caret line="45" column="25" lean-forward="true" selection-end-line="96" />
+        </state>
+      </provider>
+      <provider editor-type-id="JavaFX-Scene-Builder" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/interfaces/Registrabel.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="68">
+          <caret line="4" column="28" selection-start-line="4" selection-start-column="16" selection-end-line="4" selection-end-column="28" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/interfaces/Dao.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="68">
+          <caret line="4" column="22" selection-start-line="4" selection-start-column="21" selection-end-line="4" selection-end-column="22" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/fxml/General.fxml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="765">
+          <caret line="45" column="25" selection-start-line="45" selection-start-column="25" selection-end-line="45" selection-end-column="25" />
+        </state>
+      </provider>
+      <provider editor-type-id="JavaFX-Scene-Builder" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/logic/Transaction.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="510">
+          <caret line="36" column="28" selection-start-line="36" selection-start-column="28" selection-end-line="36" selection-end-column="28" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/controllers/ExpensesController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="799">
+          <caret line="66" column="18" selection-start-line="37" selection-start-column="8" selection-end-line="66" selection-end-column="18" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/controllers/SalesController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1199">
+          <caret line="184" column="5" selection-start-line="184" selection-start-column="5" selection-end-line="184" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/dao/Products.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="153">
+          <caret line="15" column="34" selection-start-line="15" selection-start-column="34" selection-end-line="15" selection-end-column="34" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/dao/Users.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="153">
+          <caret line="16" column="34" selection-start-line="16" selection-start-column="34" selection-end-line="16" selection-end-column="34" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/logic/User.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="594">
+          <caret line="62" column="49" selection-start-line="62" selection-start-column="49" selection-end-line="62" selection-end-column="49" />
+          <folding>
+            <element signature="e#1279#1280#0" expanded="true" />
+            <element signature="e#1325#1326#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$USER_HOME$/Development/Libraries/javafx-sdk-12.0.1/lib/javafx.graphics.jar!/javafx/concurrent/Task.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="173">
+          <caret line="500" selection-start-line="500" selection-end-line="500" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/module-info.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="17">
+          <caret line="1" column="19" selection-start-line="1" selection-start-column="19" selection-end-line="1" selection-end-column="19" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/dao/Sales.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1156">
+          <caret line="75" column="29" selection-start-line="75" selection-start-column="29" selection-end-line="75" selection-end-column="29" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/services/SaleService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="136">
+          <caret line="12" selection-start-line="12" selection-end-line="12" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/fxml/Login.fxml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="408">
+          <caret line="24" column="47" lean-forward="true" selection-start-line="24" selection-start-column="47" selection-end-line="24" selection-end-column="47" />
+        </state>
+      </provider>
+      <provider editor-type-id="JavaFX-Scene-Builder" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/controllers/Main.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="255">
+          <caret line="23" column="28" selection-start-line="23" selection-start-column="28" selection-end-line="23" selection-end-column="28" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/fxml/NavBar.fxml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="901">
+          <caret line="53" column="151" selection-start-line="53" selection-start-column="151" selection-end-line="53" selection-end-column="151" />
+        </state>
+      </provider>
+      <provider editor-type-id="JavaFX-Scene-Builder" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/controllers/LoginController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="544">
+          <caret line="41" column="57" selection-start-line="41" selection-start-column="57" selection-end-line="41" selection-end-column="57" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/controllers/RegisterSaleController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1411">
+          <caret line="106" column="152" selection-start-line="106" selection-start-column="152" selection-end-line="106" selection-end-column="152" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/dao/Clients.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="561">
+          <caret line="39" column="32" selection-start-line="39" selection-start-column="32" selection-end-line="39" selection-end-column="32" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/controllers/YourAccountController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1751">
+          <caret line="115" column="25" selection-start-line="115" selection-start-column="25" selection-end-line="115" selection-end-column="25" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/dao/Employees.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="153">
+          <caret line="15" column="34" selection-start-line="15" selection-start-column="34" selection-end-line="15" selection-end-column="34" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/dao/Expenses.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="748">
+          <caret line="50" column="59" selection-start-line="50" selection-start-column="59" selection-end-line="50" selection-end-column="59" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/controllers/NavBarController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1088">
+          <caret line="71" column="21" selection-start-line="71" selection-start-column="21" selection-end-line="71" selection-end-column="21" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/controllers/GeneralController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="318">
+          <caret line="105" column="49" selection-end-line="220" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/logic/Sale.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="408">
+          <caret line="28" column="18" selection-end-line="130" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/logic/Expense.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="156">
+          <caret line="24" column="36" selection-start-line="24" selection-start-column="36" selection-end-line="24" selection-end-column="36" />
+        </state>
+      </provider>
+    </entry>
+  </component>
+  <component name="masterDetails">
+    <states>
+      <state key="ArtifactsStructureConfigurable.UI">
+        <settings>
+          <artifact-editor />
+          <last-edited>GastosUnidunite</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="FacetStructureConfigurable.UI">
+        <settings>
+          <last-edited>No facets are configured</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="GlobalLibrariesConfigurable.UI">
+        <settings>
+          <last-edited>JavaFx12</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="JdkListConfigurable.UI">
+        <settings>
+          <last-edited>1.8</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="ModuleStructureConfigurable.UI">
+        <settings>
+          <last-edited>GastosUnidunite</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="ProjectLibrariesConfigurable.UI">
+        <settings>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+    </states>
+  </component>
+</project>

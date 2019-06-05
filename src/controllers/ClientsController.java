@@ -102,6 +102,7 @@ public class ClientsController extends MainController implements Initializable {
                     @Override
                     protected void succeeded() {
                         showMsg("Cliente apagado com sucesso");
+                        clientsList.remove(c);
                         hideLoader();
                     }
 
@@ -114,7 +115,6 @@ public class ClientsController extends MainController implements Initializable {
                 Thread t = new Thread(task);
                 t.setDaemon(true);
                 t.start();
-                clientsList.remove(c);
             } catch (Exception e) {
                 showMsg("Ocorreu um erro: " + e.getMessage());
                 e.printStackTrace();
