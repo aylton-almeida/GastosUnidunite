@@ -9,7 +9,7 @@
         <left>
             <VBox prefHeight="790.0" prefWidth="329.0" style="-fx-background-color: #3c8fdc;" BorderPane.alignment="CENTER_LEFT">
                 <Pane prefHeight="100.0" prefWidth="328.0" style="-fx-background-color: #3A7CF3;" styleClass="top-menu-panel" stylesheets="@Main.css">
-                    <JFXButton fx:id="accountButton" onAction="#goToAccount" prefHeight="96.0" prefWidth="329.0" style="-fx-background-color: transparent;" text="Sua Conta" textFill="WHITE">
+                    <JFXButton fx:id="accountButton" onAction="#goToAccount" prefHeight="100.0" prefWidth="329.0" style="-fx-background-color: transparent;" text="Sua Conta" textFill="WHITE">
                         <font>
                             <Font size="30.0" />
                         </font>

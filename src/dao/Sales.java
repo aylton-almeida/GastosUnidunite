@@ -94,7 +94,7 @@ public class Sales implements Dao<Sale> {
             int employeeId = employeeResult.getInt(1);
             PreparedStatement ps2 = connection.prepareStatement("SELECT id FROM tbl_client where name = ?");
             ps2.setString(1, o.getClientName());
-            ResultSet clientResult = ps.executeQuery();
+            ResultSet clientResult = ps2.executeQuery();
             if (clientResult.next()) {
                 int clientId = clientResult.getInt(1);
                 PreparedStatement preparedStatement = connection.prepareStatement("INSERT INTO tbl_sale(employee_id, client_id, pay_type, value, date) VALUES(?, ? ,? ,?, ?);", Statement.RETURN_GENERATED_KEYS);
@@ -103,11 +103,6 @@ public class Sales implements Dao<Sale> {
                 preparedStatement.setInt(3, o.getPayType());
                 preparedStatement.setDouble(4, o.getValue());
                 preparedStatement.setString(5, o.getDate());
-//                preparedStatement.setInt(1, 1);
-//                preparedStatement.setInt(2, 1);
-//                preparedStatement.setInt(3, 1);
-//                preparedStatement.setDouble(4, 22);
-//                preparedStatement.setString(5, "date");
                 preparedStatement.executeUpdate();
                 ResultSet result = preparedStatement.getGeneratedKeys();
                 int newSaleId = 0;
